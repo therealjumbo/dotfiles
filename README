@@ -1,0 +1,21 @@
+To use:
+chmod a+x run.sh
+./run.sh [commands]
+
+No other files need chmod from the user.
+
+First this set of scripts installs software to your machine. install.sh is the
+first script to run followed by each install_[command].sh. You can add your own
+commands by simply adding the install_[command].sh file. 
+
+Next the setup.sh script is run. This is for generic setup commands that do not
+involve installing software. Next each setup_[command].sh script is run. You
+can add your own commands by simply adding the setup_[command].sh file. 
+
+You do not need to add both the install_[command].sh and the setup_[command].sh
+files. If one or both do not exist, even though the command was supplied at the
+command line, it will be skipped.
+
+Next, the dotfiles.sh script runs, which sets up dotfiles in your home 
+directory. The files placed in your home directory are symlinks to the 
+actual dotfiles stored in ./dotfiles/.
