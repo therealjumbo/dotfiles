@@ -26,7 +26,7 @@ echo "done"
 # specified in $files
 echo "Moving $terminal_config_dir/$terminal_config to $olddir/"
 mv $terminal_config_dir/$terminal_config $olddir/$terminal_config
-echo "Creating symlink to $dir/$terminal_config in $terminal_config_dir 
+echo "Creating symlink to $dir/$terminal_config in $terminal_config_dir" 
 ln -s $dir/$terminal_config $terminal_config_dir/$terminal_config
 
 echo "$0 is exiting"
