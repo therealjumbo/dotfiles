@@ -3,10 +3,9 @@ setup_home
 This repository includes all of my current custom dotfiles and setup/install
 scripts. This repository should be cloned to your home directory so that the
 path is `~/setup_home/`. The included `run.sh` script runs other scripts that
-install a bunch of packages, run any setup instructions, then backup your 
-current dotfiles that will be replace in your home directory, by placing them in 
-```bash ~/dotfiles_old_$(date +%F-%H-%M-%S)/ ```
-and then symlinking to the dotfiles in this directory structure. 
+install a bunch of packages, run any setup instructions, backup your 
+current dotfiles to `~/dotfiles_old_$(date +%F-%H-%M-%S)/` that will then be 
+replaced by symlinking to the dotfiles in this directory structure. 
 
 Current commands supported:
 `xfce4`, `jeff`
