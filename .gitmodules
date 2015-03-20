@@ -1,3 +1,6 @@
 [submodule "dotfiles/.vim/bundle/vim-sensible"]
 	path = dotfiles/.vim/bundle/vim-sensible
 	url = git@github.com:tpope/vim-sensible.git
+[submodule "dotfiles/.vim/bundle/python-mode"]
+	path = dotfiles/.vim/bundle/python-mode
+	url = git@github.com:klen/python-mode.git
