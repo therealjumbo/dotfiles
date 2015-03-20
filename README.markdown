@@ -2,36 +2,46 @@ setup_home
 ==========
 This repository includes all of my current custom dotfiles and setup/install
 scripts. This repository should be cloned to your home directory so that the
-path is `~/setup_home/`. The included setup scripts install a bunch of
-packages, run any setup instructions, then backup your current dotfiles that
-will be replace in your home directory, by placing them in 
+path is `~/setup_home/`. The included `run.sh` script runs other scripts that
+install a bunch of packages, run any setup instructions, then backup your 
+current dotfiles that will be replace in your home directory, by placing them in 
 ```bash ~/dotfiles_old_$(date +%F-%H-%M-%S)/ ```
 and then symlinking to the dotfiles in this directory structure. 
 
 Current commands supported:
-xfce4, jeff
+`xfce4`, `jeff`
 
-First this set of scripts installs software to your machine. install.sh is the
-first script to run followed by each install_[command].sh. You can add your own
-commands by simply adding the install_[command].sh file. 
+`~/setup_home/run.sh` should be the script that the user runs.
 
-Next the setup.sh script is run. This is for generic setup commands that do not
-involve installing software. Next each setup_[command].sh script is run. You
-can add your own commands by simply adding the setup_[command].sh file. 
+Next, the `~/setup_home/install/install.sh` script is run followed by each 
+`~/setup_home/install/install_[command].sh`. These scripts are for installing 
+packages and other software. You can add your own commands by simply adding the 
+appropriate `install_[command].sh` file.
 
-You do not need to add both the install_[command].sh and the setup_[command].sh
-files. If one or both do not exist, even though the command was supplied at the
-command line, it will be skipped.
+Next, the `~/setup_home/setup/setup.sh` script is run followed by each
+`~/setup_home/setup/setup_[command].sh`. These scripts are for generic setup 
+commands that do not involve installing software or dotfiles. You can add your 
+own commands by simply adding the appropriate `setup_[command].sh` file. 
 
-Next, the dotfiles.sh script runs, which sets up dotfiles in your home 
-directory. The files placed in your home directory are symlinks to the 
-actual dotfiles stored in ./dotfiles/.
+Next, the `~/setup_home/dotfiles/dotfiles.sh` script is run followed by each
+`~/setup_home/dotfiles/dotfiles_[command].sh`. These scripts are for backing up 
+all dotfiles in your home dir that will be replace and then symlinking to from
+the same location in the home dir to the dotfile located under 
+`~/setup_home/dotfiles`. You can add your own commands by simply adding the 
+appropriate `dotfiles_[command].sh` file.
+
+If you want to add a new command, you do not need to all three scripts:
+`install_[command].sh`, `setup_[command].sh`, and `dotfiles_[command].sh. You
+only need to add the scripts you require. The others will be searched for in
+their respective directories, and when they are not found, the script will
+simply continue.
 
 Installation
 ------------
 
 ``` bash
 git clone git@github.com:therealjumbo/setup_home.git ~/setup_home
+cd ~/setup_home/
 chmod a+x run.sh
 ./run.sh [commands]
 ```
