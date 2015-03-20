@@ -2,6 +2,8 @@
 # This script creates symlinks from the home directory to any desired dotfiles 
 # in ~/setup_home/dotfiles/
 
+echo "$0 is executing"
+
 #### Variables
 dir=~/setup_home/dotfiles
 olddir=~/dotfiles_old
@@ -29,3 +31,5 @@ for file in $files; do
     ln -s $dir/$file ~/$file
 done
 
+echo "$0 is exiting"
+exit
