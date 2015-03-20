@@ -25,7 +25,7 @@ echo "done"
 # symlinks from the homedir to any files in the ~/setup_home/dotfiles directory
 # specified in $files
 echo "Moving $terminal_config_dir/$terminal_config to $olddir/"
-mv $terminal_config_dir/$terminal_config $olddir/$terminal_config
+mv -f $terminal_config_dir/$terminal_config $olddir/$terminal_config
 echo "Creating symlink to $dir/$terminal_config in $terminal_config_dir" 
 ln -s $dir/$terminal_config $terminal_config_dir/$terminal_config
 
