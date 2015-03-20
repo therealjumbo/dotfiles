@@ -8,8 +8,8 @@ echo "$0 is executing"
 dir=~/setup_home/dotfiles
 dt=$(date +%F-%H-%M-%S)
 olddir=~/dotfiles_old_$dt
-files=".bashrc .vimrc .vim" # list for files/folder to symlink in homedir
-
+# list for files/folder to symlink in homedir
+files=".bashrc .profile .vimrc .vim" 
 ####
 
 # create dotfiles_old in homedir
