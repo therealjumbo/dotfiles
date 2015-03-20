@@ -55,7 +55,7 @@ SETUP="./setup/setup.sh"
 run_script $SETUP "0" 
 
 # attempt to run each argument as a setup script
-# example $1=xfce4, so file=./setup_xfce4.sh
+# example $1=xfce4, so file=./setup/setup_xfce4.sh
 # if the file does not exist do NOT abort, go to next arg
 PREFIX="./setup/setup_"
 EXT=".sh"
@@ -63,5 +63,22 @@ for ARG in $@; do
     file="$PREFIX$ARG$EXT"
     run_script $file "1" 
 done
+
+# run the generic dotfiles setup script
+# if the setup.sh script does not exist, or is not a regular file then abort
+#TODO
+#DOTFILES="./dotfiles/dotfiles.sh"
+#run_script $DOTFILES "0"
+
+# attempt to run each argument as a dotfiles script
+# example $1=xfce4, so file=./dotfiles/dotfiles_xfce4.sh
+# if the file does not exist do NOT abort, go to next arg
+#TODO
+#PREFIX="./dotfiles/dotfiles_"
+#EXT=".sh"
+#for ARG in $@; do
+#    file="$PREFIX$ARG$EXT"
+#    run_script $file "1" 
+#done
 
 exit
