@@ -14,7 +14,7 @@ LLVM="llvm clang"
 CDEV="flawfinder splint" 
 sudo apt-get -y install $GNU $LLVM $CDEV
 
-SYSTEM="perl openssh-client vim"
+SYSTEM="perl openssh-client vim git"
 sudo apt-get -y install $SYSTEM
 
 echo "$0 is exiting"
