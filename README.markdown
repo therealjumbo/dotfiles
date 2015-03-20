@@ -24,13 +24,13 @@ own commands by simply adding the appropriate `setup_[command].sh` file.
 
 Next, the `~/setup_home/dotfiles/dotfiles.sh` script is run followed by each
 `~/setup_home/dotfiles/dotfiles_[command].sh`. These scripts are for backing up 
-all dotfiles in your home dir that will be replace and then symlinking to from
-the same location in the home dir to the dotfile located under 
-`~/setup_home/dotfiles`. You can add your own commands by simply adding the 
+all dotfiles in your home dir that will be replaced and then symlinking to the 
+appropriate files under `~/setup_home/dotfiles` from the same location in the 
+home dir. You can add your own commands by simply adding the 
 appropriate `dotfiles_[command].sh` file.
 
 If you want to add a new command, you do not need to all three scripts:
-`install_[command].sh`, `setup_[command].sh`, and `dotfiles_[command].sh. You
+`install_[command].sh`, `setup_[command].sh`, and `dotfiles_[command].sh`. You
 only need to add the scripts you require. The others will be searched for in
 their respective directories, and when they are not found, the script will
 simply continue.
