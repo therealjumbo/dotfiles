@@ -1,2 +1,3 @@
-#vim backup files
+#vim stuff 
 *.swp
+dotfiles/.vim/.netrwhist
