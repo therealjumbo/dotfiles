@@ -4,7 +4,8 @@ This repository includes all of my current custom dotfiles and setup/install
 scripts. This repository should be cloned to your home directory so that the
 path is `~/setup_home/`. The included setup scripts install a bunch of
 packages, run any setup instructions, then backup your current dotfiles that
-will be replace in your home directory, by placing them in ~/dotfiles_old/,
+will be replace in your home directory, by placing them in 
+```bash ~/dotfiles_old_$(date +%F-%H-%M-%S)/ ```
 and then symlinking to the dotfiles in this directory structure. 
 
 Current commands supported:

@@ -6,7 +6,8 @@ echo "$0 is executing"
 
 #### Variables
 dir=~/setup_home/dotfiles
-olddir=~/dotfiles_old
+dt=$(date +%F-%H-%M-%S)
+olddir=~/dotfiles_old_$dt
 files=".bashrc .vimrc .vim" # list for files/folder to symlink in homedir
 
 ####

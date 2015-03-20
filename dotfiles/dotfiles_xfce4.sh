@@ -5,7 +5,8 @@ echo "$0 is executing"
 
 #### Variables
 dir=~/setup_home/dotfiles
-olddir=~/dotfiles_old
+dt=$(date +%F-%H-%M-%S)
+olddir=~/dotfiles_old_$dt
 
 # location of file to backup then symlink
 terminal_config_dir=~/.config/xfce4/terminal 
