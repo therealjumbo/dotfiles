@@ -7,8 +7,10 @@ echo "$0 is executing"
 dir=~/setup_home/dotfiles
 olddir=~/dotfiles_old
 
-terminal_config_dir="~/.config/xfce4/terminal" # location of file to backup then symlink
-terminal_config="terminalrc" # a file to backup then symlink
+# location of file to backup then symlink
+terminal_config_dir=~/.config/xfce4/terminal 
+# a file to backup then symlink
+terminal_config=terminalrc 
 ####
 
 # create dotfiles_old in homedir
