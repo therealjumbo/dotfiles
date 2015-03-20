@@ -1,6 +1,13 @@
+WARNING:
+This script will permanently delete ~/.vim/, ~/.vimrc, and ~/.bashrc. Back
+these up before beginning.
+
 To use:
 chmod a+x run.sh
 ./run.sh [commands]
+
+Current commands supported:
+xfce4
 
 No other files need chmod from the user.
 
