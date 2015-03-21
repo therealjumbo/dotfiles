@@ -70,3 +70,5 @@ set nowrap "don't wrap text
 " prettify JSON files making them easier to read
 command PrettyJSON %!python -m json.tool
 
+" bug fix for Python Mode error with rope
+let g:pymode_rope = 0
