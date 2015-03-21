@@ -200,3 +200,7 @@ alias vi=vim
 
 PYTHONSTARTUP=~/.pythonrc.py
 
+# remap caps lock to escape
+xmodmap -e "clear Lock"
+xmodmap -e "keysym Caps_Lock = Escape"
+

@@ -28,7 +28,3 @@ fi
 #	trap "kill $SSH_AGENT_PID" 0
 #fi
 
-# remap caps lock to escape
-xmodmap -e "clear Lock"
-xmodmap -e "keysym Caps_Lock = Escape"
-
