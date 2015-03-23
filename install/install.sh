@@ -17,5 +17,8 @@ sudo apt-get -y install $GNU $LLVM $CDEV
 SYSTEM="perl openssh-client vim git"
 sudo apt-get -y install $SYSTEM
 
+NET="wget curl wireshark tshark"
+sudo apt-get -y install $NET
+
 echo "$0 is exiting"
 exit
