@@ -20,7 +20,7 @@ sudo apt-get -y install $PYTHON $PYTHON3
 NET="wget curl wireshark tshark"
 sudo apt-get -y install $NET
 
-WEB="rhino"
+WEB="rhino nodejs npm"
 sudo apt-get -y install $WEB
 
 echo "$0 is exiting"
