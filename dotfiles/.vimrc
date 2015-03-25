@@ -71,7 +71,7 @@ set nowrap "don't wrap text
 command PrettyJSON %!python -m json.tool
 
 " bug fix for Python Mode error with rope
-let g:pymode_rope_lookup_project = 0
+let g:pymode_rope = 0
 
 " close preview window after selection is made
 autocmd CompleteDone * pclose
