@@ -10,7 +10,7 @@ LLVM="llvm clang"
 CDEV="flawfinder splint" 
 sudo apt-get -y install $GNU $LLVM $CDEV
 
-SYSTEM="perl openssh-client vim git"
+SYSTEM="perl openssh-client vim git ssh-askpass ssh-askpass-gnome"
 sudo apt-get -y install $SYSTEM
 
 PYTHON="python python-pip python-virtualenv"
