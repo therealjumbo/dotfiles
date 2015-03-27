@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=KeyBindingsStartup
+Type=Application
+Exec=/home/jeff/setup_home/dotfiles/xfce/keybindings.sh
+Terminal=true
+StartupNotify=false
+Hidden=false
