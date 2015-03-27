@@ -10,10 +10,13 @@ olddir=~/dotfiles_old_$dt
 
 # original location of files to backup then symlink
 terminal_config_dir=~/.config/xfce4/terminal 
-keybindings_desktop_dir=~/.config/autostart
+custom_autostart_desk_dir=~/.config/autostart
+custom_autostart_script_dir=/usr/local/share
+
 # the names of the files to backup then symlink
 terminal_config=terminalrc 
-keybindings_desktop=keybindings.desktop
+custom_autostart_desk=custom_autostart.desktop 
+custom_autostart_script=custom_autostart.sh
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~/ ..."
@@ -27,7 +30,7 @@ echo "done"
 
 # create dirs in ~/ if they don't already exist
 mkdir -p $terminal_config_dir 
-mkdir -p $keybindings_desktop_dir
+mkdir -p $custom_autostart_config_dir
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create
 # symlinks from the homedir to any files in the ~/setup_home/dotfiles/xfce
@@ -37,11 +40,17 @@ mv -f $terminal_config_dir/$terminal_config $olddir/$terminal_config
 echo "Creating symlink to $dir/$terminal_config in $terminal_config_dir" 
 ln -s $dir/$terminal_config $terminal_config_dir/$terminal_config
 
-echo "Moving $keybindings_desktop_dir/$keybindings_desktop to $olddir/"
-mv -f $keybindings_desktop_dir/$keybindings_desktop $olddir/$keybindings_desktop
-echo "Creating symlink to $dir/$keybindings_desktop in $keybindings_desktop_dir"
-ln -s $dir/$keybindings_desktop $keybindings_desktop_dir/$keybindings_desktop
-# the script used by that config must be executable
-chmod a+x $dir/keybindings.sh
+echo "Moving $custom_autostart_desk_dir/$custom_autostart_desk to $olddir/"
+mv -f $custom_autostart_desk_dir/$custom_autostart_desk $olddir/$custom_autostart_desk
+echo "Creating symlink to $dir/$custom_autostart_desk in $custom_autostart_desk_dir"
+ln -s $dir/$custom_autostart_desk $custom_autostart_desk_dir/$custom_autostart_desk
+
+echo "Moving $custom_autostart_script_dir/$custom_autostart_script to $olddir/"
+sudo mv -f $custom_autostart_script_dir/$custom_autostart_script $olddir/$custom_autostart_script
+echo "Creating symlink to $dir/$custom_autostart_script in $custom_autostart_script_dir"
+sudo ln -s $dir/$custom_autostart_script $custom_autostart_script_dir/$custom_autostart_script
+# make the script executable
+sudo chmod a+x $custom_autostart_script_dir/$custom_autostart_script
+
 echo "$0 is exiting"
 exit
