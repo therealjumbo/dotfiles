@@ -1,7 +1,1 @@
-fix xmodmap, right now xmodmap commands are in .bashrc. This causes them to be
-run every time the terminal is started, which errors, they should only be run
-at user logon see next item
-
-.profile should run at user logon, it doesn't seem to be working fix this.
-
-finally, setup keyring/keychain for ssh keys, whatever that entails
+setup keyring/keychain for ssh keys, whatever that entails
