@@ -23,5 +23,8 @@ sudo apt-get -y install $NET
 WEB="rhino nodejs npm poedit"
 sudo apt-get -y install $WEB
 
+OTHER="docker.io"
+sudo apt-get -y install $OTHER
+
 echo "$0 is exiting"
 exit
