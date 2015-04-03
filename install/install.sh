@@ -23,8 +23,8 @@ sudo apt-get -y install $NET
 WEB="rhino nodejs npm poedit"
 sudo apt-get -y install $WEB
 
-OTHER="docker.io"
-sudo apt-get -y install $OTHER
+sudo apt-get -y install apparmor # bug fix
+sudo apt-get -y install docker.io 
 
 echo "$0 is exiting"
 exit
