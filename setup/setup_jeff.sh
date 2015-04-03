@@ -7,4 +7,3 @@ git config --global user.name "Jeff Zignego"
 sudo usermod -aG docker jeff
 
 echo "$0 is exiting"
-exit
