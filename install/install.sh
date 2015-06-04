@@ -11,7 +11,8 @@ CDEV="flawfinder splint"
 sudo apt-get -y install $GNU $LLVM $CDEV
 
 SYSTEM="perl openssh-server openssh-client vim git ssh-askpass ssh-askpass-gnome"
-sudo apt-get -y install $SYSTEM
+RANDOM="dconf-cli"
+sudo apt-get -y install $SYSTEM $RANDOM
 
 PYTHON="python python-pip python-dev python-flake8 python-mccabe python-coverage"
 PYTHON3="python3 python3-pip python3-dev python3-flake8 python-mccabe python3-coverage"
