@@ -9,7 +9,7 @@ dir=~/setup_home/dotfiles
 dt=$(date +%F-%H-%M-%S)
 olddir=~/dotfiles_old_$dt
 # list for files/folder to symlink in homedir
-files=".bashrc .profile .vimrc .vim" 
+files=".profile .vimrc .vim" 
 ####
 
 # create dotfiles_old in homedir

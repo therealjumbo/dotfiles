@@ -17,6 +17,7 @@ custom_autostart_script_dir=/usr/local/share
 terminal_config=terminalrc 
 custom_autostart_desk=custom_autostart.desktop 
 custom_autostart_script=custom_autostart.sh
+bashrc=.bashrc
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~/ ..."
@@ -49,8 +50,14 @@ echo "Moving $custom_autostart_script_dir/$custom_autostart_script to $olddir/"
 sudo mv -f $custom_autostart_script_dir/$custom_autostart_script $olddir/$custom_autostart_script
 echo "Creating symlink to $dir/$custom_autostart_script in $custom_autostart_script_dir"
 sudo ln -s $dir/$custom_autostart_script $custom_autostart_script_dir/$custom_autostart_script
+
 # make the script executable
 sudo chmod a+x $custom_autostart_script_dir/$custom_autostart_script
+
+echo "Moving ~/$bashrc to $olddir/"
+sudo mv -f ~/$bashrc $olddir/$bashrc
+echo "Creating symlink to $dir/$bashrc in ~/"
+sudo ln -s $dir/$bashrc ~/$bashrc
 
 echo "$0 is exiting"
 exit
