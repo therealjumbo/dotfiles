@@ -28,4 +28,7 @@ sudo apt-get -y install $WEB
 sudo apt-get -y install apparmor # bug fix
 sudo apt-get -y install docker.io 
 
+# the default vim does not support the system clipboard, alias is in .bashrc
+sudo apt-get -y install vim.gtk
+
 echo "$0 is exiting"
