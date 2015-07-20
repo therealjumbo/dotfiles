@@ -13,11 +13,12 @@ autocmd FileType ruby setlocal sw=2 ts=2 sts=2
 " Enable omnicompletion (to use, hold Ctrl-X then Ctrl-O while in insert mode)
 set ofu=syntaxcomplete#Complete
 
+"TODO broken
 " Theme/Colors
 " solarized color scheme stuff
-set background=dark
-colorscheme solarized
-set t_Co=16
+"set background=dark
+"colorscheme solarized
+"set t_Co=16
 
 " Prettify JSON files
 autocmd BufRead,BufNewFile *.json set filetype=json
