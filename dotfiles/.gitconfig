@@ -17,10 +17,6 @@
 
     # ignore file permission changes
     filemode = false
-
-    # tweak the default pager
-    # see `man less`
-    pager = 'less -FRSX'
    
 [push]
     # `git push origin` to push current branch
