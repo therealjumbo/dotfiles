@@ -1,0 +1,41 @@
+[user]
+    name = Jeff Zignego
+	email = jlzignego@gmail.com
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    pager = true
+
+[core]
+	editor = vim
+
+    # lets you define a global .gitignore for all those *.swp, *.o etc you're
+    # frequently sticking in .gitignore
+    excludesfile = ~/.gitignore_global
+
+    # ignore file permission changes
+    filemode = false
+
+    # tweak the default pager
+    # see `man less`
+    pager = 'less -FRSX'
+   
+[push]
+    # `git push origin` to push current branch
+    default = current
+    
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch -av
+    brdel = branch -D
+    
+    # show all of my configured aliases
+    aliases = !git config --list | grep 'alias\\.' | sed '/s/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
+
+    # pretty log format views
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
