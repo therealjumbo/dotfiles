@@ -10,6 +10,8 @@
 
 [core]
 	editor = vim
+    diff = vimdiff
+    merge = vimdiff
 
     # lets you define a global .gitignore for all those *.swp, *.o etc you're
     # frequently sticking in .gitignore
