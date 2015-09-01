@@ -10,8 +10,6 @@
 
 [core]
 	editor = vim
-    diff = vimdiff
-    merge = vimdiff
 
     # lets you define a global .gitignore for all those *.swp, *.o etc you're
     # frequently sticking in .gitignore
@@ -20,6 +18,12 @@
     # ignore file permission changes
     filemode = false
    
+[merge]
+    tool = vimdiff
+
+[diff]
+    tool = vimdiff
+
 [push]
     # `git push origin` to push current branch
     default = current
