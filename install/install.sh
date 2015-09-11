@@ -5,8 +5,8 @@ echo "$0 is executing"
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-TOOLS="ant"
-sudo apt-get -y install $TOOLS
+JAVA="openjdk-7-jdk ant"
+sudo apt-get -y install $JAVA
 
 GNU="gcc gdb make automake valgrind"
 LLVM="llvm clang"
