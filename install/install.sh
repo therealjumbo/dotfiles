@@ -5,6 +5,9 @@ echo "$0 is executing"
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
+TOOLS="ant"
+sudo apt-get -y install $TOOLS
+
 GNU="gcc gdb make automake valgrind"
 LLVM="llvm clang"
 CDEV="flawfinder splint" 
