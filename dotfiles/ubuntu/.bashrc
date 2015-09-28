@@ -30,7 +30,7 @@ shopt -s cmdhist
 
 # append the current history to the history file, clear the current history and
 # then reload the history from the history file
-PROMPT_COMMAND='history -a; history -c; history -r;'
+PROMPT_COMMAND='history -w; history -c; history -r;'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
