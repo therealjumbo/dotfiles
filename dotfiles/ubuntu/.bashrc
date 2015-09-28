@@ -10,7 +10,7 @@ esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth:erasedups
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -29,7 +29,8 @@ HISTTIMEFORMAT='%F %T'
 shopt -s cmdhist
 
 # store history immediately instead of when the session terminates
-PROMPT_COMMAND='history -a'
+# and save and reload the history after each command finishes
+PROMPT_COMMAND='history -n; history -w; history -c; history -r; $PROMPT_COMMAND'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
