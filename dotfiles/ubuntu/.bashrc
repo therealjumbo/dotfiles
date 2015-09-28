@@ -16,8 +16,20 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=1000000
+HISTFILESIZE=1000000
+
+# prevent these commands from being stored in history
+HISTIGNORE='ls:pwd:mkdir:touch:cd:exit:ping:clear'
+
+# record the timestamp of each command in history
+HISTTIMEFORMAT='%F %T'
+
+# force commands entered on more than one line fit on only one in the history
+shopt -s cmdhist
+
+# store history immediately instead of when the session terminates
+PROMPT_COMMAND='history -a'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
