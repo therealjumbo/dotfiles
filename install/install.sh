@@ -5,8 +5,8 @@ echo "$0 is executing"
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-JAVA="openjdk-7-jdk ant"
-sudo apt-get -y install $JAVA
+CONTIKI="build-essential binutils-msp430 gcc-msp430 msp430-libc binutils-avr gcc-avr gdb-avr avr-libc avrdude openjdk-7-jdk openjdk-7-jre ant libncurses5-dev doxygen git"
+sudo apt-get -y install $CONTIKI
 
 GNU="gcc gdb make automake valgrind"
 LLVM="llvm clang"
