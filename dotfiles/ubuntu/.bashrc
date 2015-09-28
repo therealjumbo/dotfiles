@@ -20,7 +20,7 @@ HISTSIZE=1000000
 HISTFILESIZE=1000000
 
 # prevent these commands from being stored in history
-HISTIGNORE='ls:pwd:mkdir:touch:cd:exit:ping:clear'
+HISTIGNORE='ls:pwd:mkdir:touch:cd:exit:ping:clear:history'
 
 # record the timestamp of each command in history
 HISTTIMEFORMAT='%F %T'
@@ -28,9 +28,9 @@ HISTTIMEFORMAT='%F %T'
 # force commands entered on more than one line fit on only one in the history
 shopt -s cmdhist
 
-# store history immediately instead of when the session terminates
-# and save and reload the history after each command finishes
-PROMPT_COMMAND='history -n; history -w; history -c; history -r; $PROMPT_COMMAND'
+# append the current history to the history file, clear the current history and
+# then reload the history from the history file
+PROMPT_COMMAND='history -a; history -c; history -r;'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
