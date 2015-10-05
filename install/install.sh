@@ -25,7 +25,7 @@ sudo apt-get -y install $PYTHON $PYTHON3 $MORE_PYTHON
 NET="wget curl tshark wireshark"
 sudo apt-get -y install $NET
 
-WEB="rhino nodejs npm poedit"
+WEB="postgresql rhino nodejs npm poedit"
 sudo apt-get -y install $WEB
 
 sudo apt-get -y install apparmor # bug fix
