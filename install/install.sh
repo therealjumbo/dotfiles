@@ -20,7 +20,8 @@ sudo apt-get -y install $SYSTEM $RANDOM
 PYTHON="python python-pip python-dev python-flake8 python-mccabe python-coverage"
 PYTHON3="python3 python3-pip python3-dev python3-flake8 python-mccabe python3-coverage"
 MORE_PYTHON="python-virtualenv pylint"
-sudo apt-get -y install $PYTHON $PYTHON3 $MORE_PYTHON
+PYTHON_DATABASE="postgresql-server-dev-all libpq-dev"
+sudo apt-get -y install $PYTHON $PYTHON3 $MORE_PYTHON $PYTHON_DATABASE
 
 NET="wget curl tshark wireshark"
 sudo apt-get -y install $NET
