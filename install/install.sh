@@ -26,7 +26,7 @@ sudo apt-get -y install $PYTHON $PYTHON3 $MORE_PYTHON $PYTHON_DATABASE
 NET="wget curl tshark wireshark"
 sudo apt-get -y install $NET
 
-HEROKU="ruby"
+HEROKU="ruby ruby2.0"
 sudo apt-get -y $HEROKU 
 wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
