@@ -13,7 +13,7 @@ LLVM="llvm clang"
 CDEV="flawfinder splint" 
 sudo apt-get -y install $GNU $LLVM $CDEV
 
-SYSTEM="perl openssh-server openssh-client vim git ssh-askpass ssh-askpass-gnome"
+SYSTEM="perl openssh-server openssh-client vim git zsh"
 RANDOM="dconf-cli"
 sudo apt-get -y install $SYSTEM $RANDOM
 
@@ -26,16 +26,20 @@ sudo apt-get -y install $PYTHON $PYTHON3 $MORE_PYTHON $PYTHON_DATABASE
 NET="wget curl tshark wireshark"
 sudo apt-get -y install $NET
 
+HEROKU="ruby"
+sudo apt-get -y $HEROKU 
+wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
 WEB="postgresql rhino nodejs npm poedit"
 sudo apt-get -y install $WEB
 
 sudo apt-get -y install apparmor # bug fix
-sudo apt-get -y install docker.io 
+sudo apt-get -y install docker.io
 
 # the default vim does not support the system clipboard, alias is in .bashrc
 sudo apt-get -y install vim.gtk
 
-ZSH="zsh"
-sudo apt-get -y install $ZSH
+USER="ssh-askpass ssh-askpass-gnome firefox"
+sudo apt-get -y install $USER
 
 echo "$0 is exiting"
