@@ -88,6 +88,3 @@ export DATABASE_URL=postgres:///$(whoami)
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# add my ssh keys
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_linux
