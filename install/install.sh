@@ -16,7 +16,7 @@ CDEV="flawfinder splint"
 sudo apt-get -y install $GNU $LLVM $CDEV
 
 # various system tools
-SYSTEM="perl openssh-server openssh-client vim git zsh"
+SYSTEM="perl openssh-server openssh-client vim git zsh tmux"
 RANDOM="dconf-cli"
 sudo apt-get -y install $SYSTEM $RANDOM
 
