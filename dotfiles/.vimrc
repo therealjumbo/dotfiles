@@ -4,6 +4,9 @@ set nocompatible
 " pathogen stuff
 execute pathogen#infect()
 
+" remap ESC to jk
+inoremap jk <ESC>
+
 " Events
 " In makefiles DO NOT use spaces instead of tabs
 autocmd FileType make setlocal noexpandtab
