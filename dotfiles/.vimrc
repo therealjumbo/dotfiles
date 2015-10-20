@@ -7,6 +7,9 @@ execute pathogen#infect()
 " remap ESC to jk
 inoremap jk <ESC>
 
+" remap leader key to space
+let mapleader = "\<Space>"
+
 " Events
 " In makefiles DO NOT use spaces instead of tabs
 autocmd FileType make setlocal noexpandtab
