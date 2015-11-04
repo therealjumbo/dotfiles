@@ -26,7 +26,7 @@
 
 [push]
     # `git push origin` to push current branch
-    default = current
+	default = simple
     
 [alias]
     co = checkout
