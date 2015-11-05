@@ -55,5 +55,11 @@ USER="ssh-askpass ssh-askpass-gnome firefox"
 sudo apt-get -y install $USER
 
 # ruby programs
-gem install dpl
+sudo gem install dpl
 echo "$0 is exiting"
+
+# add gitlab repo's to apt-get 
+sudo curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
+# Install gitlab-ci-multi-runner:
+sudo apt-get install gitlab-ci-multi-runner
+
