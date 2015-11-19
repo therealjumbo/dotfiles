@@ -33,6 +33,7 @@ for file in $files; do
 done
 
 cd ~
+ln -s $dir/.tmux.conf ~/.tmux.conf
 mkdir -p .bin
 ln -s $dir/tmuxinator.zsh ~/.bin/tmuxinator.zsh
 
