@@ -32,5 +32,9 @@ for file in $files; do
     ln -s $dir/$file ~/$file
 done
 
+cd ~
+mkdir -p .bin
+ln -s $dir/tmuxinator.zsh ~/.bin/tmuxinator.zsh
+
 echo "$0 is exiting"
 exit

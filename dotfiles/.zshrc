@@ -89,3 +89,9 @@ export DATABASE_URL=postgres:///$(whoami)
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+# variable for tmuxinator
+export EDITOR='vim'
+
+# completion file for tmuxinator
+source ~/.bin/tmuxinator.zsh
+

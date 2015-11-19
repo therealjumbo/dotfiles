@@ -56,6 +56,7 @@ sudo apt-get -y install $USER
 
 # ruby programs
 sudo gem install dpl
+sudo gem install tmuxinator
 echo "$0 is exiting"
 
 # add gitlab repo's to apt-get 
