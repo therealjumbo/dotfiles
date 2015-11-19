@@ -90,6 +90,7 @@ export DATABASE_URL=postgres:///$(whoami)
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # variable for tmuxinator
+export SHELL='/usr/bin/zsh'
 export EDITOR='vim'
 
 # completion file for tmuxinator
