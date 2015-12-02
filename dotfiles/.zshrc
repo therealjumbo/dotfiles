@@ -96,3 +96,17 @@ export EDITOR='vim'
 # completion file for tmuxinator
 source ~/.bin/tmuxinator.zsh
 
+# history specific options
+setopt hist_allow_clobber
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_no_store
+setopt hist_expire_dups_first
+setopt hist_find_no_dups
+setopt extended_history
+setopt inc_append_history
+
+HISTFILE="~/.zsh_history"
+HISTSIZE=500000
+SAVEHIST=500000
+
