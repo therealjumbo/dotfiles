@@ -28,7 +28,7 @@ PYTHON_DATABASE="postgresql-server-dev-all libpq-dev"
 sudo apt-get -y install $PYTHON $PYTHON3 $MORE_PYTHON $PYTHON_DATABASE
 
 # network tools
-NET="wget curl tshark wireshark"
+NET="wget curl tshark wireshark lua"
 sudo apt-get -y install $NET
 
 # heroku and dependencies
