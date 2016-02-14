@@ -83,6 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="vim.gtk"
+alias update="sudo apt-get update; sudo apt-get upgrade"
 
 export DATABASE_URL=postgres:///$(whoami)
 
