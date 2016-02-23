@@ -50,6 +50,9 @@ sudo apt-get -y install docker.io
 # the default vim does not support the system clipboard, alias is in .bashrc
 sudo apt-get -y install vim.gtk
 
+# necessary for google drive client
+sudo apt-get -y install golang
+
 # programs for user convenience
 USER="ssh-askpass ssh-askpass-gnome firefox"
 sudo apt-get -y install $USER

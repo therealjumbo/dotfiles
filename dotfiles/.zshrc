@@ -97,6 +97,9 @@ export EDITOR='vim'
 # completion file for tmuxinator
 source ~/.bin/tmuxinator.zsh
 
+# go path
+export GOPATH=~/workspace/go
+
 # history specific options
 setopt hist_allow_clobber
 setopt hist_ignore_dups
