@@ -28,7 +28,7 @@ PYTHON_DATABASE="postgresql-server-dev-all libpq-dev"
 sudo apt-get -y install $PYTHON $PYTHON3 $MORE_PYTHON $PYTHON_DATABASE
 
 # network tools
-NET="wget curl tshark wireshark lua"
+NET="wget curl tshark wireshark lua5.2"
 sudo apt-get -y install $NET
 
 # heroku and dependencies
@@ -52,6 +52,9 @@ sudo apt-get -y install vim.gtk
 
 # necessary for google drive client
 sudo apt-get -y install golang
+sudo add-apt-repository -y ppa:twodopeshaggy/drive
+sudo apt-get update
+sudo apt-get install drive
 
 # programs for user convenience
 USER="ssh-askpass ssh-askpass-gnome firefox"
