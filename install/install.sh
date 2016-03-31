@@ -16,7 +16,7 @@ CDEV="flawfinder splint"
 sudo apt-get -y install $GNU $LLVM $CDEV
 
 # various system tools
-SYSTEM="perl openssh-server openssh-client vim git zsh tmux"
+SYSTEM="perl openssh-server openssh-client vim git zsh tmux stow"
 RANDOM="dconf-cli"
 sudo apt-get -y install $SYSTEM $RANDOM
 
@@ -63,10 +63,11 @@ sudo apt-get -y install $USER
 # ruby programs
 sudo gem install dpl
 sudo gem install tmuxinator
-echo "$0 is exiting"
 
 # add gitlab repo's to apt-get 
 sudo curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
 # Install gitlab-ci-multi-runner:
 sudo apt-get install gitlab-ci-multi-runner
+
+echo "$0 is exiting"
 
