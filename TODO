@@ -1,1 +1,4 @@
-setup keyring/keychain for ssh keys, whatever that entails
+* setup keyring/keychain for ssh keys, whatever that entails
+* vim plugins/setup fixed
+* gnu stow setup
+
