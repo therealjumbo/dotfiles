@@ -19,12 +19,11 @@ autocmd FileType ruby setlocal sw=2 ts=2 sts=2
 " Enable omnicompletion (to use, hold Ctrl-X then Ctrl-O while in insert mode)
 set ofu=syntaxcomplete#Complete
 
-"TODO broken
 " Theme/Colors
 " solarized color scheme stuff
-"set background=dark
-"colorscheme solarized
-"set t_Co=16
+set background=dark
+colorscheme solarized
+set t_Co=16
 
 " Prettify JSON files
 autocmd BufRead,BufNewFile *.json set filetype=json
@@ -65,12 +64,13 @@ set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%
 set visualbell
 
 " Text formatting/layout
-set smartindent
-set tabstop=4 " tab spacing
-set shiftwidth=4 " indent/outdent by 4 columns
-set softtabstop=4 " unify
-set expandtab " use spaces instead of tabs
-set shiftround " always indent/outdent to the nearest tabstop
+" Indenting should be automatically handled by vim-sleuth
+"set smartindent
+"set tabstop=4 " tab spacing
+"set shiftwidth=4 " indent/outdent by 4 columns
+"set softtabstop=4 " unify
+"set expandtab " use spaces instead of tabs
+"set shiftround " always indent/outdent to the nearest tabstop
 set nowrap "don't wrap text
 
 " custom commands
