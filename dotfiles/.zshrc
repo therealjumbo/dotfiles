@@ -82,13 +82,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="vim.gtk"
-alias update="sudo apt-get update; sudo apt-get -y upgrade"
+alias vim="vim.gtk3"
+# alias update="sudo apt-get update; sudo apt-get -y upgrade"
 
-export DATABASE_URL=postgres:///$(whoami)
+# export DATABASE_URL=postgres:///$(whoami)
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# export PATH="/usr/local/heroku/bin:$PATH"
 
 # variable for tmuxinator
 export SHELL='/usr/bin/zsh'
