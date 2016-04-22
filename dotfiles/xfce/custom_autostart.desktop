@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=CustomStartup
-Type=Application
-Exec=/usr/local/share/custom_autostart.sh
-Terminal=true
-StartupNotify=false
-Hidden=false

@@ -5,10 +5,6 @@ echo "$0 is executing"
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-# packages required to build contiki
-CONTIKI="build-essential binutils-msp430 gcc-msp430 msp430-libc binutils-avr gcc-avr gdb-avr avr-libc avrdude openjdk-7-jdk openjdk-7-jre ant libncurses5-dev doxygen git"
-sudo apt-get -y install $CONTIKI
-
 # c dev tools
 GNU="gcc gdb make automake valgrind"
 LLVM="llvm clang"
@@ -21,34 +17,30 @@ RANDOM="dconf-cli"
 sudo apt-get -y install $SYSTEM $RANDOM
 
 # all python packages that we need
-PYTHON="python python-pip python-dev python-flake8 python-mccabe python-coverage"
-PYTHON3="python3 python3-pip python3-dev python3-flake8 python-mccabe python3-coverage"
+# PYTHON="python python-pip python-dev python-flake8 python-mccabe python-coverage" # python2 is no longer needed TODO make sure
+PYTHON3="python3 python3-pip python3-dev python3-flake8 python3-mccabe python3-coverage"
 MORE_PYTHON="python-virtualenv pylint"
-PYTHON_DATABASE="postgresql-server-dev-all libpq-dev"
-sudo apt-get -y install $PYTHON $PYTHON3 $MORE_PYTHON $PYTHON_DATABASE
+sudo apt-get -y install $PYTHON3 $MORE_PYTHON
 
 # network tools
 NET="wget curl tshark wireshark lua5.2"
 sudo apt-get -y install $NET
 
-# heroku and dependencies
-HEROKU="ruby ruby2.0"
-sudo apt-get -y $HEROKU 
-wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-
-# tools for web dev
-WEB="postgresql rhino nodejs npm poedit"
-sudo apt-get -y install $WEB
-
 # software engineering tools
-SE="umlet"
+SE="umlet doxygen"
 sudo apt-get -y install $SE
 
-sudo apt-get -y install apparmor # bug fix
+# install rr from mozilla
+cd /tmp
+wget https://github.com/mozilla/rr/releases/download/4.2.0/rr-4.2.0-Linux-$(uname -m).deb
+sudo dpkg -i rr-4.2.0-Linux-$(uname -m).deb
+
+# this was a fix in 14.04, now on 16.04 TODO verify
+# sudo apt-get -y install apparmor # bug fix
 sudo apt-get -y install docker.io
 
 # the default vim does not support the system clipboard, alias is in .bashrc
-sudo apt-get -y install vim.gtk
+sudo apt-get -y install vim.gtk3
 
 # necessary for google drive client
 sudo apt-get -y install golang
@@ -56,18 +48,33 @@ sudo add-apt-repository -y ppa:twodopeshaggy/drive
 sudo apt-get update
 sudo apt-get install drive
 
-# programs for user convenience
-USER="ssh-askpass ssh-askpass-gnome firefox"
-sudo apt-get -y install $USER
+# programs for user convenience, might switch to keyring instead of this, need more investigation TODO
+# USER="ssh-askpass ssh-askpass-gnome"
+# sudo apt-get -y install $USER
 
 # ruby programs
-sudo gem install dpl
+# sudo gem install dpl # continuous deployment tool, not really needed anymore
 sudo gem install tmuxinator
 
+## below this line is stuff we used to need, but no longer do
 # add gitlab repo's to apt-get 
-sudo curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
+# sudo curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
 # Install gitlab-ci-multi-runner:
-sudo apt-get install gitlab-ci-multi-runner
+# sudo apt-get install gitlab-ci-multi-runner
+
+# heroku and dependencies
+# HEROKU="ruby ruby2.0"
+# sudo apt-get -y $HEROKU 
+# wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+# tools for web dev
+# WEB="postgresql rhino nodejs npm poedit"
+# PYTHON_DATABASE="postgresql-server-dev-all libpq-dev"
+# sudo apt-get -y install $WEB $PYTHON_DATABASE
+
+# packages required to build contiki, not into contiki anymore, no longer like 802.15.4
+# CONTIKI="build-essential binutils-msp430 gcc-msp430 msp430-libc binutils-avr gcc-avr gdb-avr avr-libc avrdude openjdk-7-jdk openjdk-7-jre ant libncurses5-dev doxygen git"
+# sudo apt-get -y install $CONTIKI
 
 echo "$0 is exiting"
 

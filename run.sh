@@ -32,7 +32,11 @@ function run_script() {
 sudo -v
 
 # keep-alive; update existing sudo time stamp if set, otherwise do nothing
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; 
+    do sudo -n true; 
+    sleep 60; 
+    kill -0 "$$" || exit; 
+done 2>/dev/null &
 
 # run the generic install script
 # if the install.sh script does not exist, or is not a regular file then abort 
