@@ -7,7 +7,7 @@ echo "$0 is executing"
 #### Variables
 dir=~/setup_home/dotfiles
 # list for files/folder to symlink in homedir
-files=".profile .vimrc gitconfig .gitignore_global .zshrc" 
+files=".profile .vimrc .gitconfig .gitignore_global .zshrc" 
 
 # remove old dotfile if it exists and symlink in the new one
 for file in $files; do
