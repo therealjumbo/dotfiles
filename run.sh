@@ -82,3 +82,4 @@ for ARG in $@; do
     file="$PREFIX$ARG$EXT"
     run_script $file "1" 
 done
+
