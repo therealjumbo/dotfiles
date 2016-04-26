@@ -36,7 +36,7 @@
     ci = commit
     st = status
     br = branch -av
-    unstage = reste HEAD --
+    unstage = reset HEAD --
     dc = diff --cached
     brdel = branch -D
     
