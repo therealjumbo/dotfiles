@@ -113,3 +113,5 @@ setopt inc_append_history
 HISTSIZE=500000
 SAVEHIST=500000
 
+eval `keychain --eval --agents ssh id_rsa`
+
