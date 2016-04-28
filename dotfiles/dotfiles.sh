@@ -35,6 +35,10 @@ cd ~/.vim/bundle
 rm -rf vim-sleuth
 git clone https://github.com/tpope/vim-sleuth.git
 
+cd ~/.vim/bundle
+rm -rf vim-better-whitespace
+git clone git://github.com/ntpeters/vim-better-whitespace.git ~/.vim/bundle/vim-better-whitespace
+
 echo "$0 is exiting"
 exit
 
