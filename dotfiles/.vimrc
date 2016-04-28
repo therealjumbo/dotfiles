@@ -1,8 +1,17 @@
 " get rid of Vi compatibility, SET FIRST!
-set nocompatible 
+set nocompatible
 
 " pathogen stuff
 execute pathogen#infect()
+
+" you can have edited buffers that aren't visible in a window
+set hidden
+
+" open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " remap ESC to jk
 inoremap jk <ESC>
@@ -13,8 +22,6 @@ let mapleader = "\<Space>"
 " Events
 " In makefiles DO NOT use spaces instead of tabs
 autocmd FileType make setlocal noexpandtab
-" In Ruby files, use 2 spaces instead of 4 for tabs
-autocmd FileType ruby setlocal sw=2 ts=2 sts=2
 
 " Enable omnicompletion (to use, hold Ctrl-X then Ctrl-O while in insert mode)
 set ofu=syntaxcomplete#Complete
@@ -62,20 +69,7 @@ set ruler " always show info along bottom
 set showmatch
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 set visualbell
-
-" Text formatting/layout
-" Indenting should be automatically handled by vim-sleuth
-"set smartindent
-"set tabstop=4 " tab spacing
-"set shiftwidth=4 " indent/outdent by 4 columns
-"set softtabstop=4 " unify
-"set expandtab " use spaces instead of tabs
-"set shiftround " always indent/outdent to the nearest tabstop
 set nowrap "don't wrap text
-
-" custom commands
-" prettify JSON files making them easier to read
-command PrettyJSON %!python -m json.tool
 
 " bug fix for Python Mode error with rope
 let g:pymode_rope = 0

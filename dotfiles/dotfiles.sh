@@ -38,6 +38,11 @@ git clone https://github.com/tpope/vim-sleuth.git
 cd ~/.vim/bundle
 rm -rf vim-better-whitespace
 git clone https://github.com/ntpeters/vim-better-whitespace.git ~/.vim/bundle/vim-better-whitespace
+
+cd ~/.vim/bundle
+rm -rf nerdtree
+git clone https://github.com/scrooloose/nerdtree.git
+
 echo "$0 is exiting"
 exit
 
