@@ -82,3 +82,7 @@ let g:pymode_rope = 0
 
 " close preview window after selection is made
 autocmd CompleteDone * pclose
+
+" strip whitespace from these filetypes on save
+autocmd FileType c,h,cpp,py,lua,java,sh,bat,ps1 autocmd BufWritePre <buffer> StripWhitespace
+
