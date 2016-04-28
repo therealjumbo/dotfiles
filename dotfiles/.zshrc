@@ -95,7 +95,7 @@ export SHELL='/usr/bin/zsh'
 export EDITOR='vim'
 
 # completion file for tmuxinator
-source ~/.bin/tmuxinator.zsh
+# source ~/.bin/tmuxinator.zsh this file doesn't yet exist on windows
 
 # go path
 export GOPATH=~/workspace/go
