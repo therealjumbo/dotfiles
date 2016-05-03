@@ -62,6 +62,7 @@ set number " show line numbers
 set numberwidth=6 " make the number gutter 6 chars wide
 set cul " highlight current line
 set laststatus=2 " last window always has a statusline
+set hlsearch " continue to highlight searched phrases
 set incsearch " highlight as you type your search
 set ignorecase " make searches case-insensitive
 set ruler " always show info along bottom
