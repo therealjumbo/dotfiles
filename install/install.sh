@@ -19,7 +19,7 @@ sudo apt-get -y install python3 python3-pip python3-dev python3-flake8 python3-m
 sudo apt-get -y install python-virtualenv pylint
 
 # network tools
-sudo apt-get -y install wget curl tshark wireshark lua5.2
+sudo apt-get -y install wget curl tshark wireshark lua5.3
 
 # software engineering tools
 sudo apt-get -y install umlet doxygen
