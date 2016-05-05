@@ -67,14 +67,14 @@ set number " show line numbers
 set numberwidth=6 " make the number gutter 6 chars wide
 set cul " highlight current line
 set laststatus=2 " last window always has a statusline
-set nohlsearch " don't continue to highlight searched phrases
-set incsearch " but do highlight as you type your search
+set hlsearch " continue to highlight searched phrases
+set incsearch " highlight as you type your search
 set ignorecase " make searches case-insensitive
 set ruler " always show info along bottom
 set showmatch
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 set visualbell
-set nowrap "don't wrap text
+set nowrap " don't wrap text
 
 " bug fix for Python Mode error with rope
 let g:pymode_rope = 0
