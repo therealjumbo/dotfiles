@@ -115,3 +115,4 @@ SAVEHIST=500000
 
 eval `keychain --eval --agents ssh id_rsa`
 
+alias lua=lua5.3
