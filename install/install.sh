@@ -43,13 +43,13 @@ sudo apt-get update
 sudo apt-get install drive
 
 # programs for user convenience
-sudo apt-get -y install keychain xclip
-
-# ruby programs
-# sudo gem install dpl # continuous deployment tool, not really needed anymore
-sudo gem install tmuxinator
+sudo apt-get -y install keychain xclip keepassx
 
 ## below this line is stuff we used to need, but no longer do
+# ruby programs
+# sudo gem install dpl # continuous deployment tool
+# sudo gem install tmuxinator
+
 # add gitlab repo's to apt-get
 # sudo curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
 # Install gitlab-ci-multi-runner:
