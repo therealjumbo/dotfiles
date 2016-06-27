@@ -80,3 +80,13 @@ autocmd CompleteDone * pclose
 " strip whitespace from these filetypes on save
 autocmd FileType c,h,cpp,py,lua,java,sh,bat,ps1 autocmd BufWritePre <buffer> StripWhitespace
 
+" vimsplit modifications
+" easier navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" more natural split opening
+set splitbelow
+set splitright
+
