@@ -16,6 +16,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " remap ESC to jk
 inoremap jk <ESC>
 
+"convert tabs to spaces
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
 " remap leader key to space
 let mapleader = "\<Space>"
 

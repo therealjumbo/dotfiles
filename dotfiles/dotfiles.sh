@@ -17,8 +17,10 @@ for file in $files; do
 done
 
 cd ~
+rm ~/.tmux.conf
 ln -s $dir/.tmux.conf ~/.tmux.conf
 mkdir -p .bin
+rm ~/.bin/tmuxinator.zsh
 ln -s $dir/tmuxinator.zsh ~/.bin/tmuxinator.zsh
 
 # vim plugin manager (pathogen) and plugins

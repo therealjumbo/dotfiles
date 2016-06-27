@@ -8,7 +8,7 @@ sudo apt-get -y upgrade
 # c dev tools
 sudo apt-get -y install gcc gdb make automake valgrind
 sudo apt-get -y install llvm clang
-sudo apt-get -y install flawfinder splint 
+sudo apt-get -y install flawfinder splint
 
 # various system tools
 sudo apt-get -y install perl vim git zsh tmux stow dconf-cli
@@ -19,7 +19,7 @@ sudo apt-get -y install python3 python3-pip python3-dev python3-flake8 python3-m
 sudo apt-get -y install python-virtualenv pylint
 
 # network tools
-sudo apt-get -y install wget curl tshark wireshark lua5.2
+sudo apt-get -y install wget curl tshark wireshark lua5.3
 
 # software engineering tools
 sudo apt-get -y install umlet doxygen
@@ -42,23 +42,22 @@ sudo add-apt-repository -y ppa:twodopeshaggy/drive
 sudo apt-get update
 sudo apt-get install drive
 
-# programs for user convenience, might switch to keyring instead of this, need more investigation TODO
-# USER="ssh-askpass ssh-askpass-gnome"
-# sudo apt-get -y install $USER
-
-# ruby programs
-# sudo gem install dpl # continuous deployment tool, not really needed anymore
-sudo gem install tmuxinator
+# programs for user convenience
+sudo apt-get -y install keychain xclip keepassx
 
 ## below this line is stuff we used to need, but no longer do
-# add gitlab repo's to apt-get 
+# ruby programs
+# sudo gem install dpl # continuous deployment tool
+# sudo gem install tmuxinator
+
+# add gitlab repo's to apt-get
 # sudo curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
 # Install gitlab-ci-multi-runner:
 # sudo apt-get install gitlab-ci-multi-runner
 
 # heroku and dependencies
 # HEROKU="ruby ruby2.0"
-# sudo apt-get -y $HEROKU 
+# sudo apt-get -y $HEROKU
 # wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 # tools for web dev
