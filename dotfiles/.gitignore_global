@@ -5,3 +5,9 @@
 Session.vim
 .netrwhist
 *~
+
+# build outputs
+build.txt
+clean.txt
+tags
+
