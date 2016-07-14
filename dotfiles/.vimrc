@@ -95,3 +95,10 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+" put backups in global dir
+set backupdir=~/.vim/tmp//,
+" put swap files in global dir
+set directory=~/.vim/tmp//,
+" put undo files in global dir
+set undodir=~/.vim/tmp//,
+
