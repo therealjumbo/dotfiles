@@ -3,12 +3,13 @@ echo "$0 is executing"
 
 sudo groupadd docker
 sudo groupadd wireshark
+sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
 
 # install source code pro
 mkdir /tmp/adobefont
 cd /tmp/adobefont
 wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip
-unzip 1.017R.zip 
+unzip 1.017R.zip
 mkdir -p ~/.fonts
 cp source-code-pro-1.017R/OTF/*.otf ~/.fonts/
 fc-cache -f -v
