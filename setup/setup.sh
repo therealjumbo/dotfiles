@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "$0 is executing"
 
+mkdir -p ~/.vim/tmp/
+
 sudo groupadd docker
 sudo groupadd wireshark
 sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
