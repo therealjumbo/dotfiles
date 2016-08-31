@@ -44,13 +44,6 @@ autocmd Syntax json sou ~/.vim/syntax/json.vim
 " Prettify Vagrantfile
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 
-" Prettify Markdown files
-let vim_markdown_preview_github=1
-"augroup markdown
-"    au!
-"    au BufnewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-" augroup END
-
 " Highlight characters that go over 80 columns (by drawing a border on the 81st)
 if exists('+colorcolumn')
     set colorcolumn=81

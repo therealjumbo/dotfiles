@@ -17,14 +17,11 @@ sudo apt-get -y install perl vim git zsh tmux stow dconf-cli
 sudo apt-get -y install python3 python3-pip python3-dev python3-flake8 python3-mccabe python3-coverage
 sudo apt-get -y install python-virtualenv pylint
 
-# github style markdown preview
-pip3 install grip
-
 # network tools
 sudo apt-get -y install wget curl tshark wireshark lua5.3
 
 # software engineering tools
-sudo apt-get -y install umlet doxygen
+sudo apt-get -y install umlet doxygen markdown
 
 # install rr from mozilla
 cd /tmp
