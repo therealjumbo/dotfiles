@@ -1,7 +1,10 @@
 #!/bin/bash
 
+mkdir -p ~/.vim/tmp/
+
 sudo groupadd docker
 sudo groupadd wireshark
+sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
 
 # install source code pro
 mkdir /tmp/adobefont
