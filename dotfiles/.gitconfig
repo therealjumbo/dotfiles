@@ -1,6 +1,6 @@
 [user]
     name = Jeff Zignego
-    email = jlzignego@gmail.com
+    email = jeffrey.zignego-ext@jci.com
 
 [color]
     diff = auto
@@ -46,6 +46,4 @@
     # pretty log format views
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-
-    fetch = +refs/pull/*/head:refs/remotes/symbolic_name_origin_or_upstream/pr/*
 

@@ -45,10 +45,11 @@ autocmd Syntax json sou ~/.vim/syntax/json.vim
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 
 " Prettify Markdown files
-augroup markdown
-    au!
-    au BufnewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
+let vim_markdown_preview_github=1
+"augroup markdown
+"    au!
+"    au BufnewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+" augroup END
 
 " Highlight characters that go over 80 columns (by drawing a border on the 81st)
 if exists('+colorcolumn')
@@ -83,7 +84,7 @@ let g:pymode_rope = 0
 autocmd CompleteDone * pclose
 
 " strip whitespace from these filetypes on save
-autocmd FileType c,h,cpp,py,lua,java,sh,bat,ps1 autocmd BufWritePre <buffer> StripWhitespace
+autocmd FileType c,h,cpp,py,lua,java,sh,bat,ps1,md autocmd BufWritePre <buffer> StripWhitespace
 
 " vimsplit modifications
 " easier navigation
@@ -101,4 +102,5 @@ set backupdir=~/.vim/tmp//,
 set directory=~/.vim/tmp//,
 " put undo files in global dir
 set undodir=~/.vim/tmp//,
+
 

@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "$0 is executing"
 
 cur_dir=`pwd`
 
@@ -13,4 +12,3 @@ git clone https://github.com/seebi/dircolors-solarized.git ~/.dircolors/
 
 cd $cur_dir
 
-echo "$0 is exiting"

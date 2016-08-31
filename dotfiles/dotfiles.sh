@@ -2,8 +2,6 @@
 # This script creates symlinks from the home directory to any desired dotfiles
 # in ~/setup_home/dotfiles/
 
-echo "$0 is executing"
-
 #### Variables
 dir=~/setup_home/dotfiles
 # list for files/folder to symlink in homedir
@@ -11,22 +9,18 @@ files=".profile .vimrc .gitconfig .gitignore_global .zshrc"
 
 # remove old dotfile if it exists and symlink in the new one
 for file in $files; do
-    rm ~/$file
-    echo "Creating symlink to $file in home directory"
+    rm -f ~/$file
     ln -s $dir/$file ~/$file
 done
 
 cd ~
 rm ~/.tmux.conf
 ln -s $dir/.tmux.conf ~/.tmux.conf
-mkdir -p .bin
-rm ~/.bin/tmuxinator.zsh
-ln -s $dir/tmuxinator.zsh ~/.bin/tmuxinator.zsh
 
 # vim plugin manager (pathogen) and plugins
 mkdir -p ~/.vim
 mkdir -p ~/.vim/autoload ~/.vim/bundle
-rm ~/.vim/autoload/pathogen.vim
+rm -f ~/.vim/autoload/pathogen.vim
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 cd ~/.vim/bundle
@@ -45,6 +39,13 @@ cd ~/.vim/bundle
 rm -rf nerdtree
 git clone https://github.com/scrooloose/nerdtree.git
 
-echo "$0 is exiting"
+cd ~/.vim/bundle
+rm -rf vim-markdown
+git clone https://github.com/gabrielelana/vim-markdown
+
+cd ~/.vim/bundle
+rm -rf vim-markdown-preview
+git clone https://github.com/JamshedVesuna/vim-markdown-preview
+
 exit
 

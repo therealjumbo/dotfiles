@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/jeff/.oh-my-zsh
+export ZSH=/home/jeffzignego/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -113,6 +113,9 @@ setopt inc_append_history
 HISTSIZE=500000
 SAVEHIST=500000
 
-eval `keychain --eval --agents ssh id_rsa`
+eval `keychain --eval --agents ssh id_babun_work_laptop`
 
 alias lua=lua5.3
+
+export SARROOT=~/sarroot/
+

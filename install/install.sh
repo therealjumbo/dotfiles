@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "$0 is executing"
 
 # bring the system up to date
 sudo apt-get -y update
@@ -17,6 +16,9 @@ sudo apt-get -y install perl vim git zsh tmux stow dconf-cli
 # PYTHON="python python-pip python-dev python-flake8 python-mccabe python-coverage" # python2 is no longer needed TODO make sure
 sudo apt-get -y install python3 python3-pip python3-dev python3-flake8 python3-mccabe python3-coverage
 sudo apt-get -y install python-virtualenv pylint
+
+# github style markdown preview
+pip3 install grip
 
 # network tools
 sudo apt-get -y install wget curl tshark wireshark lua5.3
@@ -68,6 +70,4 @@ sudo apt-get -y install keychain xclip keepassx
 # packages required to build contiki, not into contiki anymore, no longer like 802.15.4
 # CONTIKI="build-essential binutils-msp430 gcc-msp430 msp430-libc binutils-avr gcc-avr gdb-avr avr-libc avrdude openjdk-7-jdk openjdk-7-jre ant libncurses5-dev doxygen git"
 # sudo apt-get -y install $CONTIKI
-
-echo "$0 is exiting"
 

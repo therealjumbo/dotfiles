@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "$0 is executing"
 
 sudo groupadd docker
 sudo groupadd wireshark
@@ -8,7 +7,7 @@ sudo groupadd wireshark
 mkdir /tmp/adobefont
 cd /tmp/adobefont
 wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip
-unzip 1.017R.zip 
+unzip 1.017R.zip
 mkdir -p ~/.fonts
 cp source-code-pro-1.017R/OTF/*.otf ~/.fonts/
 fc-cache -f -v
@@ -22,5 +21,3 @@ sudo chsh -s $(which zsh) $(whoami)
 
 # register the gitlab runner, gitlab no longer used
 # sudo gitlab-ci-multi-runner register
-
-echo "$0 is exiting"
