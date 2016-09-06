@@ -13,7 +13,9 @@ for file in $files; do
     ln -s $dir/$file ~/$file
 done
 
+# linux specific aliases
 mkdir -p ~/.zshrc.d/
+rm -rf ~/.zshrc.d/linux_aliases.sh
 ln -s $dir/linux_aliases.sh ~/.zshrc.d/linux_aliases.sh
 
 cd ~
