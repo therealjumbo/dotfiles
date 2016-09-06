@@ -17,12 +17,16 @@
 
     # ignore file permission changes
     filemode = false
+    trustctime = false
 
 [merge]
     tool = vimdiff
 
 [diff]
     tool = vimdiff
+
+[difftool]
+    prompt = false
 
 [push]
     # `git push origin` to push current branch
