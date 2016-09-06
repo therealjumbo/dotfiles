@@ -13,6 +13,9 @@ for file in $files; do
     ln -s $dir/$file ~/$file
 done
 
+mkdir -p ~/.zshrc.d/
+ln -s $dir/linux_aliases.sh ~/.zshrc.d/linux_aliases.sh
+
 cd ~
 rm ~/.tmux.conf
 ln -s $dir/.tmux.conf ~/.tmux.conf
