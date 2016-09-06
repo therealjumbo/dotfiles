@@ -42,6 +42,8 @@
     br = branch -av
     unstage = reset HEAD --
     dc = diff --cached
+    df = diff
+    dt = difftool
     brdel = branch -D
 
     # show all of my configured aliases
@@ -52,4 +54,5 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
 [credential]
-    helper = cache --timeout=3600
+    helper = cache --timeout=14400
+

@@ -39,7 +39,7 @@ Installation
 ------------
 
 ``` bash
-git clone git@github.com:therealjumbo/setup_home.git ~/setup_home
+git clone https://github.com:therealjumbo/setup_home.git ~/setup_home
 cd ~/setup_home/
 chmod a+x run.sh
 ./run.sh [commands]
