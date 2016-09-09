@@ -22,6 +22,7 @@
 
 [difftool]
     prompt = false
+    trustExitCode = true
 
 [merge]
     tool = vimdiff
@@ -29,6 +30,7 @@
 
 [mergetool]
     prompt = false
+    trustExitCode = true
 
 [push]
     # `git push origin` to push current branch
