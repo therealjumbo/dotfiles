@@ -82,9 +82,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-for filename in ~/.zshrc.d/*.sh; do
-    source $filename
+for filename in ~/.zshrc.d/*.sh(.N); do
+    if [-e $filename]
+    then
+        source $filename
+    fi
 done
+
 # alias update="sudo apt-get update; sudo apt-get -y upgrade"
 
 # export DATABASE_URL=postgres:///$(whoami)
