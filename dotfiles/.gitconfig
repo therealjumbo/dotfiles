@@ -1,6 +1,6 @@
 [user]
     name = Jeff Zignego
-    email = jeffrey.zignego-ext@jci.com
+    email = jlzignego@gmail.com
 
 [color]
     diff = auto
@@ -11,18 +11,26 @@
 [core]
     editor = vim
 
-    # lets you define a global .gitignore for all those *.swp, *.o etc you're
-    # frequently sticking in .gitignore
     excludesfile = ~/.gitignore_global
 
     # ignore file permission changes
     filemode = false
-
-[merge]
-    tool = vimdiff
+    trustctime = false
 
 [diff]
     tool = vimdiff
+
+[difftool]
+    prompt = false
+    trustExitCode = true
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+
+[mergetool]
+    prompt = false
+    trustExitCode = true
 
 [push]
     # `git push origin` to push current branch
@@ -38,6 +46,8 @@
     br = branch -av
     unstage = reset HEAD --
     dc = diff --cached
+    df = diff
+    dt = difftool
     brdel = branch -D
 
     # show all of my configured aliases
@@ -46,4 +56,7 @@
     # pretty log format views
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+[credential]
+    helper = cache --timeout=14400
 

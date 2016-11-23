@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/jeffzignego/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -82,7 +82,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias vim="vim.gtk3"
+
+for filename in ~/.zshrc.d/*.sh(.N); do
+    if [-e $filename]
+    then
+        source $filename
+    fi
+done
 
 # export DATABASE_URL=postgres:///$(whoami)
 
@@ -112,8 +120,4 @@ SAVEHIST=500000
 eval `keychain --eval --agents ssh id_babun_work_laptop`
 
 alias lua=lua5.3
-
-for filename in ~/.zshrc.d/*; do
-    source $filename
-done
 
