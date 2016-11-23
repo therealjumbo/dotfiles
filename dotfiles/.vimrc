@@ -73,6 +73,9 @@ set nowrap " don't wrap text
 " bug fix for Python Mode error with rope
 let g:pymode_rope = 0
 
+" make vim-markdown-preview use grip
+let vim_markdown_preview_github=1
+
 " close preview window after selection is made
 autocmd CompleteDone * pclose
 

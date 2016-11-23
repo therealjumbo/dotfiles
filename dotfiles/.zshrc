@@ -83,7 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="vim.gtk3"
-# alias update="sudo apt-get update; sudo apt-get -y upgrade"
 
 # export DATABASE_URL=postgres:///$(whoami)
 
@@ -93,9 +92,6 @@ alias vim="vim.gtk3"
 # variable for tmuxinator
 export SHELL='/usr/bin/zsh'
 export EDITOR='vim'
-
-# completion file for tmuxinator
-# source ~/.bin/tmuxinator.zsh this file doesn't yet exist on windows
 
 # go path
 export GOPATH=~/workspace/go
@@ -117,5 +113,7 @@ eval `keychain --eval --agents ssh id_babun_work_laptop`
 
 alias lua=lua5.3
 
-export SARROOT=~/sarroot/
+for filename in ~/.zshrc.d/*; do
+    source $filename
+done
 
