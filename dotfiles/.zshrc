@@ -83,10 +83,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vim="vim.gtk3"
+alias gv="vim.gtk3"
 
 for filename in ~/.zshrc.d/*.sh(.N); do
-    if [-e $filename]
+    if [ -e $filename ]
     then
         source $filename
     fi
