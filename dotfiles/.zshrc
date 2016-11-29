@@ -116,7 +116,7 @@ setopt inc_append_history
 HISTSIZE=500000
 SAVEHIST=500000
 
-eval `keychain --eval --agents ssh id_babun_work_laptop`
+#eval `keychain --eval --agents ssh id_rsa`
 
 alias lua=lua5.3
 
