@@ -82,14 +82,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias gv="vim.gtk3"
+
 for filename in ~/.zshrc.d/*.sh(.N); do
-    if [-e $filename]
+    if [ -e $filename ]
     then
         source $filename
     fi
 done
-
-# alias update="sudo apt-get update; sudo apt-get -y upgrade"
 
 # export DATABASE_URL=postgres:///$(whoami)
 
@@ -119,6 +120,4 @@ SAVEHIST=500000
 #eval `keychain --eval --agents ssh id_rsa`
 
 alias lua=lua5.3
-
-export SARROOT=~/sarroot/
 

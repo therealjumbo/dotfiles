@@ -11,3 +11,5 @@ build.txt
 clean.txt
 tags
 
+# html markdown previews
+*.html
