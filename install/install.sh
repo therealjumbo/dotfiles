@@ -23,16 +23,19 @@ sudo apt-get -y install wget curl tshark wireshark lua5.3
 # software engineering tools
 sudo apt-get -y install umlet doxygen markdown
 
+# stuff I picked up at work
+sudo apt-get -y install graphviz tree ack-grep cmake exuberant-ctags
+
 # install rr from mozilla
-cd /tmp
-wget https://github.com/mozilla/rr/releases/download/4.2.0/rr-4.2.0-Linux-$(uname -m).deb
-sudo dpkg -i rr-4.2.0-Linux-$(uname -m).deb
+#cd /tmp
+#wget https://github.com/mozilla/rr/releases/download/4.2.0/rr-4.2.0-Linux-$(uname -m).deb
+#sudo dpkg -i rr-4.2.0-Linux-$(uname -m).deb
 
 # this was a fix in 14.04, now on 16.04 TODO verify
 # sudo apt-get -y install apparmor # bug fix
 sudo apt-get -y install docker.io
 
-# the default vim does not support the system clipboard, alias is in .bashrc
+# the default vim does not support the system clipboard, alias is in .zshrc
 sudo apt-get -y install vim-gtk3
 
 # necessary for google drive client

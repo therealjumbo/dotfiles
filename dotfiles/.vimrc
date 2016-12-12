@@ -99,4 +99,4 @@ set directory=~/.vim/tmp//,
 " put undo files in global dir
 set undodir=~/.vim/tmp//,
 
-
+set tags=./tags;~/workspace

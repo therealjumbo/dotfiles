@@ -9,7 +9,10 @@ Session.vim
 # build outputs
 build.txt
 clean.txt
+
+# ctags outputs
 tags
+.srclist
 
 # html markdown previews
-*.html
+README.html
