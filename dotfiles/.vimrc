@@ -21,6 +21,9 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+" :e <tab> autocomplete is case insensitive
+set wildignorecase
+
 " remap leader key to space
 let mapleader = "\<Space>"
 
