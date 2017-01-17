@@ -84,6 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias gv="vim.gtk3"
+alias ct=$'ctags -R --exclude=\".git\" -L .srclist'
 
 for filename in ~/.zshrc.d/*.sh(.N); do
     if [ -e $filename ]
