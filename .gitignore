@@ -1,7 +1,3 @@
 #vim stuff 
 *.swp
 dotfiles/.vim/.netrwhist
-
-# ctags stuff
-.srclist
-tags

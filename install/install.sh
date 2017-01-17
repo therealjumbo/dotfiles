@@ -24,7 +24,7 @@ sudo apt-get -y install wget curl tshark wireshark lua5.3
 sudo apt-get -y install umlet doxygen markdown
 
 # stuff I picked up at work
-sudo apt-get -y install graphviz tree ack-grep cmake exuberant-ctags colordiff
+sudo apt-get -y install graphviz tree ack-grep cmake exuberant-ctags clang-format colordiff
 
 # install rr from mozilla
 #cd /tmp
