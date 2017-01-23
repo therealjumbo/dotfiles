@@ -115,6 +115,10 @@ setopt hist_find_no_dups
 setopt extended_history
 setopt inc_append_history
 
+# allow dups in the dir stack to allow for easy bookmarking so the indexes of
+# the bookmarks don't change
+unsetopt pushd_ignore_dups
+
 HISTSIZE=500000
 SAVEHIST=500000
 
