@@ -84,7 +84,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias gv="vim.gtk3"
-alias ct=$'ctags -R --exclude=\".git\" -L .srclist'
+alias ct=$'ctags -R --exclude=\".git\" --exclude=@.ctagsignore -L .srclist'
+alias c='xclip'
+alias v='xclip -o'
 
 for filename in ~/.zshrc.d/*.sh(.N); do
     if [ -e $filename ]
