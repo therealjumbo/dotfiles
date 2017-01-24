@@ -87,6 +87,8 @@ alias gv="vim.gtk3"
 alias ct=$'ctags -R --exclude=\".git\" --exclude=@.ctagsignore -L .srclist'
 alias c='xclip'
 alias v='xclip -o'
+alias cs='xclip -selection clipboard'
+alias vs='xclip -o -selection clipboard'
 alias dirs='dirs -v'
 
 for filename in ~/.zshrc.d/*.sh(.N); do
