@@ -115,6 +115,9 @@ setopt hist_find_no_dups
 setopt extended_history
 setopt inc_append_history
 
+unsetopt pushdignoredups
+unsetopt autopushd
+
 HISTSIZE=500000
 SAVEHIST=500000
 
