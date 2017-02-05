@@ -10,9 +10,10 @@ Session.vim
 build.txt
 clean.txt
 
-# ctags outputs
-tags
+# ctags inputs and outputs
 .srclist
+.ctagsignore
+tags
 
 # html markdown previews
 README.html
