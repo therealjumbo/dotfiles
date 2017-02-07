@@ -83,6 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias nv="nvim"
 alias gv="vim.gtk3"
 alias ct=$'ctags -R --exclude=\".git\" --exclude=@.ctagsignore -L .srclist'
 alias c='xclip'
