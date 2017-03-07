@@ -2,55 +2,22 @@
 # This script creates symlinks from the home directory to any desired dotfiles
 # in ~/setup_home/dotfiles/
 
-#### Variables
-dir=~/setup_home/dotfiles
-# list for files/folder to symlink in homedir
-files=".profile .vimrc .gitconfig .gitignore_global .zshrc"
+pushd ~/setup_home/dotfiles
 
-# remove old dotfile if it exists and symlink in the new one
-for file in $files; do
-    rm -f ~/$file
-    ln -s $dir/$file ~/$file
-done
+stow --target=$HOME stow
 
-# linux specific aliases
-mkdir -p ~/.zshrc.d/
-rm -rf ~/.zshrc.d/linux_aliases.sh
-ln -s $dir/linux_aliases.sh ~/.zshrc.d/linux_aliases.sh
+stow --target=$HOME ack
 
-cd ~
-rm ~/.tmux.conf
-ln -s $dir/.tmux.conf ~/.tmux.conf
+stow --target=$HOME git
 
-# vim plugin manager (pathogen) and plugins
-mkdir -p ~/.vim
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-rm -f ~/.vim/autoload/pathogen.vim
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+stow --target=$HOME nvim
 
-cd ~/.vim/bundle
-rm -rf vim-colors-solarized
-git clone https://github.com/altercation/vim-colors-solarized.git
+stow --target=$HOME tmux
 
-cd ~/.vim/bundle
-rm -rf vim-sleuth
-git clone https://github.com/tpope/vim-sleuth.git
+stow --target=$HOME vim
 
-cd ~/.vim/bundle
-rm -rf vim-better-whitespace
-git clone https://github.com/ntpeters/vim-better-whitespace.git ~/.vim/bundle/vim-better-whitespace
+stow --target=$HOME zsh
 
-cd ~/.vim/bundle
-rm -rf nerdtree
-git clone https://github.com/scrooloose/nerdtree.git
-
-cd ~/.vim/bundle
-rm -rf vim-markdown
-git clone https://github.com/gabrielelana/vim-markdown
-
-cd ~/.vim/bundle
-rm -rf vim-markdown-preview
-git clone https://github.com/JamshedVesuna/vim-markdown-preview
+popd
 
 exit
-
