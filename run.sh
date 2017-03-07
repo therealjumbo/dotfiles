@@ -32,16 +32,16 @@ function run_script() {
 sudo -v
 
 # keep-alive; update existing sudo time stamp if set, otherwise do nothing
-while true; 
-    do sudo -n true; 
-    sleep 60; 
-    kill -0 "$$" || exit; 
+while true;
+    do sudo -n true;
+    sleep 60;
+    kill -0 "$$" || exit;
 done 2>/dev/null &
 
 # run the generic install script
-# if the install.sh script does not exist, or is not a regular file then abort 
+# if the install.sh script does not exist, or is not a regular file then abort
 INSTALL="./install/install.sh"
-run_script $INSTALL "0" 
+run_script $INSTALL "0"
 
 # attempt to run each argument as an install script
 # example $1=xfce4, so file=./install/install_xfce4.sh
@@ -50,13 +50,13 @@ PREFIX="./install/install_"
 EXT=".sh"
 for ARG in $@; do
     file="$PREFIX$ARG$EXT"
-    run_script $file "1" 
+    run_script $file "1"
 done
 
 # run the generic setup script
 # if the setup.sh script does not exist, or is not a regular file then abort
 SETUP="./setup/setup.sh"
-run_script $SETUP "0" 
+run_script $SETUP "0"
 
 # attempt to run each argument as a setup script
 # example $1=xfce4, so file=./setup/setup_xfce4.sh
@@ -65,7 +65,7 @@ PREFIX="./setup/setup_"
 EXT=".sh"
 for ARG in $@; do
     file="$PREFIX$ARG$EXT"
-    run_script $file "1" 
+    run_script $file "1"
 done
 
 # run the generic dotfiles setup script
@@ -80,6 +80,6 @@ PREFIX="./dotfiles/dotfiles_"
 EXT=".sh"
 for ARG in $@; do
     file="$PREFIX$ARG$EXT"
-    run_script $file "1" 
+    run_script $file "1"
 done
 
