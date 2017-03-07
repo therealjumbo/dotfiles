@@ -13,9 +13,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" remap ESC to jk
-inoremap jk <ESC>
-
 "convert tabs to spaces
 set expandtab
 set tabstop=4
