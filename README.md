@@ -33,7 +33,7 @@ other software.
 do not involve installing software or symlinking dotfiles. 
 
 4. Next, the `~/setup_home/dotfiles/dotfiles.sh` script is run followed by each
-`~/setup_home/dotfiles/dotfiles_[command].sh`. These scripts are for all
+`./dotfiles/dotfiles_[command].sh`. These scripts are for all
 symlinking the dotfiles inside this repo to the appropriate location in the home
 direcotry. 
 
@@ -41,6 +41,7 @@ If you want to add a new command, you do not need to add all three scripts:
 * `install_[command].sh`
 * `setup_[command].sh`
 * `dotfiles_[command].sh`
+
 You only need to add the scripts you require. The others will be searched for in
 their respective directories, and when they are not found, the script will
 simply continue.
