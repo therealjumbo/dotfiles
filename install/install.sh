@@ -70,4 +70,3 @@ sudo apt-get -y install keychain xclip keepassx
 # packages required to build contiki, not into contiki anymore, no longer like 802.15.4
 # CONTIKI="build-essential binutils-msp430 gcc-msp430 msp430-libc binutils-avr gcc-avr gdb-avr avr-libc avrdude openjdk-7-jdk openjdk-7-jre ant libncurses5-dev doxygen git"
 # sudo apt-get -y install $CONTIKI
-
