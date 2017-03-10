@@ -54,6 +54,7 @@ Other things to setup (optional) after this runs:
     * Media player indicator
     * No topleft hot corner
     * Windownavigator
+    * Removable drive menu
 * remap CAPS to Ctrl
 * generate new ssh keys for system
 * setup keypass
