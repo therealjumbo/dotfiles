@@ -10,8 +10,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
     Plug 'vim-airline/vim-airline'
 
+    Plug 'tpope/vim-sleuth'
+
     "Plug 'arakashic/chromatica.nvim'
-    Plug 'Valloric/YouCompleteMe'
+    "Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
