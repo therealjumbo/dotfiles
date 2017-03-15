@@ -28,8 +28,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     " rust plugin for syntastic
     Plug 'rust-lang/rust.vim'
 
-    "Plug 'arakashic/chromatica.nvim'
-    "Plug 'Valloric/YouCompleteMe'
+    " plugin for toml syntax
+    Plug 'cespare/vim-toml'
 
 call plug#end()
 
