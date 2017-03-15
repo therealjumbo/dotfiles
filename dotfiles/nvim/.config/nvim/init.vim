@@ -4,13 +4,29 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+    " Strip whitespace by command
     Plug 'ntpeters/vim-better-whitespace'
 
+    " solarized for true color
     Plug 'frankier/neovim-colors-solarized-truecolor-only'
 
+    " lightweight status line
     Plug 'vim-airline/vim-airline'
 
+    " auto detect indent level
     Plug 'tpope/vim-sleuth'
+
+    " rust cargo commands
+    Plug 'timonv/vim-cargo'
+
+    " rust code completion and navigation
+    Plug 'racer-rust/vim-racer'
+
+    " generic syntax checker
+    Plug 'vim-syntastic/syntastic'
+
+    " rust plugin for syntastic
+    Plug 'rust-lang/rust.vim'
 
     "Plug 'arakashic/chromatica.nvim'
     "Plug 'Valloric/YouCompleteMe'
@@ -31,19 +47,8 @@ set hidden
 " airline displays all open buffer names on top if only one tab open
 let g:airline#extensions#tabline#enabled = 1
 
-"let g:ycm_confirm_extra_conf = 0
-
-" set the location of libclang for chromatica
-"let g:chromatica#libclang_path='/home/jeffzignego/.local/share/nvim/plugged/YouCompleteMe/third_party/ycmd/'
-" start chromatica at startup
-"let g:chromatica#enable_at_startup=1
-"let g:chromatica#dotclangfile_search_path='/home/jeffzignego/workspace/wireless/map-42_build/debug/'
-
-" open a NERDTree automatically when vim starts up if no files were specified
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" close vim if the only window left open is a NERDTree
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" :RustFmt on save
+let g:rustfmt_autosave = 1
 
 "convert tabs to spaces
 set expandtab
