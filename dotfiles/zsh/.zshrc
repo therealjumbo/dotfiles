@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/home/jeff/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/home/jeff/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -130,4 +130,3 @@ SAVEHIST=500000
 #eval `keychain --eval --agents ssh id_rsa`
 
 alias lua=lua5.3
-
