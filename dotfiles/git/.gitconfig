@@ -24,6 +24,9 @@
     prompt = false
     trustExitCode = true
 
+[difftool "vimdiff"]
+    path = nvim
+
 [merge]
     tool = vimdiff
     conflictstyle = diff3
@@ -31,6 +34,9 @@
 [mergetool]
     prompt = false
     trustExitCode = true
+
+[mergetool "vimdiff"]
+    path = nvim
 
 [push]
     # `git push origin` to push current branch
