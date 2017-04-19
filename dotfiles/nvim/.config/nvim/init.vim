@@ -16,6 +16,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     " auto detect indent level
     Plug 'tpope/vim-sleuth'
 
+    Plug 'kergoth/vim-bitbake'
+
     " rust cargo commands
     Plug 'timonv/vim-cargo'
 
@@ -118,3 +120,7 @@ set undodir=~/.vim/tmp//,
 
 " search for tags in this directory or in any parent dir up to ~/workspace
 set tags=./tags;~/workspace
+
+if &diff
+    highlight! link DiffText MatchParen
+endif

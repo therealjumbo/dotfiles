@@ -1,6 +1,6 @@
 [user]
-    name = Jeff Zignego
-    email = jlzignego@gmail.com
+#    name =
+#    email =
 
 [color]
     diff = auto
@@ -9,7 +9,7 @@
     pager = true
 
 [core]
-    editor = vim
+    editor = nvim
 
     excludesfile = ~/.gitignore_global
 
@@ -24,6 +24,9 @@
     prompt = false
     trustExitCode = true
 
+[difftool "vimdiff"]
+    path = nvim
+
 [merge]
     tool = vimdiff
     conflictstyle = diff3
@@ -31,6 +34,9 @@
 [mergetool]
     prompt = false
     trustExitCode = true
+
+[mergetool "vimdiff"]
+    path = nvim
 
 [push]
     # `git push origin` to push current branch
@@ -59,4 +65,3 @@
 
 [credential]
     helper = cache --timeout=14400
-
