@@ -25,15 +25,15 @@ sudo apt-get -y install umlet doxygen markdown
 
 # stuff I picked up at work
 sudo apt-get -y install graphviz tree ack-grep cmake exuberant-ctags clang-format colordiff
+# more stuff I need at work for supporting other teams
+sudo apt-get -y install jsonlint shellcheck
 
 # install rr from mozilla
 #cd /tmp
 #wget https://github.com/mozilla/rr/releases/download/4.2.0/rr-4.2.0-Linux-$(uname -m).deb
 #sudo dpkg -i rr-4.2.0-Linux-$(uname -m).deb
 
-# this was a fix in 14.04, now on 16.04 TODO verify
-# sudo apt-get -y install apparmor # bug fix
-sudo apt-get -y install docker.io
+sudo apt-get -y install docker-ce
 
 # the default vim does not support the system clipboard, alias is in .zshrc
 sudo apt-get -y install vim-gtk3
@@ -67,6 +67,6 @@ sudo apt-get -y install keychain xclip keepassx
 # PYTHON_DATABASE="postgresql-server-dev-all libpq-dev"
 # sudo apt-get -y install $WEB $PYTHON_DATABASE
 
-# packages required to build contiki, not into contiki anymore, no longer like 802.15.4
+# packages required to build contiki, not into contiki anymore, no longer like 802.15.4 :D
 # CONTIKI="build-essential binutils-msp430 gcc-msp430 msp430-libc binutils-avr gcc-avr gdb-avr avr-libc avrdude openjdk-7-jdk openjdk-7-jre ant libncurses5-dev doxygen git"
 # sudo apt-get -y install $CONTIKI

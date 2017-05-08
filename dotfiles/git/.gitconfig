@@ -13,10 +13,6 @@
 
     excludesfile = ~/.gitignore_global
 
-    # ignore file permission changes
-    filemode = false
-    trustctime = false
-
 [diff]
     tool = vimdiff
 

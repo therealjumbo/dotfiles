@@ -16,6 +16,10 @@ call plug#begin('~/.local/share/nvim/plugged')
     " auto detect indent level
     Plug 'tpope/vim-sleuth'
 
+    " git status in the gutter
+    Plug 'airblade/vim-gitgutter'
+
+    " bitbake file highlighting
     Plug 'kergoth/vim-bitbake'
 
     " rust cargo commands
