@@ -1,4 +1,6 @@
 [user]
+# Put this info in $XDG_CONFIG_HOME/git/config, if that var is not set or empty
+# use $HOME/.config/git/config instead
 #    name =
 #    email =
 
