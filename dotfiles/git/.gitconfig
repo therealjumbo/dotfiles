@@ -47,7 +47,7 @@
     cl = clone
     ci = commit
     st = status
-    br = branch -av
+    br = branch
     unstage = reset HEAD --
     dc = diff --cached
     df = diff
