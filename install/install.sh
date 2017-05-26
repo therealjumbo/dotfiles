@@ -25,6 +25,8 @@ sudo apt-get -y install umlet doxygen markdown
 
 # stuff I picked up at work
 sudo apt-get -y install graphviz tree ack-grep cmake exuberant-ctags clang-format colordiff
+# development lib for cmake dev
+sudo apt-get -y install libncurses5-dev
 # more stuff I need at work for supporting other teams
 sudo apt-get -y install jsonlint shellcheck
 
