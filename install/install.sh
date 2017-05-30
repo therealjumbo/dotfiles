@@ -25,10 +25,12 @@ sudo apt-get -y install umlet doxygen markdown
 
 # stuff I picked up at work
 sudo apt-get -y install graphviz tree ack-grep cmake exuberant-ctags clang-format colordiff
+sudo apt-get -y install jsonlint shellcheck
 sudo pip install conan
 sudo pip install polysquare-cmake-linter
-# more stuff I need at work for supporting other teams
-sudo apt-get -y install jsonlint shellcheck
+
+# development lib for cmake dev
+sudo apt-get -y install libncurses5-dev
 
 # install rr from mozilla
 #cd /tmp
