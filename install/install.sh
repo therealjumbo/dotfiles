@@ -15,7 +15,7 @@ sudo apt-get -y install perl vim git zsh tmux stow dconf-cli
 # all python packages that we need
 # PYTHON="python python-pip python-dev python-flake8 python-mccabe python-coverage" # python2 is no longer needed TODO make sure
 sudo apt-get -y install python3 python3-pip python3-dev python3-flake8 python3-mccabe python3-coverage
-sudo apt-get -y install python-virtualenv pylint
+sudo apt-get -y install python3-venv
 
 # network tools
 sudo apt-get -y install wget curl tshark wireshark lua5.3
