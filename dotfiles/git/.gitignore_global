@@ -17,3 +17,7 @@ tags
 
 # html markdown previews
 README.html
+
+# python stuff
+.ve/
+build/
