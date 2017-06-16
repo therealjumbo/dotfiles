@@ -105,6 +105,9 @@ set nowrap " don't wrap text
 " strip whitespace from these filetypes on save
 autocmd FileType c,h,cpp,hpp,cxx,py,lua,java,sh,bat,ps1,md autocmd BufWritePre <buffer> StripWhitespace
 
+" show these non-normal whitespace chars as unicode chars
+set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
+
 " vimsplit modifications
 " easier navigation
 nnoremap <C-J> <C-W><C-J>
