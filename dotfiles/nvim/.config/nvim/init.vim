@@ -117,6 +117,8 @@ nnoremap <C-H> <C-W><C-H>
 " more natural split opening
 set splitbelow
 set splitright
+" close a buffer without closing the current split
+nnoremap <leader>d :b#\|bd #
 
 " put backups in global dir
 set backupdir=~/.vim/tmp//,
