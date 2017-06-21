@@ -19,6 +19,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     " git status in the gutter
     Plug 'airblade/vim-gitgutter'
 
+    " vim unimpaired for various shortcuts
+    Plug 'tpope/vim-unimpaired'
+
     " bitbake file highlighting
     Plug 'kergoth/vim-bitbake'
 
