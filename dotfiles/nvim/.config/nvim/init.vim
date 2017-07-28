@@ -19,6 +19,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     " git status in the gutter
     Plug 'airblade/vim-gitgutter'
 
+    " vim unimpaired for various shortcuts
+    Plug 'tpope/vim-unimpaired'
+
     " bitbake file highlighting
     Plug 'kergoth/vim-bitbake'
 
@@ -103,7 +106,10 @@ set visualbell
 set nowrap " don't wrap text
 
 " strip whitespace from these filetypes on save
-autocmd FileType c,h,cpp,hpp,cxx,py,lua,java,sh,bat,ps1,md autocmd BufWritePre <buffer> StripWhitespace
+autocmd FileType c,h,cpp,hpp,cxx,py,lua,java,sh,bat,ps1,md,txt autocmd BufWritePre <buffer> StripWhitespace
+
+" show these non-normal whitespace chars as unicode chars
+set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
 
 " vimsplit modifications
 " easier navigation
@@ -114,6 +120,8 @@ nnoremap <C-H> <C-W><C-H>
 " more natural split opening
 set splitbelow
 set splitright
+" close a buffer without closing the current split
+nnoremap <leader>d :b#\|bd #
 
 " put backups in global dir
 set backupdir=~/.vim/tmp//,
@@ -128,3 +136,13 @@ set tags=./tags;~/workspace
 if &diff
     highlight! link DiffText MatchParen
 endif
+
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0

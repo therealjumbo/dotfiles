@@ -18,5 +18,6 @@ tags
 # html markdown previews
 README.html
 
-# python venv
-.ve
+# python stuff
+.ve/
+build/
