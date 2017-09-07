@@ -23,6 +23,9 @@ sudo apt-get -y install wget curl tshark wireshark lua5.3
 # software engineering tools
 sudo apt-get -y install umlet doxygen markdown
 
+# debian packaging
+sudo apt-get install dpkg dpkg-cross dpkg-dev dpkg-repack dpkg-sig
+
 # stuff I picked up at work
 sudo apt-get -y install graphviz tree ack-grep cmake exuberant-ctags clang-format colordiff
 sudo apt-get -y install jsonlint shellcheck
