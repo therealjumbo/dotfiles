@@ -4,19 +4,19 @@
 
 pushd ~/setup_home/dotfiles
 
-stow --target=$HOME stow
+stow --target="$HOME" stow
 
-stow --target=$HOME ack
+stow --target="$HOME" ack
 
-stow --target=$HOME git
+stow --target="$HOME" git
 
-stow --target=$HOME nvim
+stow --target="$HOME" nvim
 
-stow --target=$HOME tmux
+stow --target="$HOME" tmux
 
-stow --target=$HOME vim
+stow --target="$HOME" vim
 
-stow --target=$HOME zsh
+stow --target="$HOME" zsh
 
 stow --target="$HOME" ssh
 
