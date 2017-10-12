@@ -18,6 +18,8 @@ stow --target=$HOME vim
 
 stow --target=$HOME zsh
 
+stow --target="$HOME" ssh
+
 popd
 
 exit
