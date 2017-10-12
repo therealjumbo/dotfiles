@@ -146,3 +146,7 @@ SSH_AUTH_SOCK="$(netstat -xl | grep -oE '/run/user/[0-9]+/keyring/ssh$')"
 
 # workaround for bug in neovim https://github.com/neovim/neovim/issues/6982
 export VTE_VERSION=0
+
+# load zsh completion for docker-compose
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
