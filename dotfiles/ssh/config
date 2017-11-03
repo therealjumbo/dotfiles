@@ -3,4 +3,4 @@ HostKeyAlgorithms ssh-rsa
 
 Host 169.254.1.100
   StrictHostKeyChecking no
-  UserKnownHostsFile=/dev/null
+  UserKnownHostsFile /dev/null
