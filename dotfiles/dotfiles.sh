@@ -18,7 +18,7 @@ stow --target="$HOME" vim
 
 stow --target="$HOME" zsh
 
-stow --target="$HOME" ssh
+stow --target="$HOME/.ssh/" ssh
 
 popd
 
