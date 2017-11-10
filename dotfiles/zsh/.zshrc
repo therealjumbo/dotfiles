@@ -5,7 +5,7 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pygmalion"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,7 +49,10 @@ ZSH_THEME="pygmalion"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  vi-mode
+)
 
 # User configuration
 
@@ -106,7 +109,7 @@ done
 
 # variable for tmuxinator
 export SHELL='/usr/bin/zsh'
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # go path
 export GOPATH=~/workspace/go
@@ -150,3 +153,6 @@ export VTE_VERSION=0
 # load zsh completion for docker-compose
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+
+# decrease vi-mode switch time from 0.4 sec to 0.1 sec
+export KEYTIMEOUT=1
