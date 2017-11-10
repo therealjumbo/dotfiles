@@ -1,5 +1,5 @@
 if &compatible
-  set nocompatible
+    set nocompatible
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
