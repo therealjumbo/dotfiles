@@ -22,6 +22,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     " vim unimpaired for various shortcuts
     Plug 'tpope/vim-unimpaired'
 
+    " unlock undotree
+    Plug 'mbbill/undotree'
+
     " bitbake file highlighting
     Plug 'kergoth/vim-bitbake'
 
@@ -123,12 +126,16 @@ set splitright
 " close a buffer without closing the current split
 nnoremap <leader>d :b#\|bd #
 
+" open undo tree with F5
+nnoremap <F5> :UndotreeToggle<cr>
+
 " put backups in global dir
-set backupdir=~/.vim/tmp//,
+set backupdir=~/.vim/tmp/backupdir//,
 " put swap files in global dir
-set directory=~/.vim/tmp//,
+set directory=~/.vim/tmp/swapdir//,
 " put undo files in global dir
-set undodir=~/.vim/tmp//,
+set undodir=~/.vim/tmp/undodir//,
+set undofile
 
 " search for tags in this directory or in any parent dir up to ~/workspace
 set tags=./tags;~/workspace
