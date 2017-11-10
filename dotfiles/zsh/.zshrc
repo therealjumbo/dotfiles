@@ -147,9 +147,6 @@ export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gn
 SSH_AUTH_SOCK="$(netstat -xl | grep -oE '/run/user/[0-9]+/keyring/ssh$')"
 [ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
 
-# workaround for bug in neovim https://github.com/neovim/neovim/issues/6982
-export VTE_VERSION=0
-
 # load zsh completion for docker-compose
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
