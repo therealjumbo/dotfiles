@@ -130,9 +130,7 @@ unsetopt autopushd
 HISTSIZE=500000
 SAVEHIST=500000
 
-#eval `keychain --eval --agents ssh id_rsa`
-
-alias lua=lua5.3
+alias psc='ps xawf -eo pid,user,cgroup,args'
 
 # rust stuff
 export PATH="$HOME/.cargo/bin:$PATH"
