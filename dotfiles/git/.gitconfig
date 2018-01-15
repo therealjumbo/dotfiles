@@ -59,8 +59,8 @@
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
-	# run the correct command if user types 'git git status'
-	git = !exec git
+    # run the correct command if user types 'git git status'
+    git = !exec git
 
 [credential]
     helper = cache --timeout=14400
