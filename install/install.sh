@@ -8,10 +8,12 @@ sudo apt-get -y upgrade
 sudo apt-get -y install gcc gdb make automake cmake valgrind
 sudo apt-get -y install llvm clang
 sudo apt-get -y install flawfinder splint
+sudo apt-get -y install sloccount
 
 # various system tools
 sudo apt-get -y install perl cpanminus vim git zsh tmux stow dconf-cli git-email
-sudo apt-get -y libtool libtool-bin libarchive-dev libarchive13 libcurl4-openssl-dev libssl-dev libgpgme11 libgpgme11-dev
+sudo apt-get -y libtool libtool-bin libcurl4-openssl-dev libssl-dev libgpgme11 libgpgme11-dev
+# 16.04 currently needs backports for libarchive-dev libarchive13, apt-cache policy <package-name> to check avail
 
 # all python packages that we need
 # PYTHON="python python-pip python-dev python-flake8 python-mccabe python-coverage" # python2 is no longer needed TODO make sure
