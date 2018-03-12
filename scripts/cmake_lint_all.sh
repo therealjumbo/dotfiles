@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "$1"
-find . -type f -print0 -name "$2" |
+find . -type f -name "$2" -print0 |
 while read -d '' file
 do
     echo "$file"
