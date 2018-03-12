@@ -94,6 +94,8 @@ alias v='xclip -o'
 alias cs='xclip -selection clipboard'
 alias vs='xclip -o -selection clipboard'
 alias dirs='dirs -v'
+alias psc='ps xawf -eo pid,user,cgroup,args'
+alias info='info --vi-keys'
 
 for filename in ~/.zshrc.d/*.sh(.N); do
     if [ -e $filename ]
@@ -130,9 +132,6 @@ unsetopt autopushd
 HISTSIZE=500000
 SAVEHIST=500000
 
-#eval `keychain --eval --agents ssh id_rsa`
-
-alias lua=lua5.3
 
 # rust stuff
 export PATH="$HOME/.cargo/bin:$PATH"
