@@ -11,7 +11,7 @@ sudo apt-get -y install flawfinder splint
 sudo apt-get -y install sloccount
 
 # various system tools
-sudo apt-get -y install perl cpanminus vim git zsh tmux stow dconf-cli git-email
+sudo apt-get -y install perl cpanminus vim git zsh tmux stow dconf-cli git-email htop
 sudo apt-get -y libtool libtool-bin libcurl4-openssl-dev libssl-dev libgpgme11 libgpgme11-dev
 # 16.04 currently needs backports for libarchive-dev libarchive13, apt-cache policy <package-name> to check avail
 
@@ -78,5 +78,5 @@ sudo apt-get -y install keychain xclip keepassx
 # sudo apt-get -y install $WEB $PYTHON_DATABASE
 
 # packages required to build contiki, not into contiki anymore, no longer like 802.15.4 :D
-# CONTIKI="build-essential binutils-msp430 gcc-msp430 msp430-libc binutils-avr gcc-avr gdb-avr avr-libc avrdude openjdk-7-jdk openjdk-7-jre ant libncurses5-dev doxygen git"
+# CONTIKI="build-essential binutils-msp430 gcc-msp430 msp430-libc binutils-avr gcc-avr gdb-avr avr-libc avrdude openjdk-7-jdk openjdk-7-jre ant libncurses5-dev"
 # sudo apt-get -y install $CONTIKI
