@@ -3,4 +3,3 @@
     * neovim now setup, but not complete with all plugins
     * vim should be cleaned up a little bit more, but is in maintenance mode
 * fix pushd/popd in zshrc, I'm not sure how I want this to work yet
-* clean up install script, has lots of old junk in it
