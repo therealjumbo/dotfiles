@@ -17,7 +17,6 @@ function file_exists_and_is_reg() {
 function run_script() {
     if [ "$(file_exists_and_is_reg "$1")" -eq "1" ]; then
         echo "The script: $1 exists"
-        chmod a+x "$1"
         "$1"
     else
         echo "The script $1 does not exist"
