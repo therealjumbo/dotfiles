@@ -22,5 +22,5 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 # set zsh as the default shell
 sudo chsh -s $(which zsh) $(whoami)
 
-# register the gitlab runner, gitlab no longer used
-# sudo gitlab-ci-multi-runner register
+sudo usermod -aG docker $(whoami)
+sudo usermod -aG wireshark $(whoami)
