@@ -4,3 +4,5 @@
   buggy, so I probably won't even bother until then.
 * I don't know if it makes sense to use this repo on a server as opposed to a
   workstation, I'll probably figure that out when my SOHO server arrives.
+* install rustup and rust, I would like to start using rust as a tech demo
+* install go, I don't have any current plans to learn go, although this might be fun
