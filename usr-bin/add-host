@@ -1,5 +1,7 @@
-KEY="PUT_FINGERPRINT_HERE";
-ssh-keyscan -t rsa PUT_URL_OR_IP_HERE > key.tmp;
+#!/bin/bash
+
+KEY="$1";
+ssh-keyscan -t rsa "$2" > key.tmp;
 KEY_CMP=$(ssh-keygen -lf key.tmp | cut -f 2 -d ' ');
 if [ "$KEY" = "$KEY_CMP" ]; then
     mkdir -p "${HOME}/.ssh";
