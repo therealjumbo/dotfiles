@@ -104,17 +104,8 @@ for filename in ~/.zshrc.d/*.sh(.N); do
     fi
 done
 
-# export DATABASE_URL=postgres:///$(whoami)
-
-### Added by the Heroku Toolbelt
-# export PATH="/usr/local/heroku/bin:$PATH"
-
-# variable for tmuxinator
-export SHELL='/usr/bin/zsh'
-export EDITOR='nvim'
-
 # go path
-export GOPATH=~/workspace/go
+export GOPATH=~/proj/go
 
 # history specific options
 setopt hist_allow_clobber
