@@ -32,6 +32,9 @@ home directory.
 
 5. Each file in `./usr-bin/` is symlinked into `/usr/local/bin/`
 
+6. In order for the default shell change to take effect, you must logout and log
+back in
+
 ## Notes
 Other things to setup (optional) after this runs:
 * system proxy
