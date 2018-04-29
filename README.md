@@ -5,57 +5,37 @@ scripts. The included `run.sh` script runs other scripts that
 install a bunch of packages, run any setup instructions,  symlinking the
 dotfiles in this repo to the apropriate location.
 
-### Current commands supported:
-* `jeff`
-
-## Installation
+## Install
 
 ``` bash
 git clone https://github.com:therealjumbo/setup_home.git
-cd ~/setup_home/
-chmod a+x run.sh
+cd setup_home
 ```
 
-## Operation
+## Use
 ``` bash
-./run.sh [commands]
+./run.sh
 ```
 
 1. `./run.sh` should be the script that the user runs normally, although the other
 scripts can be run independently.
 
-2. Next, the `./install/install.sh` script is run followed by each
-`./install/install_[command].sh`. These scripts are for installing packages and
-other software. 
+2. The `./install/install.sh` script is run. This script just installs software
+packages.
 
-3. Next, the `./setup/setup.sh` script is run followed by each
-`./setup/setup_[command].sh`. These scripts are for any setup commands that
-do not involve installing software or symlinking dotfiles. 
+3. The `./setup/setup.sh` script is run. This script is for any setup 
+commands that do not involve installing software or symlinking dotfiles. 
 
-4. Next, the `~/setup_home/dotfiles/dotfiles.sh` script is run followed by each
-`./dotfiles/dotfiles_[command].sh`. These scripts are for all
-symlinking the dotfiles inside this repo to the appropriate location in the home
-direcotry. 
+4. The `./dotfiles/dotfiles.sh` script is run. This script is
+for symlinking the dotfiles inside this repo to the appropriate location in the 
+home directory. 
 
-If you want to add a new command, you do not need to add all three scripts:
-* `install_[command].sh`
-* `setup_[command].sh`
-* `dotfiles_[command].sh`
-
-You only need to add the scripts you require. The others will be searched for in
-their respective directories, and when they are not found, the script will
-simply continue.
+5. Each file in `./usr-bin/` is symlinked into `/usr/local/bin/`
 
 ## Notes
 Other things to setup (optional) after this runs:
 * system proxy
 * apt-get proxy
-* gnome extensions
-    * Alternatetab
-    * Media player indicator
-    * No topleft hot corner
-    * Windownavigator
-    * Removable drive menu
 * remap CAPS to Ctrl
 * generate new ssh keys for system
 * setup keypass
