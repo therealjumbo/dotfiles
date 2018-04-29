@@ -24,4 +24,5 @@ cd ~/
 # grab oh-my-zsh
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | bash
 # set zsh as the default shell
+echo "Enter $(whoami)'s password for chsh"
 chsh -s $(which zsh)
