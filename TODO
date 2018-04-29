@@ -1,5 +1,6 @@
-* setup keyring/keychain for ssh keys, whatever that entails (unneccessary with gnome3?)
-* vim plugins/setup fixed
-    * neovim now setup, but not complete with all plugins
-    * vim should be cleaned up a little bit more, but is in maintenance mode
 * fix pushd/popd in zshrc, I'm not sure how I want this to work yet
+* debian stable probably won't be supported until the kernel is >=4.13 due to a
+  bug in the overlay2 filesystem and instead you can use aufs which is also
+  buggy, so I probably won't even bother until then.
+* I don't know if it makes sense to use this repo on a server as opposed to a
+  workstation, I'll probably figure that out when my SOHO server arrives.
