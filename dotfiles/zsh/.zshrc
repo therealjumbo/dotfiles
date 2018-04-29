@@ -97,13 +97,6 @@ alias dirs='dirs -v'
 alias psc='ps xawf -eo pid,user,cgroup,args'
 alias info='info --vi-keys'
 
-for filename in ~/.zshrc.d/*.sh(.N); do
-    if [ -e $filename ]
-    then
-        source $filename
-    fi
-done
-
 # go path
 export GOPATH=~/proj/go
 
@@ -127,15 +120,6 @@ SAVEHIST=500000
 # rust stuff
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
-
-# gnome-keyring-daemon creates the env var SSH_AUTH_SOCK with its value when it
-# starts, if you login through ssh, and create a new terminal (e.g. in tmux)
-# that env var is no longer visible. ssh-add needs this variable set in order to
-# find your key from ssh-agent, so we find the value and export it here in case
-# we are logging in through ssh, in order for this to work, the keyring must be
-# unlocked at least once locally before the remote session can use it.
-SSH_AUTH_SOCK="$(netstat -xl | grep -oE '/run/user/[0-9]+/keyring/ssh$')"
-[ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
 
 # load zsh completion for docker-compose
 fpath=(~/.zsh/completion $fpath)
