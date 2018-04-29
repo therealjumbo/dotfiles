@@ -17,7 +17,7 @@ sudo apt-get -y libtool libtool-bin libcurl4-openssl-dev libssl-dev libgpgme11 l
 # all python packages that we need
 sudo apt-get -y install python3 python3-pip python3-dev python3-flake8 python3-mccabe python3-coverage
 sudo apt-get -y install python3-venv
-sudo pip install polysquare-cmake-linter
+sudo pip3 install polysquare-cmake-linter
 
 # network tools
 sudo apt-get -y install wget curl tshark wireshark lua5.1

@@ -1,15 +1,13 @@
 #!/bin/bash
 
-find . -type f -name "CMakeList.txt" -print0 |
+find . -type f -name "CMakeLists.txt" -print0 |
 while read -rd '' file
 do
-    echo "$file"
     polysquare-cmake-linter "$file" --indent 2 --blacklist style/space_before_func style/set_var_case style/uppercase_args style/lowercase_func style/argument_align unused/var_in_func
 done
 
-find . -type f -name "*" -print0 |
+find . -type f -name "*.cmake" -print0 |
 while read -rd '' file
 do
-    echo "$file"
     polysquare-cmake-linter "$file" --indent 2 --blacklist style/space_before_func style/set_var_case style/uppercase_args style/lowercase_func style/argument_align unused/var_in_func
 done
