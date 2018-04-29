@@ -83,4 +83,4 @@ for ARG in "$@"; do
 done
 
 # symlink user made scripts to /usr/local/bin so they are available on the PATH
-stow --target=/usr/local/bin usr-bin
+sudo stow --target=/usr/local/bin usr-bin
