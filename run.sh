@@ -1,33 +1,6 @@
 #!/bin/bash
 set -ex
 
-function file_exists_and_is_reg() {
-    if [ -e "$1" ] && [ -f "$1" ]; then
-        local ret="1"
-    else
-        local ret="0"
-    fi
-    echo "$ret"
-}
-
-# run a script
-# Input:
-#   $1 is the name (including absolute or relative path) of the script to run
-#   $2 boolean, if true script will return and not abort, if false will abort
-#       if error
-function run_script() {
-    if [ "$(file_exists_and_is_reg "$1")" -eq "1" ]; then
-        echo "The script: $1 exists"
-        "$1"
-    else
-        echo "The script $1 does not exist"
-        if [ "$2" -ne "1" ]; then
-            exit 1
-        fi
-    fi
-    echo "$ret"
-}
-
 # ask for password upfront
 sudo -v
 
@@ -38,20 +11,7 @@ while true;
     kill -0 "$$" || exit;
 done 2>/dev/null &
 
-# run the generic install script
-# if the install.sh script does not exist, or is not a regular file then abort
-INSTALL="./install/install.sh"
-run_script "$INSTALL" "0"
-
-# run the generic setup script
-# if the setup.sh script does not exist, or is not a regular file then abort
-SETUP="./setup/setup.sh"
-run_script "$SETUP" "0"
-
-# run the generic dotfiles setup script
-# if the setup.sh script does not exist, or is not a regular file then abort
-DOTFILES="./dotfiles/dotfiles.sh"
-run_script "$DOTFILES" "0"
-
-# symlink user made scripts to /usr/local/bin so they are available on the PATH
-sudo stow --target=/usr/local/bin usr-bin
+./install/install.sh || exit 1
+./setup/setup.sh || exit 1
+./dotfiles/dotfiles.sh || exit 1
+./usr/usr.sh || exit 1
