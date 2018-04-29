@@ -1,9 +1,8 @@
 # setup_home
-==========
 This repository includes all of my current custom dotfiles and setup/install
 scripts. The included `run.sh` script runs other scripts that
 install a bunch of packages, run any setup instructions,  symlinking the
-dotfiles in this repo to the apropriate location.
+dotfiles in this repo to the appropriate location.
 
 ## Install
 
@@ -35,8 +34,10 @@ home directory.
 6. In order for the default shell change to take effect, you must logout and log
 back in
 
+
 ## Notes
 Other things to setup (optional) after this runs:
+* Site modifications (e.g. `http_proxy`) should go into `/etc/profile.d/` or into `~/profile.d/`
 * system proxy
 * apt-get proxy
 * remap CAPS to Ctrl
