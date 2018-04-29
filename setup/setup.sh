@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 mkdir -p ~/.vim/tmp/
 # setup vim-plug
@@ -20,7 +21,6 @@ mkdir -p ~/.fonts
 cp source-code-pro-1.017R/OTF/*.otf ~/.fonts/
 fc-cache -f -v
 
-cd ~/ || exit 1
 # grab oh-my-zsh
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | bash
 # set zsh as the default shell

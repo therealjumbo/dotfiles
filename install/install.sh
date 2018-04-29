@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # bring the system up to date
 sudo apt-get -y update

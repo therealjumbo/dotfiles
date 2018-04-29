@@ -1,8 +1,5 @@
 #!/bin/bash
-# This script creates symlinks from the home directory to any desired dotfiles
-# in ~/setup_home/dotfiles/
-
-pushd ~/setup_home/dotfiles
+set -e
 
 stow --target="$HOME" stow
 
@@ -27,7 +24,3 @@ stow --target="$HOME/.ssh/" ssh
 [ -f "$HOME/.profile" ] && \
 mv "$HOME/.profile" "$HOME/.profile.old"
 stow --target="$HOME" profile
-
-popd
-
-exit

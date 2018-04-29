@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -e
 
 # ask for password upfront
 sudo -v
@@ -12,6 +12,9 @@ while true;
 done 2>/dev/null &
 
 ./install/install.sh || exit 1
+
 ./setup/setup.sh || exit 1
+
 ./dotfiles/dotfiles.sh || exit 1
+
 ./usr/usr.sh || exit 1
