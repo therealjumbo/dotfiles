@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+pushd ./dotfiles
 stow --target="$HOME" stow
 
 stow --target="$HOME" ack
@@ -24,3 +25,5 @@ stow --target="$HOME/.ssh/" ssh
 [ -f "$HOME/.profile" ] && \
 mv "$HOME/.profile" "$HOME/.profile.old"
 stow --target="$HOME" profile
+
+popd
