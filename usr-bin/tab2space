@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -name '*.patch' ! -type d -exec bash -c 'expand -t 4 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
+find . -name '$1' -type f -exec bash -c 'expand -t 4 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
