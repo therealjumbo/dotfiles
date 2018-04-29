@@ -17,6 +17,16 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+# load this user's site modifications
+if [ -d ~/.profile.d ]; then
+    for filename in ~/.profile.d/*.sh; do
+	if [ -r "$filename" ]; then
+	    # shellcheck source=/dev/null
+	    source "$filename"
+	fi
+    done
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
