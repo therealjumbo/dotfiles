@@ -1,8 +1,11 @@
 # setup_home
 This repository includes all of my current custom dotfiles and setup/install
 scripts. The included `run.sh` script runs other scripts that
-install a bunch of packages, run any setup instructions,  symlinking the
+install a bunch of packages, run any setup instructions, and symlink the
 dotfiles in this repo to the appropriate location.
+
+## Supported OS's
+* Ubuntu Bionic Beaver 18.04
 
 ## Install
 
@@ -29,10 +32,11 @@ commands that do not involve installing software or symlinking dotfiles.
 for symlinking the dotfiles inside this repo to the appropriate location in the 
 home directory. 
 
-5. Each file in `./usr-bin/` is symlinked into `/usr/local/bin/`
+5. The `./usr/usr.sh` script is run. Each file in `./usr/bin/` is symlinked into
+`/usr/local/bin/`.
 
 6. In order for the default shell change to take effect, you must logout and log
-back in
+back in once the scripts are finished.
 
 
 ## Notes
