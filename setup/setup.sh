@@ -1,9 +1,14 @@
 #!/bin/bash
 
 mkdir -p ~/.vim/tmp/
+# setup vim-plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 sudo groupadd docker
 sudo groupadd wireshark
+sudo usermod -aG docker $(whoami)
+sudo usermod -aG wireshark $(whoami)
 sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
 
 # install source code pro
@@ -14,13 +19,9 @@ unzip 1.017R.zip
 mkdir -p ~/.fonts
 cp source-code-pro-1.017R/OTF/*.otf ~/.fonts/
 fc-cache -f -v
-cd  ~/
 
 cd ~/
 # grab oh-my-zsh
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | bash
 # set zsh as the default shell
-sudo chsh -s $(which zsh) $(whoami)
-
-sudo usermod -aG docker $(whoami)
-sudo usermod -aG wireshark $(whoami)
+chsh -s $(which zsh)
