@@ -127,3 +127,5 @@ autoload -Uz compinit && compinit -i
 
 # decrease vi-mode switch time from 0.4 sec to 0.1 sec
 export KEYTIMEOUT=1
+
+eval "$(keychain --eval id_rsa)"

@@ -37,13 +37,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-keychain id_rsa
-[ -z "$HOSTNAME" ] && HOSTNAME=$(uname -n)
+ssh-agent zsh
 
-# shellcheck source=/dev/null
-[ -f "$HOME/.keychain/$HOSTNAME-sh" ] && \
-. "$HOME/.keychain/$HOSTNAME-sh"
-
-# shellcheck source=/dev/null
-[ -f "$HOME/.keychain/$HOSTNAME-sh-gpg" ] && \
-. "$HOME/.keychain/$HOSTNAME-sh-gpg"
+export PATH="$HOME/.cargo/bin:$PATH"
