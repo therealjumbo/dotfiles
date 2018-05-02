@@ -129,3 +129,5 @@ autoload -Uz compinit && compinit -i
 export KEYTIMEOUT=1
 
 eval "$(keychain --eval id_rsa)"
+[ -f ~/.ssh/id_rsa2 ] && \
+  eval "$(keychain --eval id_rsa2)"
