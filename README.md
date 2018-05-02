@@ -40,7 +40,7 @@ back in once the scripts are finished.
 
 
 ## Notes
-Other things to setup (optional) after this runs:
+* this script enables automatic security updates
 * Site modifications (e.g. `http_proxy`) should go into `/etc/profile.d/` or into `~/profile.d/`
 * system proxy
 * apt-get proxy

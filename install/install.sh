@@ -39,3 +39,7 @@ sudo systemctl enable docker
 
 # programs for user convenience
 sudo apt-get -y install keychain xclip keepassxc
+
+# setup automatic security only updates
+sudo apt-get install unattended-upgrades
+sudo dpkg-reconfigure unattended-upgrades
