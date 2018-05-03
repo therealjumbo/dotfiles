@@ -23,6 +23,9 @@
 [difftool "vimdiff"]
     path = nvim
 
+[color "diff"]
+    whitespace = red reverse
+
 [merge]
     tool = vimdiff
     conflictstyle = diff3
