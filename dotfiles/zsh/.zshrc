@@ -96,6 +96,7 @@ alias vs='xclip -o -selection clipboard'
 alias dirs='dirs -v'
 alias psc='ps xawf -eo pid,user,cgroup,args'
 alias info='info --vi-keys'
+alias dr='docker'
 
 # go path
 export GOPATH=~/proj/go
