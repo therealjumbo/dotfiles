@@ -1,0 +1,8 @@
+#!/bin/bash
+
+find . -type f -name "CMakeLists.txt" -print0 |
+while read -rd '' file
+do
+    echo "$file"
+    sed -i '/add_library("_\${PROJECT_NAME}" STATIC \${SRC})'/d "$file"
+done
