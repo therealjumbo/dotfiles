@@ -97,6 +97,7 @@ alias dirs='dirs -v'
 alias psc='ps xawf -eo pid,user,cgroup,args'
 alias info='info --vi-keys'
 alias dr='docker'
+alias g='git'
 
 # go path
 export GOPATH=~/proj/go
