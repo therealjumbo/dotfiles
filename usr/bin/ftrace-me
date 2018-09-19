@@ -1,0 +1,5 @@
+#!/bin/sh
+DEBUGFS=$(grep debugfs /proc/mounts | awk '{ print $2; }')
+echo $$ > "$DEBUGFS/tracing/set_ftrace_pid"
+echo function > "$DEBUGFS/tracing/current_tracer"
+exec "$@"
