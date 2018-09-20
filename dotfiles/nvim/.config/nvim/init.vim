@@ -46,10 +46,14 @@ call plug#begin('~/.local/share/nvim/plugged')
     " plugin for toml syntax
     Plug 'cespare/vim-toml'
 
+    " vimwiki
+    Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " normal filetype detection
+filetype plugin on
 filetype plugin indent on
+syntax on
 
 " syntax highlighting
 if !exists("g:syntax_on")
@@ -156,3 +160,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:vimwiki_list = [{'path': '~/vimwiki/'}]
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
