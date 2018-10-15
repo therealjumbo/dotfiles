@@ -30,6 +30,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
     " bitbake file highlighting
     Plug 'kergoth/vim-bitbake'
+    " cmake file highlighting
+    Plug 'nickhutchinson/vim-cmake-syntax'
 
     " rust cargo commands
     Plug 'timonv/vim-cargo'
