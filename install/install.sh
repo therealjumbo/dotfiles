@@ -15,6 +15,7 @@ sudo apt-get -y install sloccount
 sudo apt-get -y install perl cpanminus vim git zsh tmux stow dconf-cli git-email htop neovim
 sudo apt-get -y libtool libtool-bin libcurl4-openssl-dev libssl-dev libgpgme11 libgpgme11-dev
 sudo apt-get -y lsscsi pciutils
+sudo apt-get -y sysstat iotop
 
 # all python packages that we need
 sudo apt-get -y install python3 python3-pip python3-dev python3-flake8 python3-mccabe python3-coverage
