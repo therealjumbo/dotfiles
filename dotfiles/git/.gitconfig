@@ -54,6 +54,7 @@
     df = diff
     dt = difftool
     brdel = branch -D
+    pap = pull --all --prune
 
     # show all of my configured aliases
     aliases = !git config --list | grep 'alias\\.' | sed '/s/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
