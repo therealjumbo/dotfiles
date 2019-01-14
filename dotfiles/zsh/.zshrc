@@ -98,6 +98,9 @@ alias psc='ps xawf -eo pid,user,cgroup,args'
 alias info='info --vi-keys'
 alias dr='docker'
 alias g='git'
+export WORKSPACE="$HOME/proj"
+alias ws='cd $WORKSPACE && ls'
+alias h='fc -li 1'
 
 # go path
 export GOPATH=~/proj/go
