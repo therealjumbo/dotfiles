@@ -146,8 +146,8 @@ set directory=~/.vim/tmp/swapdir//,
 set undodir=~/.vim/tmp/undodir//,
 set undofile
 
-" search for tags in this directory or in any parent dir up to ~/workspace
-set tags=./tags;~/workspace
+" search for tags in this directory or in any parent dir up to ~/
+set tags=./tags;~/
 
 if &diff
     highlight! link DiffText MatchParen
