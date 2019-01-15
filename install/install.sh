@@ -7,7 +7,7 @@ sudo apt-get -y upgrade
 
 # c dev tools
 sudo apt-get -y install gcc gdb make automake cmake valgrind rr
-sudo apt-get -y install llvm clang
+sudo apt-get -y install llvm clang clang-tools
 sudo apt-get -y install flawfinder splint
 sudo apt-get -y install sloccount
 
@@ -20,7 +20,9 @@ sudo apt-get -y sysstat iotop
 # all python packages that we need
 sudo apt-get -y install python3 python3-pip python3-dev python3-flake8 python3-mccabe python3-coverage
 sudo apt-get -y install python3-venv
-sudo pip3 install polysquare-cmake-linter
+pip3 install --user --upgrade polysquare-cmake-linter
+pip3 install --user --upgrade pynvim
+pip3 install --user --upgrade python-language-server
 
 # network tools
 sudo apt-get -y install wget curl tshark wireshark lua5.1
