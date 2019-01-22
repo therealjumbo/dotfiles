@@ -7,7 +7,7 @@ sudo apt-get -y upgrade
 
 # c dev tools
 sudo apt-get -y install gcc gdb make automake cmake valgrind rr
-sudo apt-get -y install llvm clang clang-tools lldb
+sudo apt-get -y install llvm lldb clang clang-tools clang-format clang-tidy
 sudo apt-get -y install flawfinder splint
 sudo apt-get -y install sloccount
 
@@ -34,7 +34,7 @@ sudo apt-get -y install umlet doxygen markdown
 sudo apt-get -y install dpkg dpkg-cross dpkg-dev dpkg-repack dpkg-sig
 
 # stuff I picked up at work
-sudo apt-get -y install graphviz tree ack-grep exuberant-ctags clang-format colordiff
+sudo apt-get -y install graphviz tree ack-grep exuberant-ctags colordiff jq
 sudo apt-get -y install jsonlint shellcheck
 
 sudo apt-get -y install docker.io
