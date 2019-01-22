@@ -101,6 +101,7 @@ alias g='git'
 export WORKSPACE="$HOME/proj"
 alias ws='cd $WORKSPACE && ls'
 alias h='fc -li 1'
+alias gdb-batch="gdb --batch --ex run --ex bt --ex q --args"
 
 # go path
 export GOPATH=~/proj/go
