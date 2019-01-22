@@ -7,7 +7,7 @@ sudo apt-get -y upgrade
 
 # c dev tools
 sudo apt-get -y install gcc gdb make automake cmake valgrind rr
-sudo apt-get -y install llvm clang clang-tools
+sudo apt-get -y install llvm clang clang-tools lldb
 sudo apt-get -y install flawfinder splint
 sudo apt-get -y install sloccount
 
