@@ -20,7 +20,7 @@ sudo apt-get -y install flawfinder splint
 sudo apt-get -y install sloccount
 
 # various system tools
-sudo apt-get -y install perl cpanminus vim git zsh tmux stow dconf-cli git-email htop neovim
+sudo apt-get -y install perl cpanminus vim git zsh tmux stow dconf-cli git-email htop neovim moreutils
 sudo apt-get -y install libtool libtool-bin libcurl4-openssl-dev libssl-dev libgpgme11 libgpgme11-dev
 sudo apt-get -y install lsscsi pciutils
 sudo apt-get -y install sysstat iotop
