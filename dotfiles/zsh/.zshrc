@@ -122,6 +122,11 @@ unsetopt autopushd
 HISTSIZE=500000
 SAVEHIST=500000
 
+if [ -d "$HOME/.zshrc.d ]; then
+  for filename in $HOME/.zshrc.d/*; do
+    source filename
+  done
+fi
 
 # rust stuff
 export PATH="$HOME/.cargo/bin:$PATH"
