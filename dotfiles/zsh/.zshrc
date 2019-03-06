@@ -122,9 +122,9 @@ unsetopt autopushd
 HISTSIZE=500000
 SAVEHIST=500000
 
-if [ -d "$HOME/.zshrc.d ]; then
+if [ -d "$HOME/.zshrc.d" ]; then
   for filename in $HOME/.zshrc.d/*; do
-    source filename
+    source "$filename"
   done
 fi
 
@@ -139,6 +139,4 @@ autoload -Uz compinit && compinit -i
 # decrease vi-mode switch time from 0.4 sec to 0.1 sec
 export KEYTIMEOUT=1
 
-eval "$(keychain --eval id_rsa)"
-[ -f ~/.ssh/id_rsa2 ] && \
-  eval "$(keychain --eval id_rsa2)"
+eval "$(keychain --eval id_babun_work_laptop)"
