@@ -52,6 +52,8 @@ HYPHEN_INSENSITIVE="true"
 plugins=(
   git
   vi-mode
+  docker
+  docker-compose
 )
 
 # User configuration
