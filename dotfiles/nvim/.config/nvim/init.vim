@@ -59,6 +59,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
+set nomodeline
+
 " normal filetype detection
 filetype plugin on
 filetype plugin indent on
