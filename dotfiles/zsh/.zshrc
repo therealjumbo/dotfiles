@@ -63,9 +63,6 @@ export PATH="/home/jeff/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/s
 
 source $ZSH/oh-my-zsh.sh
 
-# disable zsh builtin r (equivalent to !!)
-disable r
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -107,6 +104,7 @@ export WORKSPACE="$HOME/proj"
 alias ws='cd $WORKSPACE && ls'
 alias h='fc -li 1'
 alias gdb-batch="gdb --batch --ex run --ex bt --ex q --args"
+alias r='cd $(git rev-parse --show-toplevel)'
 
 # go path
 export GOPATH=~/proj/go
