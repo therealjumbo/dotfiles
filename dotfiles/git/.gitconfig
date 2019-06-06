@@ -78,3 +78,6 @@
     smtpencryption = tls
     chainreplyto = false
     smtpserverport = 587
+
+[rerere]
+    enabled = 1
