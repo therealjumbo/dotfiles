@@ -61,3 +61,11 @@ sudo apt-get -y install keychain xclip keepassxc
 # setup automatic security only updates
 sudo apt-get install unattended-upgrades
 sudo dpkg-reconfigure unattended-upgrades
+
+# add several of the git contrib scripts to PATH
+sudo chmod +x /usr/share/doc/git/contrib/rerere-train.sh
+sudo ln -s /usr/share/doc/git/contrib/rerere-train.sh /usr/local/bin/rerere-train
+sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
+sudo ln -s /usr/share/doc/git/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+sudo chmod +x /usr/share/doc/git/contrib/git-jump/git-jump
+sudo ln -s /usr/share/doc/git/contrib/git-jump/git-jump /usr/local/bin/git-jump
