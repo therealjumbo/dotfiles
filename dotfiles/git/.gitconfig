@@ -8,6 +8,11 @@
     branch = auto
     pager = true
 
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+
 [core]
     editor = nvim
 
