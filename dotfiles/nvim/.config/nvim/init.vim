@@ -105,7 +105,7 @@ colorscheme solarized
 " Highlight characters that go over 80 columns (by drawing a border on the 81st)
 if exists('+colorcolumn')
     set colorcolumn=81
-    highlight ColorColumn ctermbg=red
+    highlight ColorColumn ctermbg=160 guibg=#D80000
 else
     highlight OverLength ctermbg=red ctermfg=white guibg=#592929
     match OverLength /\%81v.\+/
