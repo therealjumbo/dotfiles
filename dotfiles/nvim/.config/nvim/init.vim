@@ -126,8 +126,13 @@ set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%
 set visualbell
 set nowrap " don't wrap text
 
-" strip whitespace from these filetypes on save
-autocmd FileType c,h,cpp,hpp,cxx,py,lua,java,sh,bat,ps1,md,txt autocmd BufWritePre <buffer> StripWhitespaceOnChangedLines
+" strip whitespace on save
+let g:strip_whitespace_on_save = 1
+" but only on changed lines
+let g:strip_only_modified_lines = 1
+" and don't ask for confirmation
+let g:strip_whitespace_confirm = 0
+
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " show these non-normal whitespace chars as unicode chars
