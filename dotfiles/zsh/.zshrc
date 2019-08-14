@@ -151,3 +151,14 @@ export KEYTIMEOUT=1
   eval "$(keychain --eval id_rsa)"
 [ -f ~/.ssh/id_rsa2 ] && \
   eval "$(keychain --eval id_rsa2)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1> /dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+if command -v pyenv virtualenv-init - 1> /dev/null 2>&1; then
+  eval "$(pyenv virtualenv-init -)"
+fi

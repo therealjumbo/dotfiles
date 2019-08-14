@@ -26,4 +26,5 @@ stow --target="$HOME/.ssh/" ssh
 mv "$HOME/.profile" "$HOME/.profile.old"
 stow --target="$HOME" profile
 
+stow --target="$HOME" pyenv
 popd

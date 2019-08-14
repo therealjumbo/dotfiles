@@ -26,3 +26,6 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 # set zsh as the default shell
 echo "Enter $(whoami)'s password for chsh"
 chsh -s "$(which zsh)"
+
+git clone https://github.com/pyenv/pyenv.git "$HOME/.pyenv"
+git clone git clone https://github.com/pyenv/pyenv-virtualenv.git "$HOME/.pyenv/plugins/pyenv-virtualenv"
