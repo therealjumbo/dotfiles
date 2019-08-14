@@ -43,7 +43,7 @@ sudo apt-get -y install dpkg dpkg-cross dpkg-dev dpkg-repack dpkg-sig
 
 # stuff I picked up at work
 sudo apt-get -y install graphviz tree ack-grep exuberant-ctags colordiff jq
-sudo apt-get -y install jsonlint shellcheck
+sudo apt-get -y install jsonlint shellcheck bashdb zshdb
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \
