@@ -25,13 +25,6 @@ sudo apt-get -y install libtool libtool-bin libcurl4-openssl-dev libssl-dev libg
 sudo apt-get -y install lsscsi pciutils
 sudo apt-get -y install sysstat iotop
 
-# all python packages that we need
-sudo apt-get -y install python3 python3-pip python3-dev python3-flake8 python3-mccabe python3-coverage
-sudo apt-get -y install python3-venv
-pip3 install --user --upgrade polysquare-cmake-linter
-pip3 install --user --upgrade pynvim
-pip3 install --user --upgrade python-language-server
-
 # network tools
 sudo apt-get -y install wget curl tshark wireshark lua5.1
 
@@ -69,3 +62,28 @@ sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
 sudo ln -s /usr/share/doc/git/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 sudo chmod +x /usr/share/doc/git/contrib/git-jump/git-jump
 sudo ln -s /usr/share/doc/git/contrib/git-jump/git-jump /usr/local/bin/git-jump
+
+# install pyenv from github
+git clone https://github.com/pyenv/pyenv.git "$HOME/.pyenv"
+git clone git clone https://github.com/pyenv/pyenv-virtualenv.git "$HOME/.pyenv/plugins/pyenv-virtualenv"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+pyenv install 2.7.16
+pyenv install 3.7.4
+
+pyenv virtualenv 2.7.16 neovim2
+pyenv virtualenv 3.7.4 neovim3
+
+pyenv activate neovim2
+pip install neovim
+pyenv deactivate
+
+pyenv activate neovim3
+pip install neovim flake8 pynvim python-language-server polysquare-cmake-linter
+ln -s "$(pyenv which flake8)" ~/bin/flake8
+ln -s "$(pyenv which polysquare-cmake-linter)" ~/bin/polysquare-cmake-linter
+pyenv deactivate
