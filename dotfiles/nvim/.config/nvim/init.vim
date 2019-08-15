@@ -181,8 +181,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:python_host_prog = '$HOME/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
+let pyenv = $PYENV_ROOT
+let g:python_host_prog = pyenv . '/versions/neovim2/bin/python'
+let g:python3_host_prog = pyenv . '/versions/neovim3/bin/python'
 
 let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
