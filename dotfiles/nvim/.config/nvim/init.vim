@@ -57,6 +57,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     \ }
 
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+    Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+
 call plug#end()
 
 set nomodeline
