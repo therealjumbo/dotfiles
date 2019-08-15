@@ -23,3 +23,6 @@ README.html
 build/
 
 screenlog.*
+
+# pyenv python version file
+.python-version
