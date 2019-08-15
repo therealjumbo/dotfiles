@@ -36,7 +36,19 @@ sudo apt-get -y install dpkg dpkg-cross dpkg-dev dpkg-repack dpkg-sig
 
 # stuff I picked up at work
 sudo apt-get -y install graphviz tree ack-grep exuberant-ctags colordiff jq
-sudo apt-get -y install jsonlint shellcheck bashdb zshdb
+sudo apt-get -y install jsonlint shellcheck zshdb
+
+# ubuntu 18.04 doesn't have bashdb in the repo anymore
+(tempdir=$(mktemp -d)
+cd "$tempdir"
+curl --silent -L https://sourceforge.net/projects/bashdb/files/bashdb/4.4-1.0.1/bashdb-4.4-1.0.1.tar.gz | tar -xz
+cd bashdb-4.4-1.0.1/
+./configure --prefix=/usr/local
+make
+sudo make install
+cd "$tempdir/.."
+rm -rf "$tempdir"
+)
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \
@@ -52,20 +64,25 @@ sudo systemctl enable docker
 sudo apt-get -y install keychain xclip keepassxc
 
 # setup automatic security only updates
-sudo apt-get install unattended-upgrades
+sudo apt-get -y install unattended-upgrades
 sudo dpkg-reconfigure unattended-upgrades
 
 # add several of the git contrib scripts to PATH
 sudo chmod +x /usr/share/doc/git/contrib/rerere-train.sh
-sudo ln -s /usr/share/doc/git/contrib/rerere-train.sh /usr/local/bin/rerere-train
+sudo ln -sf /usr/share/doc/git/contrib/rerere-train.sh /usr/local/bin/rerere-train
 sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
-sudo ln -s /usr/share/doc/git/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+sudo ln -sf /usr/share/doc/git/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 sudo chmod +x /usr/share/doc/git/contrib/git-jump/git-jump
-sudo ln -s /usr/share/doc/git/contrib/git-jump/git-jump /usr/local/bin/git-jump
+sudo ln -sf /usr/share/doc/git/contrib/git-jump/git-jump /usr/local/bin/git-jump
 
 # install pyenv from github
-git clone https://github.com/pyenv/pyenv.git "$HOME/.pyenv"
-git clone git clone https://github.com/pyenv/pyenv-virtualenv.git "$HOME/.pyenv/plugins/pyenv-virtualenv"
+if [ ! -d "$HOME/.pyenv" ]; then
+    git clone https://github.com/pyenv/pyenv.git "$HOME/.pyenv"
+fi
+
+if [ ! -d "$HOME/.pyenv/plugins/pyenv-virtualenv" ]; then
+    git clone https://github.com/pyenv/pyenv-virtualenv.git "$HOME/.pyenv/plugins/pyenv-virtualenv"
+fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -84,6 +101,6 @@ pyenv deactivate
 
 pyenv activate neovim3
 pip install neovim flake8 pynvim python-language-server polysquare-cmake-linter
-ln -s "$(pyenv which flake8)" ~/bin/flake8
-ln -s "$(pyenv which polysquare-cmake-linter)" ~/bin/polysquare-cmake-linter
+ln -sf "$(pyenv which flake8)" ~/bin/flake8
+ln -sf "$(pyenv which polysquare-cmake-linter)" ~/bin/polysquare-cmake-linter
 pyenv deactivate
