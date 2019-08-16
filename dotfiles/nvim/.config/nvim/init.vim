@@ -72,6 +72,7 @@ syntax on
 " syntax highlighting
 if !exists("g:syntax_on")
     syntax enable
+    au BufNewFile,BufRead Jenkinsfile setf groovy
 endif
 
 " you can have edited buffers that aren't visible in a window
