@@ -67,13 +67,11 @@ set nomodeline
 " normal filetype detection
 filetype plugin on
 filetype plugin indent on
-syntax on
 
-" syntax highlighting
-if !exists("g:syntax_on")
-    syntax enable
-    au BufNewFile,BufRead Jenkinsfile setf groovy
-endif
+" Enable syntax highlighting
+syntax enable
+" Force groovy syntax for any file named 'Jenkinsfile'
+au BufNewFile,BufRead Jenkinsfile setf groovy
 
 " you can have edited buffers that aren't visible in a window
 set hidden
