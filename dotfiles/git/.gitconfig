@@ -64,6 +64,8 @@
     brdel = branch -D
     pap = pull --all --prune
     sub = submodule
+    sdiff = !git diff && git submodule foreach 'git diff'
+    supdate = submodule update --remote --merge
 
     # show all of my configured aliases
     aliases = !git config --list | grep 'alias\\.' | sed '/s/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
