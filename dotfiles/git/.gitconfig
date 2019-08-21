@@ -68,7 +68,7 @@
     supdate = submodule update --remote --merge
 
     # show all of my configured aliases
-    aliases = !git config --list | grep 'alias\\.' | sed '/s/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
+    aliases = config --get-regexp '^alias\\.'
 
     # pretty log format views
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
