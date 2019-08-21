@@ -46,6 +46,8 @@
 [push]
     # `git push origin` to push current branch
     default = simple
+    # make `git push` fail if committed submodule changes aren't pushed
+    recurseSubmodules = check
 
 [alias]
     last = log -1 --stat
