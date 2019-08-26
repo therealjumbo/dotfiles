@@ -91,8 +91,6 @@ source $ZSH/oh-my-zsh.sh
 alias nv="nvim"
 alias vi="nvim"
 alias ct=$'ctags -R --exclude=\".git\" --exclude=@.ctagsignore -L .srclist'
-alias c='xclip'
-alias v='xclip -o'
 alias cs='xclip -selection clipboard'
 alias vs='xclip -o -selection clipboard'
 alias dirs='dirs -v'
@@ -144,6 +142,7 @@ export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gn
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
+export EDITOR='nvim'
 # decrease vi-mode switch time from 0.4 sec to 0.1 sec
 export KEYTIMEOUT=1
 
