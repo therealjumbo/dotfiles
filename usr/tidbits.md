@@ -43,3 +43,15 @@ compare only files of type blah
 ```
 TODO
 ```
+
+## checking an elf file
+1. check what shared libraries it is linked to:
+
+If ldd is on the PATH:
+```
+ldd <my elf>
+```
+or call ld-* directly:
+```
+/lib[64|x32]/ld-[x.yz|linux|linux-x86-64|linux-x32].so[.2] --list <my elf>
+```
