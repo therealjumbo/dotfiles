@@ -142,6 +142,11 @@ export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gn
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
+# allow zsh tab completion for `docker exec` see:
+# https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
 export EDITOR='nvim'
 # decrease vi-mode switch time from 0.4 sec to 0.1 sec
 export KEYTIMEOUT=1
