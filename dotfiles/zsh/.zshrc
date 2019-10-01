@@ -104,9 +104,6 @@ alias h='fc -li 1'
 alias gdb-batch="gdb --batch --ex run --ex bt --ex q --args"
 alias r='cd $(git rev-parse --show-toplevel)'
 
-# go path
-export GOPATH=~/proj/go
-
 # history specific options
 setopt hist_allow_clobber
 setopt hist_ignore_dups
@@ -137,6 +134,10 @@ fi
 # rust stuff
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+
+# go stuff
+export GOPATH="$HOME/proj/go"
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # load zsh completion for docker-compose
 fpath=(~/.zsh/completion $fpath)

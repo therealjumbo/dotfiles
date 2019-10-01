@@ -104,3 +104,11 @@ pip install neovim flake8 pynvim python-language-server polysquare-cmake-linter
 ln -sf "$(pyenv which flake8)" ~/bin/flake8
 ln -sf "$(pyenv which polysquare-cmake-linter)" ~/bin/polysquare-cmake-linter
 pyenv deactivate
+
+# as per the documentation, previous versions of go should be removed before
+# the new one is installed
+rm -rf /usr/local/go
+# install go
+curl -s https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz \
+    | sudo tar -C /usr/local -xz
+mkdir -p "$HOME/proj/go/src/github.com/therealjumbo"
