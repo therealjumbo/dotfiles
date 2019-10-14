@@ -12,8 +12,7 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	# shellcheck source=/dev/null
-	. "$HOME/.bashrc"
+	source "$HOME/.bashrc"
     fi
 fi
 
@@ -21,7 +20,6 @@ fi
 if [ -d ~/.profile.d ]; then
     for filename in ~/.profile.d/*.sh; do
 	if [ -r "$filename" ]; then
-	    # shellcheck source=/dev/null
 	    source "$filename"
 	fi
     done
