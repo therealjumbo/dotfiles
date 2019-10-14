@@ -60,6 +60,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
     Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 
+    " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 call plug#end()
 
 set nomodeline
