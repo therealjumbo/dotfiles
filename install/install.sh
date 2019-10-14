@@ -35,37 +35,41 @@ sudo apt-get -y install umlet doxygen markdown
 sudo apt-get -y install dpkg dpkg-cross dpkg-dev dpkg-repack dpkg-sig
 
 # stuff I picked up at work
-sudo apt-get -y install graphviz tree ack-grep exuberant-ctags colordiff jq
+sudo apt-get -y install graphviz tree exuberant-ctags colordiff jq
 sudo apt-get -y install jsonlint shellcheck zshdb
 
 # ubuntu 18.04 doesn't have bashdb in the repo anymore
-(tempdir=$(mktemp -d)
-cd "$tempdir"
-curl --silent -L https://sourceforge.net/projects/bashdb/files/bashdb/4.4-1.0.1/bashdb-4.4-1.0.1.tar.gz | tar -xz
-cd bashdb-4.4-1.0.1/
-./configure --prefix=/usr/local
-make
-sudo make install
-cd "$tempdir/.."
-rm -rf "$tempdir"
-)
+if ! bashdb --version; then
+    (tempdir=$(mktemp -d)
+    cd "$tempdir"
+    curl --silent -L https://sourceforge.net/projects/bashdb/files/bashdb/4.4-1.0.1/bashdb-4.4-1.0.1.tar.gz | tar -xz
+    cd bashdb-4.4-1.0.1/
+    ./configure --prefix=/usr/local
+    make
+    sudo make install
+    cd "$tempdir/.."
+    rm -rf "$tempdir"
+    )
+fi
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository \
-       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-       $(lsb_release -cs) \
-       stable"
-sudo apt-get update
-sudo apt-get -y install docker-ce
-sudo systemctl start docker
-sudo systemctl enable docker
+if ! docker --version; then
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository \
+           "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+           $(lsb_release -cs) \
+           stable"
+    sudo apt-get update
+    sudo apt-get -y install docker-ce
+    sudo systemctl start docker
+    sudo systemctl enable docker
+fi
 
 # programs for user convenience
 sudo apt-get -y install keychain xclip keepassxc
 
 # setup automatic security only updates
 sudo apt-get -y install unattended-upgrades
-sudo dpkg-reconfigure unattended-upgrades
+sudo dpkg-reconfigure unattended-upgrades --priority medium
 
 # add several of the git contrib scripts to PATH
 sudo chmod +x /usr/share/doc/git/contrib/rerere-train.sh
@@ -89,26 +93,49 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-pyenv install 2.7.16
-pyenv install 3.7.4
+if ! grep -qF "2.7.16" <(pyenv versions); then
+    pyenv install 2.7.16
+fi
 
-pyenv virtualenv 2.7.16 neovim2
-pyenv virtualenv 3.7.4 neovim3
+if ! grep -qF "3.7.4" <(pyenv versions); then
+    pyenv install 3.7.4
+fi
 
-pyenv activate neovim2
-pip install neovim
-pyenv deactivate
+if ! grep -qF "neovim2" <(pyenv versions); then
+    pyenv virtualenv 2.7.16 neovim2
+    pyenv activate neovim2
+    pip install neovim
+    pyenv deactivate
+fi
 
-pyenv activate neovim3
-pip install neovim flake8 pynvim python-language-server polysquare-cmake-linter
-ln -sf "$(pyenv which flake8)" ~/bin/flake8
-ln -sf "$(pyenv which polysquare-cmake-linter)" ~/bin/polysquare-cmake-linter
-pyenv deactivate
+if ! grep -qF "neovim3" <(pyenv versions); then
+    pyenv virtualenv 3.7.4 neovim3
+    pyenv activate neovim3
+    pip install neovim flake8 pynvim python-language-server polysquare-cmake-linter
+    ln -sf "$(pyenv which flake8)" ~/bin/flake8
+    ln -sf "$(pyenv which polysquare-cmake-linter)" ~/bin/polysquare-cmake-linter
+    pyenv deactivate
+fi
 
-# as per the documentation, previous versions of go should be removed before
-# the new one is installed
-rm -rf /usr/local/go
-# install go
-curl -s https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz \
-    | sudo tar -C /usr/local -xz
-mkdir -p "$HOME/proj/go/src/github.com/therealjumbo"
+if ! go version; then
+    # as per the documentation, previous versions of go should be removed before
+    # the new one is installed
+    sudo rm -rf /usr/local/go
+    # install go
+    curl -s https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz \
+        | sudo tar -C /usr/local -xz
+    mkdir -p "$HOME/proj/go/src/github.com/therealjumbo"
+fi
+
+if ! rustc --version; then
+    (tempdir=$(mktemp -d)
+    cd "$tempdir"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustinstall.sh
+    chmod +x ./rustinstall.sh
+    ./rustinstall.sh -y
+    cd "$tempdir/.."
+    rm -rf "$tempdir"
+    )
+else
+    rustup update
+fi
