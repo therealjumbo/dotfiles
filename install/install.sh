@@ -117,7 +117,7 @@ if ! grep -qF "neovim3" <(pyenv versions); then
     pyenv deactivate
 fi
 
-if ! go version; then
+if ! go version >/dev/null 2>&1; then
     # as per the documentation, previous versions of go should be removed before
     # the new one is installed
     sudo rm -rf /usr/local/go
@@ -127,7 +127,7 @@ if ! go version; then
     mkdir -p "$HOME/proj/go/src/github.com/therealjumbo"
 fi
 
-if ! rustc --version; then
+if ! rustc --version >/dev/null 2>&1; then
     (tempdir=$(mktemp -d)
     cd "$tempdir"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustinstall.sh
