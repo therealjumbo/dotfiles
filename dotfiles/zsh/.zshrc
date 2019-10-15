@@ -154,6 +154,8 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # load zsh completion for docker-compose
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+# load zsh completion for rust
+fpath+=~/.zfunc
 
 # allow zsh tab completion for `docker exec` see:
 # https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58
@@ -178,3 +180,5 @@ if command -v pyenv virtualenv-init - 1> /dev/null 2>&1; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden"
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"

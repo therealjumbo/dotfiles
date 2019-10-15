@@ -139,3 +139,17 @@ if ! rustc --version; then
 else
     rustup update
 fi
+mkdir -p "$HOME/.zfunc"
+rustup completions zsh > ~/.zfunc/_rustup
+
+# TODO replace with apt in 20.04
+# install ripgrep deb
+if ! rg --version >/dev/null 2>&1; then
+    (tempdir=$(mktemp -d)
+    cd "$tempdir"
+    curl -sLO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+    sudo dpkg --install ripgrep_11.0.2_amd64.deb
+    cd "$tempdir/.."
+    rm -rf "$tempdir"
+    )
+fi
