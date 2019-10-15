@@ -58,7 +58,23 @@ plugins=(
 
 # User configuration
 
-export PATH="/home/jeff/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH"
+# Add to PATH
+if [ -d "/usr/local/go/bin" ]; then
+    export PATH="/usr/local/go/bin:$PATH"
+fi
+if [ -d "$HOME/.pyenv" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -152,9 +168,6 @@ export KEYTIMEOUT=1
   eval "$(keychain --eval id_rsa)"
 [ -f ~/.ssh/id_rsa2 ] && \
   eval "$(keychain --eval id_rsa2)"
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 if command -v pyenv 1> /dev/null 2>&1; then
   eval "$(pyenv init -)"
