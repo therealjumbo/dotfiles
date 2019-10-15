@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-mkdir -p ~/.vim/tmp/
+mkdir -p "$HOME/.vimtmp/tmp/backupdir"
+mkdir -p "$HOME/.vimtmp/tmp/swapdir"
+mkdir -p "$HOME/.vimtmp/tmp/undodir"
 # setup vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

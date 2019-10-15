@@ -177,11 +177,11 @@ nnoremap <leader>d :b#\|bd #
 nnoremap <F5> :UndotreeToggle<cr>
 
 " put backups in global dir
-set backupdir=~/.vim/tmp/backupdir//,
+set backupdir=~/.vimtmp/tmp/backupdir//,
 " put swap files in global dir
-set directory=~/.vim/tmp/swapdir//,
+set directory=~/.vimtmp/tmp/swapdir//,
 " put undo files in global dir
-set undodir=~/.vim/tmp/undodir//,
+set undodir=~/.vimtmp/tmp/undodir//,
 set undofile
 
 " search for tags in this directory or in any parent dir up to ~/
