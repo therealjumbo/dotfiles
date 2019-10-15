@@ -119,6 +119,7 @@ alias ws='cd $WORKSPACE && ls'
 alias h='fc -li 1'
 alias gdb-batch="gdb --batch --ex run --ex bt --ex q --args"
 alias r='cd $(git rev-parse --show-toplevel)'
+alias fzv='fzf | xargs nvim'
 
 # history specific options
 setopt hist_allow_clobber
