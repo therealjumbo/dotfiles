@@ -104,7 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias nv="nvim"
 alias vi="nvim"
 alias ct=$'ctags -R --exclude=\".git\" --exclude=@.ctagsignore -L .srclist'
 alias cs='xclip -selection clipboard'
@@ -113,10 +112,9 @@ alias dirs='dirs -v'
 alias psc='ps xawf -eo pid,user,cgroup,args'
 alias info='info --vi-keys'
 alias dr='docker'
-alias g='git'
 export WORKSPACE="$HOME/proj"
 alias ws='cd $WORKSPACE && ls'
-alias h='fc -li 1'
+alias his='fc -li 1'
 alias gdb-batch="gdb --batch --ex run --ex bt --ex q --args"
 alias r='cd $(git rev-parse --show-toplevel)'
 alias fzv='fzf | xargs nvim'
