@@ -58,23 +58,25 @@ plugins=(
 
 # User configuration
 
-# Add to PATH
-if [ -d "/usr/local/go/bin" ]; then
-    export PATH="/usr/local/go/bin:$PATH"
-fi
-if [ -d "$HOME/.pyenv" ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-fi
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-if [ -d "$HOME/.cargo/bin" ]; then
-    export PATH="$HOME/.cargo/bin:$PATH"
-fi
+# only allow unique entries in path
+typeset -U path
+# some programs or scripts add to PATH directly instead of path, so force that
+# also to only have unique entries
+typeset -U PATH
+test -d "/usr/local/go/bin" && path+="/usr/local/go/bin"
+test -d "$HOME/bin" && path+="$HOME/bin"
+test -d "$HOME/.local/bin" && path+="$HOME/.local/bin"
+
+# local dev additions to path
+test -d "$HOME/.cargo/bin" && path+="$HOME/.cargo/bin"
+
+test -d "$HOME/proj/go" && export GOPATH="$HOME/proj/go"
+test -d "$GOPATH/bin" && path+="$GOPATH/bin"
+
+test -d "$HOME/.pyenv" && export PYENV_ROOT="$HOME/.pyenv"
+test -d "PYENV_ROOT/bin" && path+="$PYENV_ROOT/bin"
+
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -145,10 +147,6 @@ if [ -d "$HOME/.zshrc.d" ]; then
     source "$filename"
   done
 fi
-
-# go stuff
-export GOPATH="$HOME/proj/go"
-export PATH=$PATH:$(go env GOPATH)/bin
 
 # load zsh completion for docker-compose
 fpath=(~/.zsh/completion $fpath)
