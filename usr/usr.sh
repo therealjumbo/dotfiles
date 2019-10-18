@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-pushd ./usr
-# symlink user made scripts to /usr/local/bin so they are available on the PATH
-sudo stow --target=/usr/local/bin bin
+this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}" )" )"
 
-popd
+# symlink user made scripts to /usr/local/bin so they are available on the PATH
+sudo stow --target=/usr/local/bin "${this_script_dir}/bin"
