@@ -7,38 +7,79 @@ this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-# install packages to allow apt to use a repository over HTTPS
+# install all apt packages
 sudo apt-get -y install \
     apt-transport-https \
+    automake \
     ca-certificates \
+    clang \
+    clang-format \
+    clang-tidy \
+    clang-tools \
+    cmake \
+    colordiff \
+    cpanminus \
     curl \
+    dconf-cli \
+    doxygen \
+    dpkg \
+    dpkg-cross \
+    dpkg-dev \
+    dpkg-repack \
+    dpkg-sig \
+    exuberant-ctags \
+    flawfinder \
+    gcc \
+    gdb \
+    git \
+    git-email \
     gnupg2 \
-    software-properties-common
+    graphviz \
+    htop \
+    iotop \
+    jq \
+    jsonlint \
+    keepassxc \
+    keychain \
+    libcurl4-openssl-dev \
+    libgpgme11 \
+    libgpgme11-dev \
+    libssl-dev \
+    libtool \
+    libtool-bin \
+    lldb \
+    llvm \
+    lsscsi \
+    lua5.1 \
+    make \
+    markdown \
+    moreutils \
+    neovim \
+    pciutils \
+    perl \
+    rr \
+    shellcheck \
+    sloccount \
+    software-properties-common \
+    splint \
+    stow \
+    sysstat \
+    tmux \
+    tree \
+    tshark \
+    umlet \
+    unattended-upgrades \
+    valgrind \
+    vim \
+    wget \
+    wireshark \
+    xclip \
+    zsh \
+    zshdb
 
-# c dev tools
-sudo apt-get -y install gcc gdb make automake cmake valgrind rr
-sudo apt-get -y install llvm lldb clang clang-tools clang-format clang-tidy
-sudo apt-get -y install flawfinder splint
-sudo apt-get -y install sloccount
-
-# various system tools
-sudo apt-get -y install perl cpanminus vim git zsh tmux stow dconf-cli git-email htop neovim moreutils
-sudo apt-get -y install libtool libtool-bin libcurl4-openssl-dev libssl-dev libgpgme11 libgpgme11-dev
-sudo apt-get -y install lsscsi pciutils
-sudo apt-get -y install sysstat iotop
-
-# network tools
-sudo apt-get -y install wget curl tshark wireshark lua5.1
-
-# software engineering tools
-sudo apt-get -y install umlet doxygen markdown
-
-# debian packaging
-sudo apt-get -y install dpkg dpkg-cross dpkg-dev dpkg-repack dpkg-sig
-
-# stuff I picked up at work
-sudo apt-get -y install graphviz tree exuberant-ctags colordiff jq
-sudo apt-get -y install jsonlint shellcheck zshdb
+# use unattended-upgrades (i.e. automatic security updates) --priority medium
+# suppresses the interactive question
+sudo dpkg-reconfigure unattended-upgrades --priority medium
 
 # ubuntu 18.04 doesn't have bashdb in the repo anymore
 if ! bashdb --version; then
@@ -65,13 +106,6 @@ if ! docker --version; then
     sudo systemctl start docker
     sudo systemctl enable docker
 fi
-
-# programs for user convenience
-sudo apt-get -y install keychain xclip keepassxc
-
-# setup automatic security only updates
-sudo apt-get -y install unattended-upgrades
-sudo dpkg-reconfigure unattended-upgrades --priority medium
 
 # add several of the git contrib scripts to PATH
 sudo chmod +x /usr/share/doc/git/contrib/rerere-train.sh
