@@ -122,7 +122,10 @@ autocmd FileType make setlocal noexpandtab
 set termguicolors
 " solarized color scheme stuff
 set background=dark " or light
-colorscheme solarized
+" silent! makes nvim not choke if solarized isn't installed yet, particularly
+" important for calling nvim in batch mode to install all the plugins in this
+" file, one of which is solarized itself
+silent! colorscheme solarized
 
 " Highlight characters that go over 80 columns (by drawing a border on the 81st)
 if exists('+colorcolumn')

@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}" )" )"
+
 # bring the system up to date
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -153,3 +155,7 @@ if ! rg --version >/dev/null 2>&1; then
     rm -rf "$tempdir"
     )
 fi
+
+# install all nvim plugins
+nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugInstall +qall
+nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugUpdate +qall
