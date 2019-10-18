@@ -60,7 +60,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
     Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 
-    " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
+    " TODO: Replace this (but not fzf.vim) with the package from the apt repo
+    " in 20.04
+    " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install
+    " script
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 

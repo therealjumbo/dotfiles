@@ -178,7 +178,7 @@ fi
 mkdir -p "$HOME/.zfunc"
 rustup completions zsh > ~/.zfunc/_rustup
 
-# TODO replace with apt in 20.04
+# TODO replace this version of rg with package from apt repo in 20.04
 # install ripgrep deb
 if ! rg --version >/dev/null 2>&1; then
     (tempdir=$(mktemp -d)

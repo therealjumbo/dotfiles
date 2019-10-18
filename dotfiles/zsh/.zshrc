@@ -176,7 +176,10 @@ if command -v pyenv virtualenv-init - 1> /dev/null 2>&1; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+# TODO: in 20.04 we will be replacing the user local install of fzf with the
+# package from the apt repo, this should also be removed then
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --glob '!.git/'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
