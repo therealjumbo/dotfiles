@@ -38,6 +38,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " debugger plugin also supports pdb and bashdb
     Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+    " go programming language support
+    Plug 'fatih/vim-go'
     " rust cargo commands
     Plug 'timonv/vim-cargo'
     " rust code completion and navigation
