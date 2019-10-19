@@ -160,7 +160,6 @@ if ! go version >/dev/null 2>&1; then
     # install go
     curl -s https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz \
         | sudo tar -C /usr/local -xz
-    mkdir -p "$HOME/proj/go/src/github.com/therealjumbo"
 fi
 
 if ! rustc --version >/dev/null 2>&1; then
@@ -175,8 +174,6 @@ if ! rustc --version >/dev/null 2>&1; then
 else
     rustup update
 fi
-mkdir -p "$HOME/.zfunc"
-rustup completions zsh > ~/.zfunc/_rustup
 
 # TODO replace this version of rg with package from apt repo in 20.04
 # install ripgrep deb
@@ -190,6 +187,13 @@ if ! rg --version >/dev/null 2>&1; then
     )
 fi
 
+# Install vim-plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # install all nvim plugins
 nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugInstall +qall
 nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugUpdate +qall
+
+# install oh-my-zsh
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | bash

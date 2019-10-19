@@ -1,12 +1,10 @@
 #!/bin/bash
 set -e
 
+# create tmp dirs for nvim
 mkdir -p "$HOME/.vimtmp/tmp/backupdir"
 mkdir -p "$HOME/.vimtmp/tmp/swapdir"
 mkdir -p "$HOME/.vimtmp/tmp/undodir"
-# setup vim-plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 sudo groupadd docker
 sudo groupadd wireshark
@@ -23,8 +21,14 @@ mkdir -p ~/.fonts
 cp source-code-pro-1.017R/OTF/*.otf ~/.fonts/
 fc-cache -f -v
 
-# grab oh-my-zsh
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | bash
 # set zsh as the default shell
 echo "Enter $(whoami)'s password for chsh"
 chsh -s "$(which zsh)"
+
+# create main zsh function dir
+mkdir -p "$HOME/.zfunc"
+# add rustup completions to zsh
+rustup completions zsh > ~/.zfunc/_rustup
+
+# create my GOPATH and github username subpath
+mkdir -p "$HOME/proj/go/src/github.com/therealjumbo"
