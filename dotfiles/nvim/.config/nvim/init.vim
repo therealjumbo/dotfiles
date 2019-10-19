@@ -3,70 +3,53 @@ if &compatible
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
-
-    " Strip whitespace by command
-    Plug 'ntpeters/vim-better-whitespace'
-
-    " solarized for true color
-    Plug 'frankier/neovim-colors-solarized-truecolor-only'
-
-    " lightweight status line
-    Plug 'vim-airline/vim-airline'
-
-    " auto detect indent level
-    Plug 'tpope/vim-sleuth'
-
-    " git status in the gutter
-    Plug 'airblade/vim-gitgutter'
-
-    " git manipulation from within vim
-    Plug 'tpope/vim-fugitive'
-
     " vim unimpaired for various shortcuts
     Plug 'tpope/vim-unimpaired'
-
+    " lightweight status line
+    Plug 'vim-airline/vim-airline'
+    " solarized for true color
+    Plug 'frankier/neovim-colors-solarized-truecolor-only'
+    " auto detect indent level
+    Plug 'tpope/vim-sleuth'
+    " git status in the gutter
+    Plug 'airblade/vim-gitgutter'
+    " git manipulation from within vim
+    Plug 'tpope/vim-fugitive'
     " unlock undotree
     Plug 'mbbill/undotree'
-
-    " bitbake file highlighting
-    Plug 'kergoth/vim-bitbake'
-    " cmake file highlighting
-    Plug 'nickhutchinson/vim-cmake-syntax'
-
-    " rust cargo commands
-    Plug 'timonv/vim-cargo'
-
-    " rust code completion and navigation
-    Plug 'racer-rust/vim-racer'
-
-    " generic syntax checker
-    Plug 'vim-syntastic/syntastic'
-
-    " rust plugin for syntastic
-    Plug 'rust-lang/rust.vim'
-
-    " plugin for toml syntax
-    Plug 'cespare/vim-toml'
-
-    " vimwiki
-    Plug 'vimwiki/vimwiki'
-
-    Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-    Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
-
+    " Strip whitespace by command
+    Plug 'ntpeters/vim-better-whitespace'
     " TODO: Replace this (but not fzf.vim) with the package from the apt repo
     " in 20.04
     " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install
     " script
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
-
+    " vimwiki
+    Plug 'vimwiki/vimwiki'
+    " generic syntax checker
+    Plug 'vim-syntastic/syntastic'
+    " LSP vim client
+    Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+    " autocomplete plugin
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " debugger plugin also supports pdb and bashdb
+    Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+    " rust cargo commands
+    Plug 'timonv/vim-cargo'
+    " rust code completion and navigation
+    Plug 'racer-rust/vim-racer'
+    " rust plugin for syntastic
+    Plug 'rust-lang/rust.vim'
+    " toml file highlighting
+    Plug 'cespare/vim-toml'
+    " cmake file highlighting
+    Plug 'nickhutchinson/vim-cmake-syntax'
+    " bitbake file highlighting
+    Plug 'kergoth/vim-bitbake'
 call plug#end()
 
 set nomodeline
