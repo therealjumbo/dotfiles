@@ -9,8 +9,9 @@ sudo apt-get -y upgrade
 
 # install all apt packages
 sudo apt-get -y install \
-    apt-transport-https \
     automake \
+    avahi-utils \
+    build-essential \
     ca-certificates \
     clang \
     clang-format \
@@ -21,6 +22,9 @@ sudo apt-get -y install \
     cpanminus \
     curl \
     dconf-cli \
+    dnsutils \
+    docker-compose \
+    docker.io \
     doxygen \
     dpkg \
     dpkg-cross \
@@ -29,6 +33,7 @@ sudo apt-get -y install \
     dpkg-sig \
     exuberant-ctags \
     flawfinder \
+    fzf \
     gcc \
     gdb \
     git \
@@ -36,14 +41,21 @@ sudo apt-get -y install \
     gnupg2 \
     graphviz \
     htop \
+    info \
     iotop \
     jq \
     jsonlint \
     keepassxc \
     keychain \
-    libcurl4-openssl-dev \
+    libbz2-dev \
+    libffi-dev \
     libgpgme11 \
     libgpgme11-dev \
+    liblzma-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    libreadline-dev \
+    libsqlite3-dev \
     libssl-dev \
     libtool \
     libtool-bin \
@@ -55,8 +67,11 @@ sudo apt-get -y install \
     markdown \
     moreutils \
     neovim \
+    openssh-server \
     pciutils \
     perl \
+    python-openssl \
+    ripgrep \
     rr \
     shellcheck \
     sloccount \
@@ -64,54 +79,34 @@ sudo apt-get -y install \
     splint \
     stow \
     sysstat \
+    tk-dev \
     tmux \
     tree \
     tshark \
-    umlet \
     unattended-upgrades \
     valgrind \
     vim \
     wget \
     wireshark \
     xclip \
-    zsh \
-    zshdb
+    xz-utils \
+    zlib1g-dev \
+    zsh
 
 # use unattended-upgrades (i.e. automatic security updates) --priority medium
 # suppresses the interactive question
 sudo dpkg-reconfigure unattended-upgrades --priority medium
 
-# ubuntu 18.04 doesn't have bashdb in the repo anymore
-if ! bashdb --version; then
-    (tempdir=$(mktemp -d)
-    cd "$tempdir"
-    curl --silent -L https://sourceforge.net/projects/bashdb/files/bashdb/4.4-1.0.1/bashdb-4.4-1.0.1.tar.gz | tar -xz
-    cd bashdb-4.4-1.0.1/
-    ./configure --prefix=/usr/local
-    make
-    sudo make install
-    cd "$tempdir/.."
-    rm -rf "$tempdir"
-    )
-fi
+# create this user's local bin
+mkdir -p "$HOME/.local/bin"
 
-if ! docker --version; then
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    sudo add-apt-repository \
-           "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-           $(lsb_release -cs) \
-           stable"
-    sudo apt-get update
-    sudo apt-get -y install docker-ce
-    sudo systemctl start docker
-    sudo systemctl enable docker
-fi
-
-# add several of the git contrib scripts to PATH
+# add several of the git contrib scripts to /usr/local/bin
 sudo chmod +x /usr/share/doc/git/contrib/rerere-train.sh
 sudo ln -sf /usr/share/doc/git/contrib/rerere-train.sh /usr/local/bin/rerere-train
-sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
+
+sudo make -C /usr/share/doc/git/contrib/diff-highlight
 sudo ln -sf /usr/share/doc/git/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+
 sudo chmod +x /usr/share/doc/git/contrib/git-jump/git-jump
 sudo ln -sf /usr/share/doc/git/contrib/git-jump/git-jump /usr/local/bin/git-jump
 
@@ -147,13 +142,17 @@ fi
 if ! grep -qF "neovim3" <(pyenv versions); then
     pyenv virtualenv 3.7.4 neovim3
     pyenv activate neovim3
-    pip install neovim flake8 pynvim python-language-server polysquare-cmake-linter
-    ln -sf "$(pyenv which flake8)" ~/bin/flake8
-    ln -sf "$(pyenv which polysquare-cmake-linter)" ~/bin/polysquare-cmake-linter
+    pip install \
+        flake8 \
+        neovim \
+        polysquare-cmake-linter \
+        pynvim \
+        python-language-server
     pyenv deactivate
 fi
 
-if ! go version >/dev/null 2>&1; then
+# if go does not exist or is the wrong version, re-install it
+if [ ! -e /usr/local/bin/go ] || ! grep -qF "1.13.1" <(/usr/local/go/bin/go version); then
     # as per the documentation, previous versions of go should be removed before
     # the new one is installed
     sudo rm -rf /usr/local/go
@@ -162,7 +161,7 @@ if ! go version >/dev/null 2>&1; then
         | sudo tar -C /usr/local -xz
 fi
 
-if ! rustc --version >/dev/null 2>&1; then
+if ! [ -e "$HOME/.cargo/bin" ]; then
     (tempdir=$(mktemp -d)
     cd "$tempdir"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustinstall.sh
@@ -172,28 +171,20 @@ if ! rustc --version >/dev/null 2>&1; then
     rm -rf "$tempdir"
     )
 else
-    rustup update
-fi
-
-# TODO replace this version of rg with package from apt repo in 20.04
-# install ripgrep deb
-if ! rg --version >/dev/null 2>&1; then
-    (tempdir=$(mktemp -d)
-    cd "$tempdir"
-    curl -sLO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
-    sudo dpkg --install ripgrep_11.0.2_amd64.deb
-    cd "$tempdir/.."
-    rm -rf "$tempdir"
-    )
+    "$HOME/.cargo/bin/rustup" update
 fi
 
 # Install vim-plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+if ! [ -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
+    curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
 
-# install all nvim plugins
+# install and update all nvim plugins
 nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugInstall +qall
 nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugUpdate +qall
 
 # install oh-my-zsh
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | bash
+if ! [ -e "$HOME/.oh-my-zsh" ]; then
+    curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | bash
+fi

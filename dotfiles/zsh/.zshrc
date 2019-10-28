@@ -63,8 +63,10 @@ typeset -U path
 # some programs or scripts add to PATH directly instead of path, so force that
 # also to only have unique entries
 typeset -U PATH
+# /bin and /sbin are now symlinks to /usr/bin and /usr/sbin, respectively, so
+# we don't need to add them to the path any longer
+path+=(/usr/bin /usr/sbin)
 test -d "/usr/local/go/bin" && path+="/usr/local/go/bin"
-test -d "$HOME/bin" && path+="$HOME/bin"
 test -d "$HOME/.local/bin" && path+="$HOME/.local/bin"
 
 # local dev additions to path
@@ -74,8 +76,7 @@ test -d "$HOME/proj/go" && export GOPATH="$HOME/proj/go"
 test -d "$GOPATH/bin" && path+="$GOPATH/bin"
 
 test -d "$HOME/.pyenv" && export PYENV_ROOT="$HOME/.pyenv"
-test -d "PYENV_ROOT/bin" && path+="$PYENV_ROOT/bin"
-
+test -d "$PYENV_ROOT/bin" && path+="$PYENV_ROOT/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -119,7 +120,6 @@ alias ws='cd $WORKSPACE && ls'
 alias his='fc -li 1'
 alias gdb-batch="gdb --batch --ex run --ex bt --ex q --args"
 alias r='cd $(git rev-parse --show-toplevel)'
-alias fzv='fzf | xargs nvim'
 
 # history specific options
 setopt hist_allow_clobber
@@ -176,10 +176,8 @@ if command -v pyenv virtualenv-init - 1> /dev/null 2>&1; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-# TODO: in 20.04 we will be replacing the user local install of fzf with the
-# package from the apt repo, this should also be removed then
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+# This adds the fzf ctrl-t and ctrl-r keybindings
+source /usr/share/doc/fzf/examples/key-bindings.zsh
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --glob '!.git/'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"

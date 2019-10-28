@@ -3,28 +3,28 @@ set -e
 
 this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}" )" )"
 
-stow --target="$HOME" "${this_script_dir}/stow"
+stow --dir="${this_script_dir}" --target="$HOME" stow
 
-stow --target="$HOME" "${this_script_dir}/ack"
+stow --dir="${this_script_dir}" --target="$HOME" ack
 
 [ -f "$HOME/.gitconfig" ] && \
 mv "$HOME/.gitconfig" "$HOME/.gitconfig.old"
-stow --target="$HOME" "${this_script_dir}/git"
+stow --dir="${this_script_dir}" --target="$HOME" git
 
-stow --target="$HOME" "${this_script_dir}/nvim"
+stow --dir="${this_script_dir}" --target="$HOME" nvim
 
-stow --target="$HOME" "${this_script_dir}/tmux"
+stow --dir="${this_script_dir}" --target="$HOME" tmux
 
-stow --target="$HOME" "${this_script_dir}/vim"
+stow --dir="${this_script_dir}" --target="$HOME" vim
 
 [ -f "$HOME/.zshrc" ] && \
 mv "$HOME/.zshrc" "$HOME/.zshrc.old"
-stow --target="$HOME" "${this_script_dir}/zsh"
+stow --dir="${this_script_dir}" --target="$HOME" zsh
 
-stow --target="$HOME/.ssh/" "${this_script_dir}/ssh"
+stow --dir="${this_script_dir}" --target="$HOME/.ssh/" ssh
 
 [ -f "$HOME/.profile" ] && \
 mv "$HOME/.profile" "$HOME/.profile.old"
-stow --target="$HOME" "${this_script_dir}/profile"
+stow --dir="${this_script_dir}" --target="$HOME" profile
 
-stow --target="$HOME" "${this_script_dir}/pyenv"
+stow --dir="${this_script_dir}" --target="$HOME" pyenv

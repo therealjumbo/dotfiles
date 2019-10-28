@@ -6,29 +6,26 @@ mkdir -p "$HOME/.vimtmp/tmp/backupdir"
 mkdir -p "$HOME/.vimtmp/tmp/swapdir"
 mkdir -p "$HOME/.vimtmp/tmp/undodir"
 
-sudo groupadd docker
-sudo groupadd wireshark
+sudo groupadd docker || true
+sudo groupadd wireshark || true
 sudo usermod -aG docker "$(whoami)"
 sudo usermod -aG wireshark "$(whoami)"
 sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
 
-# install source code pro
-mkdir /tmp/adobefont
-cd /tmp/adobefont || exit 1
-wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip
-unzip 1.017R.zip
-mkdir -p ~/.fonts
-cp source-code-pro-1.017R/OTF/*.otf ~/.fonts/
-fc-cache -f -v
-
 # set zsh as the default shell
 echo "Enter $(whoami)'s password for chsh"
-chsh -s "$(which zsh)"
+chsh -s "$(command -v zsh)"
 
 # create main zsh function dir
 mkdir -p "$HOME/.zfunc"
 # add rustup completions to zsh
-rustup completions zsh > ~/.zfunc/_rustup
+"$HOME/.cargo/bin/rustup" completions zsh > ~/.zfunc/_rustup
 
 # create my GOPATH and github username subpath
 mkdir -p "$HOME/proj/go/src/github.com/therealjumbo"
+
+# enable the avahi ssh service, if it doesn't yet exist
+# the service files cannot be absolute symlinks since avahi runs in a chroot.
+# Relative symlinks can be confusing, so just cp the file instead.
+[ -f /etc/avahi/services/ssh.service ] || sudo cp -Lpf \
+    /usr/share/doc/avahi-daemon/examples/ssh.service /etc/avahi/services

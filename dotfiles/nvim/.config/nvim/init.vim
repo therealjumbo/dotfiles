@@ -19,12 +19,10 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'mbbill/undotree'
     " Strip whitespace by command
     Plug 'ntpeters/vim-better-whitespace'
-    " TODO: Replace this (but not fzf.vim) with the package from the apt repo
-    " in 20.04
-    " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install
-    " script
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    " fuzzy list searcher integration
     Plug 'junegunn/fzf.vim'
+    " the fzf.vim plugin depends on the fzf plugin
+    Plug 'junegunn/fzf'
     " vimwiki
     Plug 'vimwiki/vimwiki'
     " generic syntax checker
