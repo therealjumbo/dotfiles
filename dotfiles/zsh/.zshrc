@@ -163,7 +163,7 @@ export EDITOR='nvim'
 # decrease vi-mode switch time from 0.4 sec to 0.1 sec
 export KEYTIMEOUT=1
 
-[ -f ~/.ssh/id_rsa2 ] && \
+[ -f ~/.ssh/id_rsa ] && \
   eval "$(keychain --eval id_rsa)"
 [ -f ~/.ssh/id_rsa2 ] && \
   eval "$(keychain --eval id_rsa2)"
