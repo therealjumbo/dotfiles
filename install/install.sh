@@ -73,6 +73,7 @@ sudo apt-get -y install \
     python-openssl \
     ripgrep \
     rr \
+    screen \
     shellcheck \
     sloccount \
     software-properties-common \
