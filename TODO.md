@@ -1,5 +1,4 @@
 * Investigate migrating to nix
-* Investigate migrating to debian stable or debian unstable
 * fixup syntastic vs lsp vs whatever in nvim
 * Investigate replacing docker with podman (and docker-compose with
   podman-compose). Docker has been the source of many compatibility breakages,
