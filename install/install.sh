@@ -25,6 +25,7 @@ sudo apt-get -y install \
     dnsutils \
     docker-compose \
     docker.io \
+    dos2unix \
     doxygen \
     dpkg \
     dpkg-cross \
@@ -67,6 +68,7 @@ sudo apt-get -y install \
     markdown \
     moreutils \
     neovim \
+    net-tools \
     openssh-server \
     pciutils \
     perl \
