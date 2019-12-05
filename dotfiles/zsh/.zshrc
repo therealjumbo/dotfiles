@@ -150,6 +150,7 @@ fi
 
 # load zsh completion for docker-compose
 fpath=(~/.zsh/completion $fpath)
+fpath=(/usr/share/zsh/vendor-completions $fpath)
 autoload -Uz compinit && compinit -i
 # load zsh completion for rust
 fpath+=~/.zfunc
