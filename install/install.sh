@@ -80,6 +80,7 @@ sudo apt-get -y install \
     sloccount \
     software-properties-common \
     splint \
+    sshfs \
     stow \
     sysstat \
     tk-dev \

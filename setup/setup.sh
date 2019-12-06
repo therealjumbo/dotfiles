@@ -8,8 +8,10 @@ mkdir -p "$HOME/.vimtmp/tmp/undodir"
 
 sudo groupadd docker || true
 sudo groupadd wireshark || true
+sudo groupadd fuse || true
 sudo usermod -aG docker "$(whoami)"
 sudo usermod -aG wireshark "$(whoami)"
+sudo usermod -aG fuse "$(whoami)"
 sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
 
 # set zsh as the default shell
