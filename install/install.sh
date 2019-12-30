@@ -42,6 +42,7 @@ sudo apt-get -y install \
     gnupg2 \
     graphviz \
     htop \
+    iftop \
     info \
     iotop \
     jq \
@@ -69,6 +70,7 @@ sudo apt-get -y install \
     moreutils \
     neovim \
     net-tools \
+    nethogs \
     openssh-server \
     pciutils \
     perl \
