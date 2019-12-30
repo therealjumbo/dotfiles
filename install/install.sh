@@ -158,7 +158,7 @@ if ! grep -qF "neovim3" <(pyenv versions); then
 fi
 
 # if go does not exist or is the wrong version, re-install it
-if [ ! -e /usr/local/bin/go ] || ! grep -qF "1.13.1" <(/usr/local/go/bin/go version); then
+if [ ! -d /usr/local/go ] || ! grep -qF "1.13.1" <(/usr/local/go/bin/go version); then
     # as per the documentation, previous versions of go should be removed before
     # the new one is installed
     sudo rm -rf /usr/local/go
