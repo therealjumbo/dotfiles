@@ -87,6 +87,7 @@ sudo apt-get -y install \
     stow \
     sysstat \
     tk-dev \
+    tldr \
     tmux \
     tree \
     tshark \
