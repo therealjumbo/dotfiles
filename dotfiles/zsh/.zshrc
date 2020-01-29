@@ -149,11 +149,14 @@ if [ -d "$HOME/.zshrc.d" ]; then
   done
 fi
 
-# load zsh completion for docker-compose
-fpath=(/usr/share/zsh/vendor-completions $fpath)
+# load zsh completion for rust and for user
+# load zsh completion for docker-compose, systemd etc.
+fpath=(
+  ~/.zfunc
+  /usr/share/zsh/vendor-completions
+  $fpath
+  )
 autoload -Uz compinit && compinit -i
-# load zsh completion for rust
-fpath+=~/.zfunc
 
 # allow zsh tab completion for `docker exec` see:
 # https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58
