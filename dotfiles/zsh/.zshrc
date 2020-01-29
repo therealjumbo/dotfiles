@@ -108,6 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias vi="nvim"
+alias fd="fdfind"
 alias ct=$'ctags -R --exclude=\".git\" --exclude=@.ctagsignore -L .srclist'
 alias cs='xclip -selection clipboard'
 alias vs='xclip -o -selection clipboard'

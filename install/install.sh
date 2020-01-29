@@ -33,6 +33,7 @@ sudo apt-get -y install \
     dpkg-repack \
     dpkg-sig \
     exuberant-ctags \
+    fd-find \
     flawfinder \
     fzf \
     gcc \
