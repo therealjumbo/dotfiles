@@ -123,13 +123,15 @@ alias gdb-batch="gdb --batch --ex run --ex bt --ex q --args"
 alias r='cd $(git rev-parse --show-toplevel)'
 
 # history specific options
+setopt extended_history
 setopt hist_allow_clobber
+setopt hist_expire_dups_first
+setopt hist_find_no_dups
+setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_no_store
-setopt hist_expire_dups_first
-setopt hist_find_no_dups
-setopt extended_history
+setopt hist_save_no_dups
 setopt inc_append_history
 
 HISTSIZE=500000
