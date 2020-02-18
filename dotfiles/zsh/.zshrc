@@ -53,7 +53,6 @@ plugins=(
   docker
   docker-compose
   git
-  safe-paste
   vi-mode
 )
 
