@@ -11,6 +11,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'frankier/neovim-colors-solarized-truecolor-only'
     " auto detect indent level
     Plug 'tpope/vim-sleuth'
+    " automatically `:set paste` when pasting from clipboard
+    Plug 'ConradIrwin/vim-bracketed-paste'
     " git status in the gutter
     Plug 'airblade/vim-gitgutter'
     " git manipulation from within vim
