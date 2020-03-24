@@ -13,6 +13,14 @@ while true;
     kill -0 "$$" || exit;
 done 2>/dev/null &
 
+if grep -q Microsoft /proc/version; then
+  native_linux=false
+  wsl=true
+else
+  native_linux=true
+  wsl=false
+fi
+
 "${this_script_dir}/install/install.sh" || exit 1
 
 "${this_script_dir}/setup/setup.sh" || exit 1

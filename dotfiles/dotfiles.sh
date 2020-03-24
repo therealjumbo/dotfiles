@@ -29,7 +29,9 @@ stow --dir="${this_script_dir}" --target="$HOME" profile
 
 stow --dir="${this_script_dir}" --target="$HOME" pyenv
 
-# we don't want stow to symlink anything besides the chrome subdir right now so
-# create the directory above it first
-mkdir -p "$HOME/.mozilla/firefox/profile.default"
-stow --dir="${this_script_dir}" --target="$HOME" firefox
+if [ "$native_linux" = "true" ]; then
+  # we don't want stow to symlink anything besides the chrome subdir right now so
+  # create the directory above it first
+  mkdir -p "$HOME/.mozilla/firefox/profile.default"
+  stow --dir="${this_script_dir}" --target="$HOME" firefox
+fi

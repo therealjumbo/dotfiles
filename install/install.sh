@@ -7,10 +7,21 @@ this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
+if [ "$native_linux" = "true" ]; then
+  packages=" \
+    avahi-utils \
+    docker-compose \
+    docker.io \
+    keepassxc \
+    tshark \
+    wireshark \
+    "
+fi
+
 # install all apt packages
 sudo apt-get -y install \
+    "$packages" \
     automake \
-    avahi-utils \
     build-essential \
     ca-certificates \
     clang \
@@ -23,8 +34,6 @@ sudo apt-get -y install \
     curl \
     dconf-cli \
     dnsutils \
-    docker-compose \
-    docker.io \
     dos2unix \
     doxygen \
     dpkg \
@@ -48,7 +57,6 @@ sudo apt-get -y install \
     iotop \
     jq \
     jsonlint \
-    keepassxc \
     keychain \
     libbz2-dev \
     libffi-dev \
@@ -90,12 +98,10 @@ sudo apt-get -y install \
     tldr \
     tmux \
     tree \
-    tshark \
     unattended-upgrades \
     valgrind \
     vim \
     wget \
-    wireshark \
     xclip \
     xz-utils \
     zlib1g-dev \
