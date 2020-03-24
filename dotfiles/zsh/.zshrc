@@ -82,6 +82,9 @@ test -d "$PYENV_ROOT/bin" && path+="$PYENV_ROOT/bin"
 
 source $ZSH/oh-my-zsh.sh
 
+# add user@host to prompt
+PROMPT="%{$fg[cyan]%}%n@%{$fg[green]%}%m%{$reset_color%} ${PROMPT}"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
