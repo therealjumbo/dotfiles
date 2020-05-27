@@ -136,6 +136,10 @@ if [ "$NATIVE_LINUX" = "true" ] && [ "$UBUNTU" = "true" ]; then
     curl -sLO https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb
     sudo dpkg -i fd_8.1.1_amd64.deb
     rm -rf fd_8.1.1_amd64.deb
+
+    if [ ! -f /usr/bin/fdfind ]; then
+        sudo ln -s /usr/bin/fd /usr/bin/fdfind
+    fi
 fi
 
 # use unattended-upgrades (i.e. automatic security updates) --priority medium

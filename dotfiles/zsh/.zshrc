@@ -186,7 +186,10 @@ if command -v pyenv virtualenv-init - 1> /dev/null 2>&1; then
 fi
 
 # This adds the fzf ctrl-t, ctrl-r, and alt-c keybindings
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+# this is the key-bindings file installed by the official deb package
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+# this is the key-bindings file installed by the git installer
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --glob '!.git/'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fdfind --type d --no-ignore-vcs --hidden --exclude '.git'"
