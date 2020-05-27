@@ -21,6 +21,7 @@ stow --dir="${this_script_dir}" --target="$HOME" vim
 mv "$HOME/.zshrc" "$HOME/.zshrc.old"
 stow --dir="${this_script_dir}" --target="$HOME" zsh
 
+mv "$HOME/.ssh/config" "$HOME/.ssh/config.old"
 stow --dir="${this_script_dir}" --target="$HOME/.ssh/" ssh
 
 [ -f "$HOME/.profile" ] && \
@@ -29,7 +30,7 @@ stow --dir="${this_script_dir}" --target="$HOME" profile
 
 stow --dir="${this_script_dir}" --target="$HOME" pyenv
 
-if [ "$native_linux" = "true" ]; then
+if [ "$NATIVE_LINUX" = "true" ]; then
   # we don't want stow to symlink anything besides the chrome subdir right now so
   # create the directory above it first
   mkdir -p "$HOME/.mozilla/firefox/profile.default"

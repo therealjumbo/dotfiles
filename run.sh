@@ -13,13 +13,20 @@ while true;
     kill -0 "$$" || exit;
 done 2>/dev/null &
 
+UBUNTU=false
+NATIVE_LINUX=false
+WSL=false
 if grep -q Microsoft /proc/version; then
-  native_linux=false
-  wsl=true
+  WSL=true
 else
-  native_linux=true
-  wsl=false
+  NATIVE_LINUX=true
+  if grep -q Ubuntu /proc/version; then
+    UBUNTU=true
+  fi
 fi
+export UBUNTU
+export NATIVE_LINUX
+export WSL
 
 "${this_script_dir}/install/install.sh" || exit 1
 

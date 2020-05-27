@@ -6,7 +6,7 @@ mkdir -p "$HOME/.vimtmp/tmp/backupdir"
 mkdir -p "$HOME/.vimtmp/tmp/swapdir"
 mkdir -p "$HOME/.vimtmp/tmp/undodir"
 
-if [ "$native_linux" = "true" ]; then
+if [ "$NATIVE_LINUX" = "true" ]; then
   sudo groupadd docker || true
   sudo groupadd wireshark || true
   sudo usermod -aG docker "$(whoami)"
@@ -29,7 +29,7 @@ mkdir -p "$HOME/.zfunc"
 # create my GOPATH and github username subpath
 mkdir -p "$HOME/proj/go/src/github.com/therealjumbo"
 
-if [ "$native_linux" = "true" ]; then
+if [ "$NATIVE_LINUX" = "true" ]; then
   # enable the avahi ssh service, if it doesn't yet exist
   # the service files cannot be absolute symlinks since avahi runs in a chroot.
   # Relative symlinks can be confusing, so just cp the file instead.
