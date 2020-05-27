@@ -17,9 +17,11 @@ fi
 sudo groupadd fuse || true
 sudo usermod -aG fuse "$(whoami)"
 
-# set zsh as the default shell
-echo "Enter $(whoami)'s password for chsh"
-chsh -s "$(command -v zsh)"
+# only set zsh as the default shell if not already set
+if ! grep -qF "zsh" <(echo "$SHELL"); then
+    echo "Enter $(whoami)'s password for chsh"
+    chsh -s "$(command -v zsh)"
+fi
 
 # create main zsh function dir
 mkdir -p "$HOME/.zfunc"
