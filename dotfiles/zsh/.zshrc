@@ -110,8 +110,8 @@ PROMPT="%{$fg[cyan]%}%n@%{$fg[green]%}%m%{$reset_color%} ${PROMPT}"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vi="nvim"
-alias fd="fdfind"
+alias vi='nvim'
+alias fd='fdfind'
 alias ct=$'ctags -R --exclude=\".git\" --exclude=@.ctagsignore -L .srclist'
 alias cs='xclip -selection clipboard'
 alias vs='xclip -o -selection clipboard'
@@ -122,9 +122,9 @@ alias dr='docker'
 export WORKSPACE="$HOME/proj"
 alias ws='cd $WORKSPACE && ls'
 alias his='fc -li 1'
-alias gdb-batch="gdb --batch --ex run --ex bt --ex q --args"
+alias gdb-batch='gdb --batch --ex run --ex bt --ex q --args'
 alias r='cd $(git rev-parse --show-toplevel)'
-alias ost="ostree --repo=$(pwd)/repo"
+alias ost='ostree --repo=$(pwd)/repo'
 
 # history specific options
 setopt extended_history
