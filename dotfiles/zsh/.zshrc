@@ -124,6 +124,7 @@ alias ws='cd $WORKSPACE && ls'
 alias his='fc -li 1'
 alias gdb-batch="gdb --batch --ex run --ex bt --ex q --args"
 alias r='cd $(git rev-parse --show-toplevel)'
+alias ost="ostree --repo=$(pwd)/repo"
 
 # history specific options
 setopt extended_history

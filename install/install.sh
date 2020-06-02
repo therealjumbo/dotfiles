@@ -100,6 +100,7 @@ sudo apt-get -y install \
     net-tools \
     nethogs \
     openssh-server \
+    ostree \
     pciutils \
     perl \
     python-openssl \
