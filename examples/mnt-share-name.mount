@@ -1,0 +1,13 @@
+[Unit]
+Description=cifs mount for //server-name/share-name
+Requires=network-online.target
+After=network-online.service
+
+[Mount]
+What=//server-name/share-name
+Where=/mnt/share-name
+Options=credentials=/root/smb.cred,rw,uid=1000,gid=1000
+Type=cifs
+
+[Install]
+WantedBy=multi-user.target

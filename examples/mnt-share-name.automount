@@ -1,0 +1,11 @@
+[Unit]
+Description=cifs automount for //server-name/share-name
+Requires=network-online.target
+After=network-online.service
+
+[Automount]
+Where=/mnt/share-name
+TimeoutIdleSec=10
+
+[Install]
+WantedBy=multi-user.target
