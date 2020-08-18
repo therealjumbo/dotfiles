@@ -21,7 +21,11 @@ stow --dir="${this_script_dir}" --target="$HOME" vim
 mv "$HOME/.zshrc" "$HOME/.zshrc.old"
 stow --dir="${this_script_dir}" --target="$HOME" zsh
 
+mv "$HOME/.ssh/config" "$HOME/.ssh/config.old"
 stow --dir="${this_script_dir}" --target="$HOME/.ssh/" ssh
+# ~/.ssh/config includes the ~/.ssh/site_config file, so create it if it DNE,
+# but we don't want to commit this file to the repo (site specific mods)
+[ ! -f "$HOME/.ssh/site_config" ] && touch "$HOME/.ssh/site_config"
 
 [ -f "$HOME/.profile" ] && \
 mv "$HOME/.profile" "$HOME/.profile.old"
@@ -29,7 +33,9 @@ stow --dir="${this_script_dir}" --target="$HOME" profile
 
 stow --dir="${this_script_dir}" --target="$HOME" pyenv
 
-# we don't want stow to symlink anything besides the chrome subdir right now so
-# create the directory above it first
-mkdir -p "$HOME/.mozilla/firefox/profile.default"
-stow --dir="${this_script_dir}" --target="$HOME" firefox
+if [ "$NATIVE_LINUX" = "true" ]; then
+  # we don't want stow to symlink anything besides the chrome subdir right now so
+  # create the directory above it first
+  mkdir -p "$HOME/.mozilla/firefox/profile.default"
+  stow --dir="${this_script_dir}" --target="$HOME" firefox
+fi

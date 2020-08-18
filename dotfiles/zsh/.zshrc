@@ -82,6 +82,9 @@ test -d "$PYENV_ROOT/bin" && path+="$PYENV_ROOT/bin"
 
 source $ZSH/oh-my-zsh.sh
 
+# add user@host to prompt
+PROMPT="%{$fg[cyan]%}%n@%{$fg[green]%}%m%{$reset_color%} ${PROMPT}"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -107,8 +110,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vi="nvim"
-alias fd="fdfind"
+alias vi='nvim'
+alias fd='fdfind'
 alias ct=$'ctags -R --exclude=\".git\" --exclude=@.ctagsignore -L .srclist'
 alias cs='xclip -selection clipboard'
 alias vs='xclip -o -selection clipboard'
@@ -119,8 +122,9 @@ alias dr='docker'
 export WORKSPACE="$HOME/proj"
 alias ws='cd $WORKSPACE && ls'
 alias his='fc -li 1'
-alias gdb-batch="gdb --batch --ex run --ex bt --ex q --args"
+alias gdb-batch='gdb --batch --ex run --ex bt --ex q --args'
 alias r='cd $(git rev-parse --show-toplevel)'
+alias ost='ostree --repo=$(pwd)/repo'
 
 # history specific options
 setopt extended_history
@@ -183,7 +187,10 @@ if command -v pyenv virtualenv-init - 1> /dev/null 2>&1; then
 fi
 
 # This adds the fzf ctrl-t, ctrl-r, and alt-c keybindings
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+# this is the key-bindings file installed by the official deb package
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+# this is the key-bindings file installed by the git installer
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --glob '!.git/'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fdfind --type d --no-ignore-vcs --hidden --exclude '.git'"

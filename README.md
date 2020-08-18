@@ -50,6 +50,8 @@ git clone https://github.com:therealjumbo/dotfiles.git
 * generate new ssh keys for system
 * setup keypass
 * setup firefox sync
+* change firefox `about:config`
+  `toolkit.legacyUserProfileCustomizations.stylesheets` setting to `true` 
 * change firefox profile to $HOME/.mozilla/firefox/profile.default
 * install intel-microcode or amd-microcode, depending
 * intall wifi firmware needed, see `apt-cache search firmware- | grep ^firmware`

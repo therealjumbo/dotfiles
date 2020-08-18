@@ -4,3 +4,12 @@ HostKeyAlgorithms ssh-rsa
 Host 169.254.1.100
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
+
+# terminate the previous Host/Match, else the Include only matches the previous
+# Host entry
+Match all
+Include ~/.ssh/site_config
+# Example host entry for site_config
+#Host github.com
+#  HostName github.com
+#  IdentityFile ~/.ssh/id_github.com
