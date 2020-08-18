@@ -76,6 +76,7 @@ sudo apt-get -y install \
     pciutils \
     perl \
     python-openssl \
+    rclone \
     ripgrep \
     rr \
     screen \
