@@ -1,10 +1,15 @@
 #!/bin/bash
 set -e
 
-# create tmp dirs for nvim
+# create tmp dirs for nvim for user
 mkdir -p "$HOME/.vimtmp/tmp/backupdir"
 mkdir -p "$HOME/.vimtmp/tmp/swapdir"
 mkdir -p "$HOME/.vimtmp/tmp/undodir"
+
+# create tmp dirs for nvim for root
+sudo mkdir -p "/root/.vimtmp/tmp/backupdir"
+sudo mkdir -p "/root/.vimtmp/tmp/swapdir"
+sudo mkdir -p "/root/.vimtmp/tmp/undodir"
 
 if [ "$NATIVE_LINUX" = "true" ]; then
   sudo groupadd docker || true

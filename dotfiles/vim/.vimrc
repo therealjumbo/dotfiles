@@ -93,10 +93,10 @@ set splitbelow
 set splitright
 
 " put backups in global dir
-set backupdir=~/.vim/tmp//,
+set backupdir=~/.vimtmp/tmp/backupdir//,
 " put swap files in global dir
-set directory=~/.vim/tmp//,
+set directory=~/.vimtmp/tmp/swapdir//,
 " put undo files in global dir
-set undodir=~/.vim/tmp//,
+set undodir=~/.vimtmp/tmp/undodir//,
 
 set tags=./tags;~/workspace
