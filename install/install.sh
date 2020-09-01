@@ -176,23 +176,25 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-if ! grep -qF "2.7.16" <(pyenv versions); then
-    pyenv install 2.7.16
+py2_version=2.7.18
+if ! grep -qF "$py2_version" <(pyenv versions); then
+    pyenv install "$py2_version"
 fi
 
-if ! grep -qF "3.7.4" <(pyenv versions); then
-    pyenv install 3.7.4
+py3_version=3.8.3
+if ! grep -qF "$py3_version" <(pyenv versions); then
+    pyenv install "$py3_version"
 fi
 
 if ! grep -qF "neovim2" <(pyenv versions); then
-    pyenv virtualenv 2.7.16 neovim2
+    pyenv virtualenv "$py2_version" neovim2
     pyenv activate neovim2
     pip install neovim
     pyenv deactivate
 fi
 
 if ! grep -qF "neovim3" <(pyenv versions); then
-    pyenv virtualenv 3.7.4 neovim3
+    pyenv virtualenv "$py3_version" neovim3
     pyenv activate neovim3
     pip install \
         flake8 \
