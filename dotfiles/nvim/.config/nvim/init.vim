@@ -90,10 +90,26 @@ let g:airline#extensions#tabline#enabled = 1
 " :RustFmt on save
 let g:rustfmt_autosave = 1
 
-"convert tabs to spaces
+" convert tabs to spaces
+set autoindent
 set expandtab
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
+" allow toggling between local and default mode
+function TabToggle()
+  if &expandtab
+    set shiftwidth=8
+    set tabstop=8
+    set softtabstop=0
+    set noexpandtab
+  else
+    set shiftwidth=4
+    set tabstop=4
+    set softtabstop=4
+    set expandtab
+  endif
+endfunction
 
 " :e <tab> autocomplete is case insensitive
 set wildignorecase
