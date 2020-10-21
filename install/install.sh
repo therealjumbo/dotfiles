@@ -211,7 +211,7 @@ if [ ! -d /usr/local/go ] || ! grep -qF "1.15.3" <(/usr/local/go/bin/go version)
     # the new one is installed
     sudo rm -rf /usr/local/go
     # install go
-    curl -s https://golang.org/dl/go1.15.3.linux-amd64.tar.gz \
+    curl -sL https://golang.org/dl/go1.15.3.linux-amd64.tar.gz \
         | sudo tar -C /usr/local -xz
 fi
 
@@ -230,7 +230,7 @@ fi
 
 # Install vim-plug
 if ! [ -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
-    curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
+    curl -sfLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
@@ -240,5 +240,5 @@ nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugUpd
 
 # install oh-my-zsh
 if ! [ -e "$HOME/.oh-my-zsh" ]; then
-    curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | bash
+    curl -sL https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | bash
 fi
