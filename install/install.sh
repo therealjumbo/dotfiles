@@ -43,6 +43,7 @@ sudo apt-get -y upgrade
 sudo apt-get -y install \
     "${packages[@]}" \
     automake \
+    artha \
     build-essential \
     ca-certificates \
     clang \
