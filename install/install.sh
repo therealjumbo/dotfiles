@@ -8,36 +8,17 @@ if [ "$NATIVE_LINUX" = "true" ]; then
         avahi-utils \
         docker-compose \
         docker.io \
-        keepassxc \
-        tshark \
-        wireshark \
-        )
-
-    # These two packages don't exist yet in ubuntu 18.04, and there is no ppa
-    # for them, see below for a separate installation
-    if [ "$UBUNTU" = "false" ]; then
-        packages+=( \
-            fd-find \
-            fzf \
-            )
-    else
-        # Ubuntu 18.04's neovim is too old
-        sudo add-apt-repository -y ppa:neovim-ppa/stable
-        # Ubuntu 18.04's doesn't have ripgrep
-        sudo add-apt-repository -y ppa:x4121/ripgrep
-    fi
-else
-    # WSL still wants these packages even though 18.04 can't use them yet
-    packages=(
         fd-find \
         fzf \
+        keepassxc \
+        tshark \
+        wireshark
         )
 fi
 
 # bring the system up to date
 sudo apt-get -y update
 sudo apt-get -y upgrade
-
 
 # install all apt packages
 sudo apt-get -y install \
@@ -128,22 +109,6 @@ sudo apt-get -y install \
     xz-utils \
     zlib1g-dev \
     zsh
-
-
-if [ "$NATIVE_LINUX" = "true" ] && [ "$UBUNTU" = "true" ]; then
-    if [ ! -e ~/.fzf ]; then
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        ~/.fzf/install
-    fi
-
-    curl -sLO https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb
-    sudo dpkg -i fd_8.1.1_amd64.deb
-    rm -rf fd_8.1.1_amd64.deb
-
-    if [ ! -f /usr/bin/fdfind ]; then
-        sudo ln -s /usr/bin/fd /usr/bin/fdfind
-    fi
-fi
 
 # use unattended-upgrades (i.e. automatic security updates) --priority medium
 # suppresses the interactive question
