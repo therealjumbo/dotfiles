@@ -25,3 +25,7 @@ screenlog.*
 
 # pyenv python version file
 .python-version
+
+# by convention, git format-patch output is put into
+# <git-repo-root-dir>/outgoing
+/outgoing/
