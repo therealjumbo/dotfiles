@@ -25,7 +25,3 @@ screenlog.*
 
 # pyenv python version file
 .python-version
-
-# ignore the name we use for ostree repos, we always put it at the toplevel of
-# the git repo for now, so restrict the .gitignore to only that dir
-/repo/
