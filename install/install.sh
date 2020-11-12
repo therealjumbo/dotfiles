@@ -149,14 +149,20 @@ fi
 if ! grep -qF "neovim3" <(pyenv versions); then
     pyenv virtualenv "$py3_version" neovim3
     pyenv activate neovim3
+    pip install --upgrade pip
     pip install \
+        black \
         flake8 \
-        neovim \
         polysquare-cmake-linter \
         pynvim \
         python-language-server
     pyenv deactivate
 fi
+
+ln -sf ~/.pyenv/versions/neovim3/bin/pyls ~/.local/bin
+ln -sf ~/.pyenv/versions/neovim3/bin/flake8 ~/.local/bin
+ln -sf ~/.pyenv/versions/neovim3/bin/black ~/.local/bin
+ln -sf ~/.pyenv/versions/neovim3/bin/polysquare-cmake-linter ~/.local/bin
 
 # if go does not exist or is the wrong version, re-install it
 if [ ! -d /usr/local/go ] || ! grep -qF "1.15.3" <(/usr/local/go/bin/go version); then
