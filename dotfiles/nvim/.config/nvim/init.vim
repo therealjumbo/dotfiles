@@ -62,6 +62,8 @@ filetype plugin indent on
 
 " Enable syntax highlighting
 syntax enable
+" Enable syntax based code folding
+set foldmethod=syntax
 " Force groovy syntax for any file named 'Jenkinsfile'
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
