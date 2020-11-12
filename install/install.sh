@@ -141,21 +141,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-py2_version=2.7.18
-if ! grep -qF "$py2_version" <(pyenv versions); then
-    pyenv install "$py2_version"
-fi
-
 py3_version=3.8.3
 if ! grep -qF "$py3_version" <(pyenv versions); then
     pyenv install "$py3_version"
-fi
-
-if ! grep -qF "neovim2" <(pyenv versions); then
-    pyenv virtualenv "$py2_version" neovim2
-    pyenv activate neovim2
-    pip install neovim
-    pyenv deactivate
 fi
 
 if ! grep -qF "neovim3" <(pyenv versions); then

@@ -211,8 +211,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_sh_shellcheck_args="-x"
 
+let g:loaded_python_provider = 0
 let pyenv = $PYENV_ROOT
-let g:python_host_prog = pyenv . '/versions/neovim2/bin/python'
 let g:python3_host_prog = pyenv . '/versions/neovim3/bin/python'
 
 let g:vimwiki_list = [{'path': '~/vimwiki/'}]
