@@ -141,7 +141,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-py3_version=3.8.3
+py3_version=3.9.0
 if ! grep -qF "$py3_version" <(pyenv versions); then
     pyenv install "$py3_version"
 fi
