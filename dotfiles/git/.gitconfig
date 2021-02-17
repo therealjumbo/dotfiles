@@ -74,9 +74,6 @@
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
-    # run the correct command if user types 'git git status'
-    git = !exec git
-    
     # return the root directory of this repo
     toplevel = rev-parse --show-toplevel
 
@@ -99,3 +96,6 @@
 
 [status]
     submodulesummary = 1
+
+[submodule]
+    recurse = true
