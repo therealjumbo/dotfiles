@@ -23,8 +23,8 @@ sudo apt-get -y upgrade
 # install all apt packages
 sudo apt-get -y install \
     "${packages[@]}" \
-    automake \
     artha \
+    automake \
     build-essential \
     ca-certificates \
     clang \
@@ -50,6 +50,7 @@ sudo apt-get -y install \
     gdb \
     git \
     git-email \
+    git-gui \
     gnupg2 \
     graphviz \
     htop \
