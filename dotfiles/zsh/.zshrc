@@ -162,6 +162,7 @@ fpath=(
   $fpath
   )
 autoload -Uz compinit && compinit -i
+autoload zcalc zmv
 
 # allow zsh tab completion for `docker exec` see:
 # https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58
