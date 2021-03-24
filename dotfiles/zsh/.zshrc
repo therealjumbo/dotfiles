@@ -135,7 +135,8 @@ setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_no_store
 setopt hist_save_no_dups
-setopt inc_append_history
+setopt hist_reduce_blanks
+setopt share_history
 
 HISTSIZE=500000
 SAVEHIST=500000
