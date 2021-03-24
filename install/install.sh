@@ -153,8 +153,9 @@ if ! grep -qF "neovim3" <(pyenv versions); then
     pip install --upgrade pip
     pip install \
         black \
-        flake8 \
         polysquare-cmake-linter \
+        pyflakes \
+        pyls-black \
         pynvim \
         python-language-server
     pyenv deactivate
