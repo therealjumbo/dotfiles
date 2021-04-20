@@ -34,6 +34,7 @@ sudo apt-get -y install \
     cmake \
     colordiff \
     cpanminus \
+    cscope \
     curl \
     dconf-cli \
     dnsutils \

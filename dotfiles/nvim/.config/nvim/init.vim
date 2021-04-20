@@ -196,6 +196,26 @@ set undofile
 " search for tags in this directory or in any parent dir up to ~/
 set tags=./tags;~/
 
+function! LoadCscope()
+  if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    let db = findfile("cscope.out", ".;")
+    if (!empty(db))
+      let path = strpart(db, 0, match(db, "/cscope.out$"))
+      set nocscopeverbose " suppress 'duplicate connection' error
+      exe "cs add " . db . " " . path
+      set cscopeverbose
+    " else add the database pointed to by environment variable
+    elseif $CSCOPE_DB != ""
+      cs add $CSCOPE_DB
+    endif
+  endif
+endfunction
+au BufEnter /* call LoadCscope()
+
+
 if &diff
     highlight! link DiffText MatchParen
 endif
