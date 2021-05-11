@@ -15,6 +15,11 @@ clean.txt
 .ctagsignore
 tags
 
+# cscope outputs
+cscope.in.out
+cscope.out
+cscope.po.out
+
 # html markdown previews
 README.html
 
