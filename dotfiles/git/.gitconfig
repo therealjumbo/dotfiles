@@ -8,46 +8,63 @@
     branch = auto
     pager = true
 
+[init]
+    defaultBranch = master
+
+[core]
+    editor = nvim
+    excludesfile = ~/.gitignore_global
+
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
     diff = diff-highlight | less
 
-[core]
-    editor = nvim
-
-    excludesfile = ~/.gitignore_global
-
 [diff]
-    tool = vimdiff
+    tool = nvim
     submodule = log
 
 [difftool]
     prompt = false
     trustExitCode = true
 
-[difftool "vimdiff"]
-    path = nvim
+[difftool "nvim"]
+    cmd = nvim -d
 
 [color "diff"]
     whitespace = red reverse
 
 [merge]
-    tool = vimdiff
+    tool = nvim
     conflictstyle = diff3
 
 [mergetool]
     prompt = false
     trustExitCode = true
 
-[mergetool "vimdiff"]
-    path = nvim
+[mergetool "nvim"]
+    cmd = nvim -d
 
 [push]
     # `git push origin` to push current branch
     default = simple
     # make `git push` fail if committed submodule changes aren't pushed
     recurseSubmodules = check
+
+[pull]
+    rebase = false
+
+[rebase]
+    autosquash = true
+
+[status]
+    submodulesummary = 1
+
+[submodule]
+    recurse = true
+
+[rerere]
+    enabled = 1
 
 [alias]
     last = log -1 --stat
@@ -87,15 +104,3 @@
     smtpencryption = tls
     chainreplyto = false
     smtpserverport = 587
-
-[rerere]
-    enabled = 1
-
-[rebase]
-    autosquash = true
-
-[status]
-    submodulesummary = 1
-
-[submodule]
-    recurse = true
