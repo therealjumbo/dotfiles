@@ -86,7 +86,6 @@ sudo apt-get -y install \
     openssh-server \
     pciutils \
     perl \
-    python-openssl \
     rclone \
     ripgrep \
     rr \
