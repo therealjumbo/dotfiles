@@ -45,6 +45,9 @@
 [mergetool "nvim"]
     cmd = nvim -d
 
+[commit]
+    verbose = true
+
 [push]
     # `git push origin` to push current branch
     default = simple
