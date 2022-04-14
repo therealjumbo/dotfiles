@@ -23,6 +23,8 @@
 [diff]
     tool = nvim
     submodule = log
+    renames = copy
+    renameLimit = 10000
 
 [difftool]
     prompt = false
