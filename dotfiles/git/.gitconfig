@@ -63,7 +63,11 @@
     autosquash = true
 
 [status]
+    showUntrackedFiles = all
     submodulesummary = 1
+
+[stash]
+    showIncludeUntracked = true
 
 [submodule]
     recurse = true
