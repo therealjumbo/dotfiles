@@ -1,5 +1,9 @@
-AddKeysToAgent confirm
-HostKeyAlgorithms ssh-rsa
+AddKeysToAgent yes
+
+# Azure Devops doesn't support ed25519 keys yet, but openssh and git are trying
+# to deprecate rsa, so force rsa support back in
+HostKeyAlgorithms +ssh-rsa
+PubkeyAcceptedKeyTypes +ssh-rsa,rsa-sha2-256,rsa-sha2-512
 
 Host 169.254.1.100
   StrictHostKeyChecking no
@@ -9,7 +13,10 @@ Host 169.254.1.100
 # Host entry
 Match all
 Include ~/.ssh/site_config
+
 # Example host entry for site_config
 #Host github.com
-#  HostName github.com
-#  IdentityFile ~/.ssh/id_github.com
+#  Hostname github.com
+#  PreferredAuthentications publickey
+#  IdentitiesOnly yes
+#  IdentityFile ~/.ssh/<key_file>
