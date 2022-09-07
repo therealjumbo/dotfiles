@@ -70,19 +70,14 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 " you can have edited buffers that aren't visible in a window
 set hidden
 
-" hide the netrw banner
-let g:netrw_banner = 0
 " set the width of the dir explorer
 let g:netrw_winsize = 25
-" set preferred view type to tree type for netrw
-let g:netrw_liststyle = 3
-" open a file in the previous window
-let g:netrw_browse_split = 4
-" open file in a vertical split on the right
-let g:netrw_altv = 1
-" hide these filetypes in the dir explorer
-let g:netrw_list_hide = '.git,.sass-cache,.jpg,.png,.svg'
-" Per default, netrw leaves unmodified buffers open. This autocommand
+" tree type (3) was cooler, but buggy, so use long listing type instead
+let g:netrw_liststyle = 1
+" open a file in the same window
+let g:netrw_browse_split = 0
+" show hidden files
+let g:netrw_hide = 0
 " deletes netrw's buffer once it's hidden (using ':q', for example)
 autocmd FileType netrw setl bufhidden=delete
 
