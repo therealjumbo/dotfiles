@@ -56,6 +56,9 @@
     # make `git push` fail if committed submodule changes aren't pushed
     recurseSubmodules = check
 
+[fetch]
+    prune = true
+
 [pull]
     rebase = false
 
@@ -88,7 +91,7 @@
     df = diff
     dt = difftool
     brdel = branch -D
-    pap = pull --all --prune
+    pa = pull --all
     sub = submodule
     sdiff = !git diff && git submodule foreach 'git diff'
     supdate = submodule update --remote --merge
