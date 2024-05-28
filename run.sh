@@ -6,7 +6,7 @@ this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]
 WINDOWS_NT=false
 NATIVE_LINUX=false
 WSL=false
-if [ "$OS" != "Windows_NT" ]; then
+if [ "$OS" = "Windows_NT" ]; then
   WINDOWS_NT=true
 elif grep -q Microsoft /proc/version; then
   WSL=true
