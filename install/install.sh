@@ -3,6 +3,11 @@ set -e
 
 this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}" )" )"
 
+if [ "$OS" = "Windows_NT"];
+    echo "This script does not work on Windows. Exiting."
+    exit 1
+fi
+
 if [ "$NATIVE_LINUX" = "true" ]; then
     packages=(\
         avahi-utils \
