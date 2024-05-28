@@ -15,8 +15,6 @@ stow --dir="${this_script_dir}" --target="$HOME" nvim
 
 stow --dir="${this_script_dir}" --target="$HOME" tmux
 
-stow --dir="${this_script_dir}" --target="$HOME" vim
-
 [ -f "$HOME/.zshrc" ] && \
 mv "$HOME/.zshrc" "$HOME/.zshrc.old"
 stow --dir="${this_script_dir}" --target="$HOME" zsh
