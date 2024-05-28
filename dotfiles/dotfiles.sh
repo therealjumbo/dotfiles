@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-if [ "$OS" = "Windows_NT"];
+if [ "$OS" = "Windows_NT" ]; then
     echo "This script does not work on Windows. Exiting."
     exit 1
 fi

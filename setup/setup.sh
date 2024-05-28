@@ -6,7 +6,7 @@ mkdir -p "$HOME/.vimtmp/tmp/backupdir"
 mkdir -p "$HOME/.vimtmp/tmp/swapdir"
 mkdir -p "$HOME/.vimtmp/tmp/undodir"
 
-if [ "$OS" != "Windows_NT"]; then
+if [ "$OS" != "Windows_NT" ]; then
   # create tmp dirs for nvim for root
   sudo mkdir -p "/root/.vimtmp/tmp/backupdir"
   sudo mkdir -p "/root/.vimtmp/tmp/swapdir"
@@ -27,7 +27,7 @@ if [ "$NATIVE_LINUX" = "true" ]; then
       /usr/share/doc/avahi-daemon/examples/ssh.service /etc/avahi/services
 fi
 
-if [ "$OS" != "Windows_NT"]; then
+if [ "$OS" != "Windows_NT" ]; then
   sudo groupadd fuse || true
   sudo usermod -aG fuse "$(whoami)"
 

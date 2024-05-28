@@ -6,7 +6,7 @@ this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]
 WINDOWS_NT=false
 NATIVE_LINUX=false
 WSL=false
-if [ $OS -ne "Windows_NT"];
+if [ "$OS" != "Windows_NT" ]; then
   WINDOWS_NT=true
 elif grep -q Microsoft /proc/version; then
   WSL=true
@@ -18,7 +18,7 @@ export WINDOWS_NT
 export NATIVE_LINUX
 export WSL
 
-if [ "$NATIVE_LINUX" = "true" ] || [ "$WSL" = "true" ];
+if [ "$NATIVE_LINUX" = "true" ] || [ "$WSL" = "true" ]; then
   # ask for password upfront
   sudo -v
   # keep-alive; update existing sudo time stamp if set, otherwise do nothing
@@ -33,7 +33,7 @@ if [ "$NATIVE_LINUX" = "true" ] || [ "$WSL" = "true" ];
   "${this_script_dir}/dotfiles/dotfiles.sh" || exit 1
   "${this_script_dir}/usr/usr.sh" || exit 1
 
-elif [ "$WINDOWS_NT" = "true" ];
+elif [ "$WINDOWS_NT" = "true" ]; then
   "${this_script_dir}/install/install_win.sh" || exit 1
   "${this_script_dir}/setup/setup.sh" || exit 1
   "${this_script_dir}/dotfiles/dotfiles_win.sh" || exit 1
