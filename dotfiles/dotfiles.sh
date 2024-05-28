@@ -1,6 +1,11 @@
 #!/bin/bash
 set -eu
 
+if [ "$OS" = "Windows_NT"];
+    echo "This script does not work on Windows. Exiting."
+    exit 1
+fi
+
 this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}" )" )"
 
 stow --dir="${this_script_dir}" --target="$HOME" stow
