@@ -118,13 +118,12 @@ sudo dpkg-reconfigure unattended-upgrades --priority medium
 mkdir -p "$HOME/.local/bin"
 
 # add several of the git contrib scripts to /usr/local/bin
+# This doesn't exist on the windows distribution of git, but since we have
+# rerere enabled by default it shouldn't be too big of a deal
 sudo chmod +x /usr/share/doc/git/contrib/rerere-train.sh
 sudo ln -sf /usr/share/doc/git/contrib/rerere-train.sh /usr/local/bin/rerere-train
 
-sudo make -C /usr/share/doc/git/contrib/diff-highlight
-sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
-sudo ln -sf /usr/share/doc/git/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
-
+# also not available on windows :(
 sudo chmod +x /usr/share/doc/git/contrib/git-jump/git-jump
 sudo ln -sf /usr/share/doc/git/contrib/git-jump/git-jump /usr/local/bin/git-jump
 
