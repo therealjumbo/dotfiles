@@ -30,6 +30,7 @@ package_ids_arr=(
     Rustlang.Rustup
     SumatraPDF.SumatraPDF
     cURL.cURL
+    junegunn.fzf
     koalaman.shellcheck
     waterlan.dos2unix
 )
