@@ -29,9 +29,15 @@ if [ "$NATIVE_LINUX" = "true" ] || [ "$WSL" = "true" ];
   done 2>/dev/null &
 
   "${this_script_dir}/install/install.sh" || exit 1
+  "${this_script_dir}/setup/setup.sh" || exit 1
+  "${this_script_dir}/dotfiles/dotfiles.sh" || exit 1
+  "${this_script_dir}/usr/usr.sh" || exit 1
 
 elif [ "$WINDOWS_NT" = "true" ];
   "${this_script_dir}/install/install_win.sh" || exit 1
+  "${this_script_dir}/setup/setup.sh" || exit 1
+  "${this_script_dir}/dotfiles/dotfiles_win.sh" || exit 1
+  "${this_script_dir}/usr/usr.sh" || exit 1
 
 else
   echo "Unsupported OS. Exiting."
@@ -40,8 +46,5 @@ fi
 
 
 
-"${this_script_dir}/setup/setup.sh" || exit 1
 
-"${this_script_dir}/dotfiles/dotfiles.sh" || exit 1
 
-"${this_script_dir}/usr/usr.sh" || exit 1
