@@ -14,7 +14,7 @@ dploy stow "${this_script_dir}/dploy" "$HOME"
     mv "$HOME/.gitconfig" "$HOME/.gitconfig.old"
 dploy stow "${this_script_dir}/git" "$HOME"
 
-dploy stow "${this_script_dir}/nvim" "$HOME"
+dploy stow "${this_script_dir}/nvim/.config" "$LOCALAPPDATA"
 
 mkdir -p "$HOME/.ssh"
 [ -f "$HOME/.ssh/config" ] && \

@@ -60,3 +60,9 @@ done
 
 # dploy is a python stow replacement that we use instead of stow on windows
 pip install --upgrade dploy
+
+# install vim-plug
+if ! [ -e "$LOCALAPPDATA/nvim-data/site/autoload/plug.vim" ]; then
+    curl -sfLo "$LOCALAPPDATA/nvim-data/site/autoload/plug.vim" --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
