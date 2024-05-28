@@ -23,35 +23,18 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     " fuzzy list searcher integration
     Plug 'junegunn/fzf.vim'
-    " the fzf.vim plugin depends on the fzf plugin
-    Plug 'junegunn/fzf'
+    " fzf
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     " vimwiki
     Plug 'vimwiki/vimwiki'
-    " generic syntax checker
-    Plug 'vim-syntastic/syntastic'
-    " LSP vim client
-    Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-    " autocomplete plugin
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " debugger plugin also supports pdb and bashdb
     Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
-    " go programming language support
-    Plug 'fatih/vim-go'
     " rust cargo commands
     Plug 'timonv/vim-cargo'
-    " rust code completion and navigation
-    Plug 'racer-rust/vim-racer'
-    " rust plugin for syntastic
-    Plug 'rust-lang/rust.vim'
     " toml file highlighting
     Plug 'cespare/vim-toml'
     " cmake file highlighting
     Plug 'nickhutchinson/vim-cmake-syntax'
-    " bitbake file highlighting
-    Plug 'kergoth/vim-bitbake'
 call plug#end()
 
 set nomodeline
@@ -215,50 +198,5 @@ if &diff
     highlight! link DiffText MatchParen
 endif
 
-" syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_sh_shellcheck_args="-x"
-
-let g:loaded_python_provider = 0
-let pyenv = $PYENV_ROOT
-let g:python3_host_prog = pyenv . '/versions/neovim3/bin/python'
-
 let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-
-" LanguageClient-neovim and deoplete settings
-" Always draw the signcolumn.
-set signcolumn=yes
-
-let g:deoplete#enable_at_startup = 1
-
-function SetLSPShortcuts()
-  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-endfunction()
-
-augroup LSP
-  autocmd!
-  autocmd FileType cpp,c call SetLSPShortcuts()
-augroup END
-
-let g:LanguageClient_serverCommands = {
-  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'nightly', 'rls'],
-  \ 'cpp': ['clangd'],
-  \ 'python': ['~/.local/bin/pyls'],
-  \ }

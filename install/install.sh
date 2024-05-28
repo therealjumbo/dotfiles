@@ -147,35 +147,6 @@ if ! grep -qF "$py3_version" <(pyenv versions); then
     pyenv install "$py3_version"
 fi
 
-if ! grep -qF "neovim3" <(pyenv versions); then
-    pyenv virtualenv "$py3_version" neovim3
-    pyenv activate neovim3
-    pip install --upgrade pip
-    pip install \
-        black \
-        polysquare-cmake-linter \
-        pyflakes \
-        pyls-black \
-        pynvim \
-        python-language-server
-    pyenv deactivate
-fi
-
-ln -sf ~/.pyenv/versions/neovim3/bin/pyls ~/.local/bin
-ln -sf ~/.pyenv/versions/neovim3/bin/flake8 ~/.local/bin
-ln -sf ~/.pyenv/versions/neovim3/bin/black ~/.local/bin
-ln -sf ~/.pyenv/versions/neovim3/bin/polysquare-cmake-linter ~/.local/bin
-
-# if go does not exist or is the wrong version, re-install it
-if [ ! -d /usr/local/go ] || ! grep -qF "1.15.3" <(/usr/local/go/bin/go version); then
-    # as per the documentation, previous versions of go should be removed before
-    # the new one is installed
-    sudo rm -rf /usr/local/go
-    # install go
-    curl -sL https://golang.org/dl/go1.15.3.linux-amd64.tar.gz \
-        | sudo tar -C /usr/local -xz
-fi
-
 if ! [ -e "$HOME/.cargo/bin" ]; then
     (tempdir=$(mktemp -d)
     cd "$tempdir"
