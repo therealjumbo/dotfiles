@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -eu
 
 this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}" )" )"
 
