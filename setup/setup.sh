@@ -1,17 +1,20 @@
 #!/bin/bash
 set -eu
 
+if [ "$OS" = "Windows_NT" ]; then
+    echo "This script does not work on Windows. Exiting."
+    exit 1
+fi
+
 # create tmp dirs for nvim for user
 mkdir -p "$HOME/.vimtmp/tmp/backupdir"
 mkdir -p "$HOME/.vimtmp/tmp/swapdir"
 mkdir -p "$HOME/.vimtmp/tmp/undodir"
 
-if [ "$OS" != "Windows_NT" ]; then
-  # create tmp dirs for nvim for root
-  sudo mkdir -p "/root/.vimtmp/tmp/backupdir"
-  sudo mkdir -p "/root/.vimtmp/tmp/swapdir"
-  sudo mkdir -p "/root/.vimtmp/tmp/undodir"
-fi
+# create tmp dirs for nvim for root
+sudo mkdir -p "/root/.vimtmp/tmp/backupdir"
+sudo mkdir -p "/root/.vimtmp/tmp/swapdir"
+sudo mkdir -p "/root/.vimtmp/tmp/undodir"
 
 if [ "$NATIVE_LINUX" = "true" ]; then
   sudo groupadd docker || true
@@ -27,18 +30,16 @@ if [ "$NATIVE_LINUX" = "true" ]; then
       /usr/share/doc/avahi-daemon/examples/ssh.service /etc/avahi/services
 fi
 
-if [ "$OS" != "Windows_NT" ]; then
-  sudo groupadd fuse || true
-  sudo usermod -aG fuse "$(whoami)"
+sudo groupadd fuse || true
+sudo usermod -aG fuse "$(whoami)"
 
-  # only set zsh as the default shell if not already set
-  if ! grep -qF "zsh" <(echo "$SHELL"); then
-      echo "Enter $(whoami)'s password for chsh"
-      chsh -s "$(command -v zsh)"
-  fi
-
-  # create main zsh function dir
-  mkdir -p "$HOME/.zfunc"
-  # add rustup completions to zsh
-  "$HOME/.cargo/bin/rustup" completions zsh > ~/.zfunc/_rustup
+# only set zsh as the default shell if not already set
+if ! grep -qF "zsh" <(echo "$SHELL"); then
+echo "Enter $(whoami)'s password for chsh"
+chsh -s "$(command -v zsh)"
 fi
+
+# create main zsh function dir
+mkdir -p "$HOME/.zfunc"
+# add rustup completions to zsh
+"$HOME/.cargo/bin/rustup" completions zsh > ~/.zfunc/_rustup
