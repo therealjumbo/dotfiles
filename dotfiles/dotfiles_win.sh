@@ -39,6 +39,8 @@ dploy stow "${this_script_dir}/ssh" "$HOME/.ssh"
 
 [ -f "$HOME/.bash_profile" ] && \
     mv "$HOME/.bash_profile" "$HOME/.bash_profile.old"
+[ -f "$HOME/.bashrc" ] && \
+    mv "$HOME/.bashrc" "$HOME/.bashrc.old"
 dploy stow "${this_script_dir}/bash" "$HOME"
 
 # we don't want stow to symlink anything besides the chrome subdir right now so
