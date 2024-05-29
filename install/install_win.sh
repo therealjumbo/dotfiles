@@ -86,9 +86,9 @@ if ! [ -e "$LOCALAPPDATA/nvim-data/site/autoload/plug.vim" ]; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-# now that we have vim-plug installed, install and update all nvim plugins
-nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugInstall +qall
-nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugUpdate +qall
+# now that we have nvim and vim-plug installed, install and update all nvim plugins
+nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.lua" +PlugInstall +qall
+nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.lua" +PlugUpdate +qall
 
 # rust-analyzer (the rust LSP implementation) needs the std lib sources
 rustup component add rust-src
