@@ -6,14 +6,6 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# on Windows, if HOMEDRIVE/HOMESHARE and HOMEPATH are set to something other
-# than USERPROFILE, then HOME isn't where we want it either. Fix that by
-# resetting HOME to USERPROFILE
-if [ "$OS" = "Windows_NT" ]; then
-    HOME="$USERPROFILE"
-    export HOME
-fi
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
