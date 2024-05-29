@@ -8,27 +8,27 @@ if [ "$OS" != "Windows_NT" ]; then
     exit 1
 fi
 
-dploy stow "${this_script_dir}/dploy" "$HOME"
+dploy stow "${this_script_dir}/dploy" "$USERPROFILE"
 
-[ -f "$HOME/.gitconfig" ] && \
-    mv "$HOME/.gitconfig" "$HOME/.gitconfig.old"
-dploy stow "${this_script_dir}/git" "$HOME"
+[ -f "$USERPROFILE/.gitconfig" ] && \
+    mv "$USERPROFILE/.gitconfig" "$USERPROFILE/.gitconfig.old"
+dploy stow "${this_script_dir}/git" "$USERPROFILE"
 
 dploy stow "${this_script_dir}/nvim/.config" "$LOCALAPPDATA"
 
-mkdir -p "$HOME/.ssh"
-[ -f "$HOME/.ssh/config" ] && \
-    mv "$HOME/.ssh/config" "$HOME/.ssh/config.old"
-dploy stow "${this_script_dir}/ssh" "$HOME/.ssh"
+mkdir -p "$USERPROFILE/.ssh"
+[ -f "$USERPROFILE/.ssh/config" ] && \
+    mv "$USERPROFILE/.ssh/config" "$USERPROFILE/.ssh/config.old"
+dploy stow "${this_script_dir}/ssh" "$USERPROFILE/.ssh"
 # ~/.ssh/config includes the ~/.ssh/site_config file, so create it if it DNE,
 # but we don't want to commit this file to the repo (site specific mods)
-[ ! -f "$HOME/.ssh/site_config" ] && touch "$HOME/.ssh/site_config"
+[ ! -f "$USERPROFILE/.ssh/site_config" ] && touch "$USERPROFILE/.ssh/site_config"
 
-[ -f "$HOME/.profile" ] && \
-    mv "$HOME/.profile" "$HOME/.profile.old"
-dploy stow "${this_script_dir}/profile" "$HOME"
+[ -f "$USERPROFILE/.bash_profile" ] && \
+    mv "$USERPROFILE/.bash_profile" "$USERPROFILE/.bash_profile.old"
+dploy stow "${this_script_dir}/bash" "$USERPROFILE"
 
 # we don't want stow to symlink anything besides the chrome subdir right now so
 # create the directory above it first
-mkdir -p "$HOME/.mozilla/firefox/profile.default"
-dploy stow "${this_script_dir}/firefox" "$HOME"
+mkdir -p "$USERPROFILE/.mozilla/firefox/profile.default"
+dploy stow "${this_script_dir}/firefox" "$USERPROFILE"

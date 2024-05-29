@@ -1,12 +1,18 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
+# ~/.bash_profile: executed by the command interpreter for login shells.
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
+
+# on Windows, if HOMEDRIVE/HOMESHARE and HOMEPATH are set to something other
+# than USERPROFILE, then HOME isn't where we want it either. Fix that by
+# resetting HOME to USERPROFILE
+if [ "$OS" = "Windows_NT" ]; then
+    HOME="$USERPROFILE"
+    export HOME
+fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -17,8 +23,8 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # load this user's site modifications
-if [ -d ~/.profile.d ]; then
-    for filename in ~/.profile.d/*.sh; do
+if [ -d "$HOME/.profile.d" ]; then
+    for filename in "$HOME"/.profile.d/*.sh; do
 	if [ -r "$filename" ]; then
 	    source "$filename"
 	fi
@@ -27,8 +33,8 @@ fi
 
 # in "git bash" on windows, the ssh-agent isn't normally started, so we start
 # it here
-if [ "$OS" = "Windows_NT"]; then
-    env=~/.ssh/agent.env
+if [ "$OS" = "Windows_NT" ]; then
+    env="$HOME/.ssh/agent.env"
 
     agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
 
@@ -51,3 +57,5 @@ if [ "$OS" = "Windows_NT"]; then
 
     unset env
 fi
+
+eval "$(fzf --bash)"
