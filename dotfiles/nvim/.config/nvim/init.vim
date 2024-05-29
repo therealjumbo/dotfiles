@@ -2,33 +2,65 @@ if &compatible
     set nocompatible
 endif
 
+" TODO:
+" - replace vim-plug with lazy
+" - rewrite config into lua first, and load vimL parts later
+" - replace broken plugins, see below
+
 call plug#begin('~/.local/share/nvim/plugged')
     " vim unimpaired for various shortcuts
     Plug 'tpope/vim-unimpaired'
+
+    " TODO
+    " this is also broken on windows
     " lightweight status line
-    Plug 'vim-airline/vim-airline'
+    "Plug 'vim-airline/vim-airline'
+    "alternative: https://github.com/nvim-lualine/lualine.nvim
+
     " solarized for true color
     Plug 'frankier/neovim-colors-solarized-truecolor-only'
     " auto detect indent level
     Plug 'tpope/vim-sleuth'
     " automatically `:set paste` when pasting from clipboard
     Plug 'ConradIrwin/vim-bracketed-paste'
+
+    " TODO
+    " This is broken on windows too
     " git status in the gutter
-    Plug 'airblade/vim-gitgutter'
+    "Plug 'airblade/vim-gitgutter'
+    "alternatives:
+    "- https://github.com/lewis6991/gitsigns.nvim
+    "- https://github.com/NeogitOrg/neogit
+    "
+    " TODO
+    " then we could get rid of this too:
     " git manipulation from within vim
     Plug 'tpope/vim-fugitive'
+
     " unlock undotree
     Plug 'mbbill/undotree'
+
+    " TODO
+    " this is pretty broken too, see below
     " Strip whitespace by command
     Plug 'ntpeters/vim-better-whitespace'
+
     " fuzzy list searcher integration
     Plug 'junegunn/fzf.vim'
     " fzf
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+
+    " TODO
     " vimwiki
+    " I don't think we use this anymore
     Plug 'vimwiki/vimwiki'
+
+    " TODO
+    " probably broken on windows?
     " debugger plugin also supports pdb and bashdb
     Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+
     " rust cargo commands
     Plug 'timonv/vim-cargo'
     " toml file highlighting
@@ -136,12 +168,18 @@ set visualbell
 set nowrap " don't wrap text
 set inccommand=nosplit " live preview for substitutions e.g.: :%s/foo/bar/
 
+" enable better whitespace
+let g:better_whitespace_enabled=1
 " strip whitespace on save
 let g:strip_whitespace_on_save = 1
 " but only on changed lines
-let g:strip_only_modified_lines = 1
+" TODO
+" disable this on windows, until we find workaround, the diff command is
+" breaking this option
+"let g:strip_only_modified_lines = 1
 " and don't ask for confirmation
 let g:strip_whitespace_confirm = 0
+let g:strip_whitelines_at_eof = 1
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
@@ -170,29 +208,6 @@ set directory=~/.vimtmp/tmp/swapdir//,
 " put undo files in global dir
 set undodir=~/.vimtmp/tmp/undodir//,
 set undofile
-
-" search for tags in this directory or in any parent dir up to ~/
-set tags=./tags;~/
-
-function! LoadCscope()
-  if has("cscope")
-    set csprg=/usr/bin/cscope
-    set csto=0
-    set cst
-    let db = findfile("cscope.out", ".;")
-    if (!empty(db))
-      let path = strpart(db, 0, match(db, "/cscope.out$"))
-      set nocscopeverbose " suppress 'duplicate connection' error
-      exe "cs add " . db . " " . path
-      set cscopeverbose
-    " else add the database pointed to by environment variable
-    elseif $CSCOPE_DB != ""
-      cs add $CSCOPE_DB
-    endif
-  endif
-endfunction
-au BufEnter /* call LoadCscope()
-
 
 if &diff
     highlight! link DiffText MatchParen

@@ -76,6 +76,8 @@ done
 
 # dploy is a python stow replacement that we use instead of stow on windows
 pip install --upgrade dploy
+# TODO: test if we still need this, it should only be needed for some legacy
+# nvim plugins
 pip install --upgrade pynvim
 
 # install vim-plug
