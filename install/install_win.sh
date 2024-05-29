@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eu
 
+this_script_dir="$(dirname "$(readlink -e "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}" )" )"
+
 if [ "$OS" != "Windows_NT" ]; then
     echo "This script only works on Windows. Exiting."
     exit 1
@@ -61,9 +63,20 @@ done
 
 # dploy is a python stow replacement that we use instead of stow on windows
 pip install --upgrade dploy
+pip install --upgrade pynvim
 
 # install vim-plug
 if ! [ -e "$LOCALAPPDATA/nvim-data/site/autoload/plug.vim" ]; then
     curl -sfLo "$LOCALAPPDATA/nvim-data/site/autoload/plug.vim" --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
+# now that we have vim-plug installed, install and update all nvim plugins
+nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugInstall +qall
+nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugUpdate +qall
+
+# rust-analyzer (the rust LSP implementation) needs the std lib sources
+rustup component add rust-src
+# the executable rust-analyzer.exe that rustup provides is just a wrapper, we
+# still need to install the actual rust-analyzer for our platform
+rustup component add rust-analyzer

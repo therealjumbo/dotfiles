@@ -170,7 +170,7 @@ if ! [ -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-# install and update all nvim plugins
+# now that we have vim-plug installed, install and update all nvim plugins
 nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugInstall +qall
 nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugUpdate +qall
 
@@ -178,3 +178,9 @@ nvim -Es -u "${this_script_dir}/../dotfiles/nvim/.config/nvim/init.vim" +PlugUpd
 if ! [ -e "$HOME/.oh-my-zsh" ]; then
     curl -sL https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | bash
 fi
+
+# rust-analyzer (the rust LSP implementation) needs the std lib sources
+rustup component add rust-src
+# the executable rust-analyzer.exe that rustup provides is just a wrapper, we
+# still need to install the actual rust-analyzer for our platform
+rustup component add rust-analyzer
