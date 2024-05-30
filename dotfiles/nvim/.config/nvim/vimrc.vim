@@ -137,7 +137,7 @@ autocmd FileType make setlocal noexpandtab
 " set true color
 set termguicolors
 " solarized color scheme stuff
-set background=dark " or light
+set background=light " or dark
 " silent! makes nvim not choke if solarized isn't installed yet, particularly
 " important for calling nvim in batch mode to install all the plugins in this
 " file, one of which is solarized itself
