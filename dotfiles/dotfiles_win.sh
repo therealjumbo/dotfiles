@@ -43,6 +43,10 @@ dploy stow "${this_script_dir}/ssh" "$HOME/.ssh"
     mv "$HOME/.bashrc" "$HOME/.bashrc.old"
 dploy stow "${this_script_dir}/bash" "$HOME"
 
+[ -f "$HOME/.inputrc" ] && \
+    mv "$HOME/.inputrc" "$HOME/.inputrc.old"
+dploy stow "${this_script_dir}/inputrc" "$HOME"
+
 # we don't want stow to symlink anything besides the chrome subdir right now so
 # create the directory above it first
 mkdir -p "$HOME/.mozilla/firefox/profile.default"
