@@ -19,6 +19,7 @@ if ($env:HOME -ne $env:USERPROFILE ) {
 
 # Define package IDs
 $package_ids = @(
+    "GnuWin32.Tree",
     "Microsoft.WindowsTerminal",
     "7zip.7zip",
     "Google.Chrome",
