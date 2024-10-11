@@ -1,7 +1,3 @@
-if &compatible
-    set nocompatible
-endif
-
 " TODO:
 " - replace vim-plug with lazy
 " - rewrite config into lua first, and load vimL parts later
