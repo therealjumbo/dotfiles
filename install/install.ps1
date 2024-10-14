@@ -30,7 +30,7 @@ $package_ids = @(
     "Neovim.Neovim",
     "Ninja-build.Ninja",
     "Notepad++.Notepad++",
-    "Python.Python.3.12",
+    "Python.Python.3.13",
     "Qalculate.Qalculate",
     "Rustlang.Rustup",  # Special handling needed
     "SumatraPDF.SumatraPDF",
