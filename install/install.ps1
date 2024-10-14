@@ -97,5 +97,5 @@ pip install --upgrade dploy
 # script, even when the command is successful, we can suppress that by simply
 # running it through "Start-Process". If it's already installed, rustup will do
 # the right thing, so we don't need to test for that either.
-Start-Process -FilePath "rustup.exe" -NoNewWindow -Wait -ArgumentList "component add rust-src"
-Start-Process -FilePath "rustup.exe" -NoNewWindow -Wait -ArgumentList "component add rust-analyzer"
+$rust_components = 'rust-src rust-analyzer rust-docs rustfmt clippy'
+Start-Process -FilePath "rustup.exe" -NoNewWindow -Wait -ArgumentList "component add $rust_components"
